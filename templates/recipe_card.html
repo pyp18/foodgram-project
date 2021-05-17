@@ -1,0 +1,40 @@
+<div class="card" data-id="{{ recipe.id }}">
+    <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="card__image">
+
+    <div class="card__body">
+        <a class="card__title link" href="#" target="_blank">{{ recipe.title }}</a>
+        <ul class="card__items">
+            <li class="card__item"><span class="badge badge_style_green">{{ recipe.tag }}</span></li>
+            <li class="card__item"><span class="badge badge_style_orange">{{ recipe.tag }}</span></li>
+            <li class="card__item"><span class="badge badge_style_purple">{{ recipe.tag }}</span></li>
+        </ul>
+        <div class="card__items card__items_column">
+            <p class="card__text">
+                <span class="icon-time"></span>
+                {{ recipe.time_cooking }} мин.
+            </p>
+            <p class="card__text"><span class="icon-user"></span><a
+                    href="{% url 'profile' username=recipe.user.username %}" style="color: black">
+                    {% firstof recipe.user.get_full_name recipe.user.username %}
+                </a>
+            </p>
+        </div>
+    </div>
+    <div class="card__footer">
+        <button class="button button_style_light-blue" name="purchases" data-out><span
+                class="icon-plus button__icon"></span>Добавить в покупки</button>
+        <button class="button button_style_none" name="favorites" data-out><span class="icon-favorite"></span>
+        </button>
+    </div>
+    <div class="card__footer">
+        {% if user.is_authenticated %}
+        {% if recipe.is_favourite %}
+        <button class="button button_style_none" name="favourites">
+            <span class="icon-favorite icon-favorite_active"></span></button>
+        {% else %}
+        <button class="button button_style_none" name="favourites" data-out>
+            <span class="icon-favourite"></span></button>
+        {% endif %}
+        {% endif %}
+    </div>
+</div>

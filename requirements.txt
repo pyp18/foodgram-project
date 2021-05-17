@@ -1,0 +1,29 @@
+#Web framework
+django
+
+#Images
+Pillow
+
+#REST API
+djangorestframework
+
+#API filtering
+django-filter
+
+#Others
+django-extensions
+ipython
+
+#PostgreSQL adapter
+psycopg2-binary
+
+#Gunicorn
+gunicorn
+
+#Debug tools
+django-debug-toolbar
+
+#Linters
+isort
+flake8
+

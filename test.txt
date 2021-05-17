@@ -1,0 +1,4397 @@
+<tr><th><label for="id_title">Название рецепта:</label></th><td><input type="text" name="title" maxlength="150" required id="id_title"></td></tr>
+<tr><th><label for="id_tag">Tag:</label></th><td><select name="tag" required id="id_tag" multiple>
+  <option value="1">Ужин</option>
+
+  <option value="2">Завтрак</option>
+
+  <option value="3">Обед</option>
+
+</select></td></tr>
+<tr><th><label for="id_ingredient">Ingredient:</label></th><td><select name="ingredient" required id="id_ingredient" multiple>
+  <option value="170">Буррата, г</option>
+
+  <option value="1198">Панифарин, г</option>
+
+  <option value="1">абрикосовое варенье, г</option>
+
+  <option value="2">абрикосовое пюре, г</option>
+
+  <option value="3">абрикосовый джем, г</option>
+
+  <option value="4">абрикосовый сок, стакан</option>
+
+  <option value="5">абрикосы, г</option>
+
+  <option value="6">абрикосы консервированные, г</option>
+
+  <option value="7">авокадо, по вкусу</option>
+
+  <option value="8">агава сироп, г</option>
+
+  <option value="9">агар-агар, г</option>
+
+  <option value="10">аграм, г</option>
+
+  <option value="11">аджика, г</option>
+
+  <option value="12">аджика зеленая, г</option>
+
+  <option value="13">айва, по вкусу</option>
+
+  <option value="14">айвовое пюре, г</option>
+
+  <option value="15">айран, г</option>
+
+  <option value="16">айсинг, г</option>
+
+  <option value="17">акула стейки, г</option>
+
+  <option value="18">алкоголь, стакан</option>
+
+  <option value="19">алкоголь крепкий, ст. л.</option>
+
+  <option value="20">алыча, г</option>
+
+  <option value="21">альбухара, шт.</option>
+
+  <option value="22">альмехи, г</option>
+
+  <option value="23">амарантовая мука, г</option>
+
+  <option value="24">ананасовый сироп, г</option>
+
+  <option value="25">ананасовый сок, г</option>
+
+  <option value="26">ананасы, г</option>
+
+  <option value="27">ананасы вяленые, г</option>
+
+  <option value="28">ананасы консервированные, по вкусу</option>
+
+  <option value="29">анис, по вкусу</option>
+
+  <option value="30">анис звездочки, г</option>
+
+  <option value="32">анис семена, г</option>
+
+  <option value="31">анисовый ликер, мл</option>
+
+  <option value="33">анчоусы, г</option>
+
+  <option value="34">апельсиновая вода, г</option>
+
+  <option value="35">апельсиновая цедра, г</option>
+
+  <option value="36">апельсиновая эссенция, ч. л.</option>
+
+  <option value="37">апельсиновое варенье, г</option>
+
+  <option value="38">апельсиновые цукаты, г</option>
+
+  <option value="39">апельсиновый джем, г</option>
+
+  <option value="40">апельсиновый джем с имбирем, г</option>
+
+  <option value="41">апельсиновый ликер, г</option>
+
+  <option value="42">апельсиновый сироп, стакан</option>
+
+  <option value="43">апельсиновый сок, по вкусу</option>
+
+  <option value="44">апельсиновый сок свежевыжатый, г</option>
+
+  <option value="45">апельсиновый уксус, ст. л.</option>
+
+  <option value="46">апельсиновый экстракт, ч. л.</option>
+
+  <option value="47">апельсины, г</option>
+
+  <option value="48">апельсины красные, шт.</option>
+
+  <option value="49">апельсины крупные, шт.</option>
+
+  <option value="50">арахис, г</option>
+
+  <option value="51">арахис жареный, г</option>
+
+  <option value="54">арахис соленый, г</option>
+
+  <option value="52">арахисовая паста, г</option>
+
+  <option value="53">арахисовое масло, г</option>
+
+  <option value="55">арбузная мякоть, г</option>
+
+  <option value="56">арбузы, г</option>
+
+  <option value="57">аргановое масло, г</option>
+
+  <option value="58">аришта, г</option>
+
+  <option value="59">ароматизатор, г</option>
+
+  <option value="60">ароматизатор &quot;ананас&quot;, по вкусу</option>
+
+  <option value="61">ароматизатор &quot;вишня&quot;, капля</option>
+
+  <option value="62">ароматизатор &quot;малина&quot;, капля</option>
+
+  <option value="63">ароматизатор &quot;ром&quot;, г</option>
+
+  <option value="64">артишоки, г</option>
+
+  <option value="65">артишоки в масле, г</option>
+
+  <option value="66">артишоки маринованные, г</option>
+
+  <option value="67">аспирин, шт.</option>
+
+  <option value="68">ассорти мясное, г</option>
+
+  <option value="69">ассорти овощное, г</option>
+
+  <option value="70">ассорти фруктовое, г</option>
+
+  <option value="71">ассорти ягодное, г</option>
+
+  <option value="72">аши, г</option>
+
+  <option value="73">багет, г</option>
+
+  <option value="74">багет вчерашний, г</option>
+
+  <option value="75">багет мини, г</option>
+
+  <option value="76">бадан, звездочка</option>
+
+  <option value="77">бадьян, щепотка</option>
+
+  <option value="78">базилик лимонный, г</option>
+
+  <option value="79">базилик свежий, г</option>
+
+  <option value="80">базилик сушеный, г</option>
+
+  <option value="81">базилик тайский, горсть</option>
+
+  <option value="82">базилик фиолетовый, г</option>
+
+  <option value="83">баклажаны, по вкусу</option>
+
+  <option value="84">баклажаны мини, г</option>
+
+  <option value="85">баклажаны тайские, г</option>
+
+  <option value="86">балык, г</option>
+
+  <option value="87">бальзам, г</option>
+
+  <option value="91">бальзам рижский черный, ст. л.</option>
+
+  <option value="88">бальзамический крем, стакан</option>
+
+  <option value="89">бальзамический соус, ст. л.</option>
+
+  <option value="90">бальзамический уксус, стакан</option>
+
+  <option value="92">бамия, г</option>
+
+  <option value="93">банановое пюре, г</option>
+
+  <option value="94">банановые чипсы, горсть</option>
+
+  <option value="95">банановый зеленый сироп, мл</option>
+
+  <option value="96">банановый ликер, мл</option>
+
+  <option value="97">бананы, г</option>
+
+  <option value="98">бананы мини, г</option>
+
+  <option value="99">барабулька, г</option>
+
+  <option value="100">бараний ливер, г</option>
+
+  <option value="101">бараний окорок на косточке, кусок</option>
+
+  <option value="102">бараний фарш, г</option>
+
+  <option value="103">баранина, г</option>
+
+  <option value="104">баранки, г</option>
+
+  <option value="105">бараньи антрекоты, кг</option>
+
+  <option value="106">бараньи голяшки, шт.</option>
+
+  <option value="107">бараньи потроха, кг</option>
+
+  <option value="108">бараньи ребрышки, шт.</option>
+
+  <option value="109">баранья лопатка, кг</option>
+
+  <option value="110">баранья нога, г</option>
+
+  <option value="111">баранья печень, г</option>
+
+  <option value="112">барбарис, г</option>
+
+  <option value="113">барбарис вяленый, ст. л.</option>
+
+  <option value="114">барбарис молотый, г</option>
+
+  <option value="115">бастурма, г</option>
+
+  <option value="116">батат, г</option>
+
+  <option value="117">батон, г</option>
+
+  <option value="118">батончики шоколадные, г</option>
+
+  <option value="119">безе, г</option>
+
+  <option value="120">бекон, по вкусу</option>
+
+  <option value="121">бекон варено-копченый, г</option>
+
+  <option value="122">бекон сырокопченый, г</option>
+
+  <option value="123">белорыбица, г</option>
+
+  <option value="124">бирнель, мл</option>
+
+  <option value="125">бисквик смесь готовая, пакет</option>
+
+  <option value="126">бисквит, г</option>
+
+  <option value="130">бисквит шоколадный, г</option>
+
+  <option value="127">бисквитная крошка, г</option>
+
+  <option value="128">бисквитный корж, г</option>
+
+  <option value="129">бисквитный рулет, г</option>
+
+  <option value="131">бифштекс, шт.</option>
+
+  <option value="132">блинная мука, г</option>
+
+  <option value="133">блины готовые, г</option>
+
+  <option value="134">блины овсяные, шт.</option>
+
+  <option value="135">бобовые ростки, г</option>
+
+  <option value="136">бобы, г</option>
+
+  <option value="137">бобы мунг пророщенные, г</option>
+
+  <option value="138">бобы тонка, шт.</option>
+
+  <option value="139">ботарга, г</option>
+
+  <option value="140">брезаола, г</option>
+
+  <option value="141">бренди, г</option>
+
+  <option value="142">брокколи замороженная, г</option>
+
+  <option value="143">брокколи свежая, г</option>
+
+  <option value="144">брусника замороженная, г</option>
+
+  <option value="145">брусника свежая, г</option>
+
+  <option value="146">брусника сушеная, г</option>
+
+  <option value="147">брусничное варенье, г</option>
+
+  <option value="148">брусничный соус, г</option>
+
+  <option value="149">брынза, по вкусу</option>
+
+  <option value="150">брынза сербская, г</option>
+
+  <option value="151">брюква, г</option>
+
+  <option value="152">буженина, г</option>
+
+  <option value="153">бузина сироп, ст. л.</option>
+
+  <option value="154">букет гарни, пучок</option>
+
+  <option value="155">булгур, г</option>
+
+  <option value="156">булка, кусок</option>
+
+  <option value="157">булка белая, г</option>
+
+  <option value="158">булка сдобная, г</option>
+
+  <option value="159">булочки, г</option>
+
+  <option value="160">булочки белые черствые, г</option>
+
+  <option value="161">булочки бриошь, шт.</option>
+
+  <option value="162">булочки вчерашние, шт.</option>
+
+  <option value="163">булочки для гамбургеров, шт.</option>
+
+  <option value="164">булочки зерновые, шт.</option>
+
+  <option value="165">булочки ржаные, кусок</option>
+
+  <option value="166">булочки с кунжутом, шт.</option>
+
+  <option value="167">бульон, г</option>
+
+  <option value="168">бульонные кубики, г</option>
+
+  <option value="169">бурбон, г</option>
+
+  <option value="171">буряк, г</option>
+
+  <option value="172">бусинки кондитерские, ч. л.</option>
+
+  <option value="173">бусинки кондитерские серебряные, по вкусу</option>
+
+  <option value="174">бычий хвост, г</option>
+
+  <option value="175">ванилин, г</option>
+
+  <option value="176">ваниль в стручках, г</option>
+
+  <option value="177">ванильная настойка, ст. л.</option>
+
+  <option value="178">ванильная эссенция, г</option>
+
+  <option value="179">ванильный порошок, г</option>
+
+  <option value="180">ванильный сироп, г</option>
+
+  <option value="181">ванильный экстракт, по вкусу</option>
+
+  <option value="182">варенье, г</option>
+
+  <option value="183">васаби, г</option>
+
+  <option value="184">вафельная крошка, г</option>
+
+  <option value="185">вафельные коржи, г</option>
+
+  <option value="186">вафельные трубочки, г</option>
+
+  <option value="187">вафли, г</option>
+
+  <option value="188">вафли шоколадные, г</option>
+
+  <option value="189">вермишель, г</option>
+
+  <option value="190">вермишель яичная, г</option>
+
+  <option value="191">вермут, г</option>
+
+  <option value="192">вермут белый, г</option>
+
+  <option value="193">вермут сухой, г</option>
+
+  <option value="194">ветчина, г</option>
+
+  <option value="195">ветчина вареная, г</option>
+
+  <option value="196">ветчина варено-копченая, кусок</option>
+
+  <option value="197">ветчина копченая, г</option>
+
+  <option value="198">ветчина пармская, г</option>
+
+  <option value="199">ветчина сырокопченая, г</option>
+
+  <option value="200">вешенки, г</option>
+
+  <option value="201">винегрет, г</option>
+
+  <option value="202">винный камень, щепотка</option>
+
+  <option value="203">винный уксус, г</option>
+
+  <option value="204">винный уксус белый, г</option>
+
+  <option value="205">винный уксус красный, ч. л.</option>
+
+  <option value="206">винный уксус на чесноке, ч. л.</option>
+
+  <option value="207">винный уксус на эстрагоне, ст. л.</option>
+
+  <option value="208">вино белое, по вкусу</option>
+
+  <option value="209">вино белое полусладкое, г</option>
+
+  <option value="210">вино белое полусухое, г</option>
+
+  <option value="211">вино белое сладкое, г</option>
+
+  <option value="212">вино белое столовое, стакан</option>
+
+  <option value="213">вино белое сухое, г</option>
+
+  <option value="226">вино десертное, г</option>
+
+  <option value="227">вино игристое сухое, г</option>
+
+  <option value="228">вино красное, г</option>
+
+  <option value="229">вино красное полусладкое, г</option>
+
+  <option value="230">вино красное полусухое, г</option>
+
+  <option value="231">вино красное сладкое, г</option>
+
+  <option value="232">вино красное сухое, г</option>
+
+  <option value="233">вино крепленое, г</option>
+
+  <option value="234">вино розовое полусладкое, ст. л.</option>
+
+  <option value="235">вино розовое полусухое, г</option>
+
+  <option value="214">виноград, г</option>
+
+  <option value="215">виноград без косточек, г</option>
+
+  <option value="216">виноград белый, г</option>
+
+  <option value="217">виноград изабелла, кг</option>
+
+  <option value="224">виноград синий, г</option>
+
+  <option value="225">виноград черный, г</option>
+
+  <option value="218">виноградное желе, ст. л.</option>
+
+  <option value="219">виноградные листья, г</option>
+
+  <option value="220">виноградные листья маринованные, г</option>
+
+  <option value="221">виноградные листья молодые, шт.</option>
+
+  <option value="222">виноградный сок, г</option>
+
+  <option value="223">виноградный сок осветленный, ч. л.</option>
+
+  <option value="236">виски, г</option>
+
+  <option value="237">витамин C в порошке, г</option>
+
+  <option value="238">вишневая настойка, мл</option>
+
+  <option value="239">вишневое варенье, г</option>
+
+  <option value="240">вишневые листья, г</option>
+
+  <option value="241">вишневый джем, г</option>
+
+  <option value="242">вишневый ликер, по вкусу</option>
+
+  <option value="243">вишневый сироп, стакан</option>
+
+  <option value="244">вишневый сок, г</option>
+
+  <option value="245">вишня, г</option>
+
+  <option value="246">вишня вяленая, г</option>
+
+  <option value="247">вишня замороженная, г</option>
+
+  <option value="248">вишня засахаренная кондитерская, шт.</option>
+
+  <option value="249">вишня коктейльная, г</option>
+
+  <option value="250">вишня мараскино, шт.</option>
+
+  <option value="251">вишня, протертая с сахаром, г</option>
+
+  <option value="252">вода, г</option>
+
+  <option value="253">вода минеральная без газа, стакан</option>
+
+  <option value="254">вода минеральная газированная, г</option>
+
+  <option value="255">водка, г</option>
+
+  <option value="256">водка анисовая, ч. л.</option>
+
+  <option value="257">водоросли, г</option>
+
+  <option value="258">вустерширский соус, г</option>
+
+  <option value="259">галангал корень, долька</option>
+
+  <option value="260">галеты, г</option>
+
+  <option value="261">гамбургер, г</option>
+
+  <option value="262">ганаш, г</option>
+
+  <option value="263">гарам масала, г</option>
+
+  <option value="264">гарнир, г</option>
+
+  <option value="265">гаспачо, г</option>
+
+  <option value="266">гастропаб, </option>
+
+  <option value="267">гвоздика, г</option>
+
+  <option value="268">гвоздика молотая, по вкусу</option>
+
+  <option value="269">герань листья, г</option>
+
+  <option value="270">геркулес, г</option>
+
+  <option value="271">глазурь, г</option>
+
+  <option value="272">глазурь белая, г</option>
+
+  <option value="273">глазурь готовая, по вкусу</option>
+
+  <option value="274">глазурь черная, по вкусу</option>
+
+  <option value="275">глазурь шоколадная белая, г</option>
+
+  <option value="276">глутамат натрия, г</option>
+
+  <option value="277">глюкоза, г</option>
+
+  <option value="278">глюкоза сироп, г</option>
+
+  <option value="279">говядина, г</option>
+
+  <option value="280">говядина на кости, г</option>
+
+  <option value="281">говяжий фарш, по вкусу</option>
+
+  <option value="282">говяжий язык, г</option>
+
+  <option value="283">говяжье сердце, по вкусу</option>
+
+  <option value="284">говяжьи бифштексы, г</option>
+
+  <option value="285">говяжьи голяшки, г</option>
+
+  <option value="286">говяжьи легкие, г</option>
+
+  <option value="287">говяжьи ребра, г</option>
+
+  <option value="288">говяжьи стейки рибай, г</option>
+
+  <option value="289">говяжья вырезка, шт.</option>
+
+  <option value="290">говяжья грудинка, кг</option>
+
+  <option value="291">говяжья лопатка, г</option>
+
+  <option value="292">говяжья мозговая кость, шт.</option>
+
+  <option value="293">говяжья мякоть, кг</option>
+
+  <option value="294">говяжья печень, шт.</option>
+
+  <option value="295">говяжья черева, г</option>
+
+  <option value="296">говяжья шейка, кг</option>
+
+  <option value="297">годжи, г</option>
+
+  <option value="298">голец филе, шт.</option>
+
+  <option value="299">голубика, г</option>
+
+  <option value="300">голубика замороженная, г</option>
+
+  <option value="301">голубь, г</option>
+
+  <option value="302">горбуша, по вкусу</option>
+
+  <option value="303">горбуша в собственном соку, банка</option>
+
+  <option value="304">горбуша филе, г</option>
+
+  <option value="305">горгонзола, г</option>
+
+  <option value="306">горгонзола пиканте, г</option>
+
+  <option value="307">горох, г</option>
+
+  <option value="308">горох колотый, г</option>
+
+  <option value="309">гороховые ростки, горсть</option>
+
+  <option value="310">гороховый суп, г</option>
+
+  <option value="311">горошек зеленый, г</option>
+
+  <option value="312">горошек зеленый замороженный, г</option>
+
+  <option value="313">горошек зеленый консервированный, г</option>
+
+  <option value="314">горошек стручковый свежий, г</option>
+
+  <option value="315">горчица, г</option>
+
+  <option value="316">горчица дижонская, г</option>
+
+  <option value="317">горчица дижонская с медом, г</option>
+
+  <option value="318">горчица желтая семена, г</option>
+
+  <option value="319">горчица острая, г</option>
+
+  <option value="320">горчица русская, ст. л.</option>
+
+  <option value="322">горчица с зернами, г</option>
+
+  <option value="321">горчица семена, г</option>
+
+  <option value="323">горчица сухая, г</option>
+
+  <option value="324">горчица французская, г</option>
+
+  <option value="325">горчица цитрусовая, г</option>
+
+  <option value="326">горчичное масло, г</option>
+
+  <option value="327">горчичный порошок, г</option>
+
+  <option value="328">грана падано, ст. л.</option>
+
+  <option value="329">гранатные зерна, г</option>
+
+  <option value="330">гранатовая паста, ст. л.</option>
+
+  <option value="331">гранатовый сироп, г</option>
+
+  <option value="332">гранатовый сок, г</option>
+
+  <option value="333">гранатовый сок свежевыжатый, мл</option>
+
+  <option value="334">гранатовый соус, ч. л.</option>
+
+  <option value="335">гранаты, г</option>
+
+  <option value="336">гранита, г</option>
+
+  <option value="337">гранола с орехами, г</option>
+
+  <option value="338">граппа, ч. л.</option>
+
+  <option value="339">гратен, кг</option>
+
+  <option value="340">грейпфрутовая цедра, г</option>
+
+  <option value="341">грейпфрутовый сок, г</option>
+
+  <option value="342">грейпфруты, г</option>
+
+  <option value="343">грейпфруты розовые, г</option>
+
+  <option value="344">гренадин, г</option>
+
+  <option value="345">гренки, г</option>
+
+  <option value="346">грецкие орехи, г</option>
+
+  <option value="347">грецкие орехи рубленые, г</option>
+
+  <option value="348">гречневая крупа, г</option>
+
+  <option value="349">гречневая крупа зеленая, ст. л.</option>
+
+  <option value="350">гречневая лапша соба, г</option>
+
+  <option value="351">гречневая мука, г</option>
+
+  <option value="352">гречневое молоко, стакан</option>
+
+  <option value="353">гречневые хлопья, г</option>
+
+  <option value="354">грибы, г</option>
+
+  <option value="355">грибы белые, г</option>
+
+  <option value="356">грибы белые замороженные, г</option>
+
+  <option value="357">грибы белые маринованные, г</option>
+
+  <option value="358">грибы белые сухие, г</option>
+
+  <option value="359">грибы замороженные, г</option>
+
+  <option value="360">грибы замороженные (опята и маслята), г</option>
+
+  <option value="361">грибы лесные, г</option>
+
+  <option value="362">грибы маринованные, г</option>
+
+  <option value="363">грибы свежие, г</option>
+
+  <option value="364">грибы соленые, г</option>
+
+  <option value="365">грибы соломенные консервированные, шт.</option>
+
+  <option value="366">грибы сухие, г</option>
+
+  <option value="367">грибы шиитаке, г</option>
+
+  <option value="368">грибы шиитаке сухие, г</option>
+
+  <option value="369">гриль, г</option>
+
+  <option value="370">гриссини, г</option>
+
+  <option value="371">грудинка, г</option>
+
+  <option value="372">грудинка варено-копченая, г</option>
+
+  <option value="373">грудинка копченая, по вкусу</option>
+
+  <option value="374">грушевое пюре, г</option>
+
+  <option value="375">грушевый ликер, мл</option>
+
+  <option value="376">грушевый сироп, мл</option>
+
+  <option value="377">грушевый сок, г</option>
+
+  <option value="378">грушевый уксус, ст. л.</option>
+
+  <option value="379">груши, по вкусу</option>
+
+  <option value="380">груши вяленые, г</option>
+
+  <option value="381">грюйер, г</option>
+
+  <option value="382">гуава, шт.</option>
+
+  <option value="383">гуанчиале, г</option>
+
+  <option value="384">гурьевская каша, г</option>
+
+  <option value="385">гусиная грудка копченая, г</option>
+
+  <option value="386">гусиная печень, г</option>
+
+  <option value="387">гусиный жир, ст. л.</option>
+
+  <option value="388">гусь, г</option>
+
+  <option value="389">гусь тушка, кг</option>
+
+  <option value="390">дайкон, г</option>
+
+  <option value="391">детское питание, г</option>
+
+  <option value="392">джем, г</option>
+
+  <option value="393">джин, г</option>
+
+  <option value="394">джусай, г</option>
+
+  <option value="395">диоксид титана, г</option>
+
+  <option value="396">долма, г</option>
+
+  <option value="397">дорада, шт.</option>
+
+  <option value="398">дорада потрошеная с головой, шт.</option>
+
+  <option value="399">дорада с головой, шт.</option>
+
+  <option value="400">дорада тушка, шт.</option>
+
+  <option value="401">драже, г</option>
+
+  <option value="402">дрожжи домашние, г</option>
+
+  <option value="403">дрожжи свежие, г</option>
+
+  <option value="404">дрожжи сухие, по вкусу</option>
+
+  <option value="405">дубовая кора, г</option>
+
+  <option value="406">душица, г</option>
+
+  <option value="407">дыня, г</option>
+
+  <option value="408">ежевика, г</option>
+
+  <option value="409">ежевика замороженная, г</option>
+
+  <option value="410">ерш, г</option>
+
+  <option value="412">желатин, г</option>
+
+  <option value="413">желатин листовой, по вкусу</option>
+
+  <option value="414">желе, г</option>
+
+  <option value="415">желе для торта, упаковка</option>
+
+  <option value="416">желирующее вещество, упаковка</option>
+
+  <option value="417">желирующий сахар, г</option>
+
+  <option value="418">женьшень, г</option>
+
+  <option value="419">жидкий дым, г</option>
+
+  <option value="420">жимолость, г</option>
+
+  <option value="421">жир, г</option>
+
+  <option value="422">жир вытопленный, стакан</option>
+
+  <option value="423">жир кулинарный, г</option>
+
+  <option value="424">жир растительный, г</option>
+
+  <option value="425">заатар, щепотка</option>
+
+  <option value="426">завтрак сухой, г</option>
+
+  <option value="427">завтрак сухой подушечки, г</option>
+
+  <option value="428">загуститель для сливок, г</option>
+
+  <option value="429">зайчатина, г</option>
+
+  <option value="430">закваска, пакет</option>
+
+  <option value="431">закваска вечная, г</option>
+
+  <option value="432">заменитель сахара, по вкусу</option>
+
+  <option value="433">заменитель сахара стевия, г</option>
+
+  <option value="434">заправка для салатов готовая, г</option>
+
+  <option value="435">зверобой, по вкусу</option>
+
+  <option value="436">зелень, г</option>
+
+  <option value="437">зелень рубленая, г</option>
+
+  <option value="438">земляника, по вкусу</option>
+
+  <option value="439">земляника замороженная, г</option>
+
+  <option value="440">зефир, г</option>
+
+  <option value="441">зира, г</option>
+
+  <option value="442">злаковые хлопья, г</option>
+
+  <option value="443">зубатка, г</option>
+
+  <option value="444">зубатка филе, г</option>
+
+  <option value="445">изолят соевого протеина, г</option>
+
+  <option value="446">изюм, г</option>
+
+  <option value="447">изюм без косточек, г</option>
+
+  <option value="448">изюм белый, г</option>
+
+  <option value="449">изюм черный, г</option>
+
+  <option value="450">икра, г</option>
+
+  <option value="451">икра вяленой рыбы, г</option>
+
+  <option value="452">икра горбуши зернистая, г</option>
+
+  <option value="453">икра красная, г</option>
+
+  <option value="454">икра красной рыбы мелкая, г</option>
+
+  <option value="455">икра летучей рыбы, г</option>
+
+  <option value="456">икра лосося, г</option>
+
+  <option value="457">икра мойвы, г</option>
+
+  <option value="458">икра палтуса, г</option>
+
+  <option value="459">икра судака, г</option>
+
+  <option value="460">икра черная, г</option>
+
+  <option value="461">имбирное варенье, г</option>
+
+  <option value="462">имбирное печенье, по вкусу</option>
+
+  <option value="463">имбирные цукаты, ст. л.</option>
+
+  <option value="464">имбирь, г</option>
+
+  <option value="465">имбирь засахаренный, г</option>
+
+  <option value="466">имбирь корень, г</option>
+
+  <option value="467">имбирь маринованный, г</option>
+
+  <option value="468">имбирь молотый, г</option>
+
+  <option value="469">индейка, г</option>
+
+  <option value="470">индейка голень, г</option>
+
+  <option value="471">индейка грудка, г</option>
+
+  <option value="472">индейка копченая, г</option>
+
+  <option value="473">индейка тушка, шт.</option>
+
+  <option value="474">индейка фарш, г</option>
+
+  <option value="475">индейка филе, г</option>
+
+  <option value="476">индоутка, шт.</option>
+
+  <option value="477">индюшачья печень, г</option>
+
+  <option value="478">инжир, г</option>
+
+  <option value="479">инжир свежий, г</option>
+
+  <option value="480">инжир сушеный, г</option>
+
+  <option value="481">ирга, г</option>
+
+  <option value="482">ириски, г</option>
+
+  <option value="483">итальянские травы, г</option>
+
+  <option value="484">йогурт, г</option>
+
+  <option value="485">йогурт греческий, г</option>
+
+  <option value="486">йогурт жирный, г</option>
+
+  <option value="487">йогурт козий, г</option>
+
+  <option value="488">йогурт натуральный, г</option>
+
+  <option value="489">йогурт нежирный, г</option>
+
+  <option value="490">йогурт обезжиренный, г</option>
+
+  <option value="491">йогурт фруктовый, г</option>
+
+  <option value="492">кабачки, г</option>
+
+  <option value="493">кабачки замороженные, г</option>
+
+  <option value="494">кабачки молодые, г</option>
+
+  <option value="495">каджунская смесь специй, ст. л.</option>
+
+  <option value="496">какао, горсть</option>
+
+  <option value="501">какао сгущенное, банка</option>
+
+  <option value="497">какао-бобы, г</option>
+
+  <option value="498">какао-масло, г</option>
+
+  <option value="499">какао-порошок, по вкусу</option>
+
+  <option value="500">какао-порошок обезжиренный, г</option>
+
+  <option value="502">калина, по вкусу</option>
+
+  <option value="503">калина протертая, г</option>
+
+  <option value="504">калинджи семена, ч. л.</option>
+
+  <option value="505">кальвадос, г</option>
+
+  <option value="506">кальмары, г</option>
+
+  <option value="507">кальмары вареные, г</option>
+
+  <option value="508">кальмары замороженные, г</option>
+
+  <option value="509">кальмары консервированные, г</option>
+
+  <option value="510">кальмары филе, шт.</option>
+
+  <option value="511">камамбер, упаковка</option>
+
+  <option value="512">камбала, г</option>
+
+  <option value="513">камбала филе, г</option>
+
+  <option value="514">кампари, мл</option>
+
+  <option value="515">кандурин золотой, ч. л.</option>
+
+  <option value="516">каннеллони, г</option>
+
+  <option value="517">капеллини, г</option>
+
+  <option value="518">каперсы, г</option>
+
+  <option value="519">каперсы в винном уксусе, г</option>
+
+  <option value="520">каперсы маринованные, г</option>
+
+  <option value="521">капуста белокочанная, г</option>
+
+  <option value="522">капуста брюссельская, г</option>
+
+  <option value="523">капуста брюссельская замороженная, г</option>
+
+  <option value="524">капуста кале, г</option>
+
+  <option value="525">капуста квашеная, по вкусу</option>
+
+  <option value="526">капуста кольраби, г</option>
+
+  <option value="527">капуста краснокочанная, г</option>
+
+  <option value="528">капуста морская, по вкусу</option>
+
+  <option value="529">капуста морская замороженная, г</option>
+
+  <option value="530">капуста морская сушеная, г</option>
+
+  <option value="531">капуста пекинская, г</option>
+
+  <option value="532">капуста савойская, г</option>
+
+  <option value="533">капуста цветная, г</option>
+
+  <option value="534">капуста цветная замороженная, г</option>
+
+  <option value="535">капустный рассол, г</option>
+
+  <option value="536">капучино, г</option>
+
+  <option value="537">каракатица, г</option>
+
+  <option value="538">каракатица очищенная, г</option>
+
+  <option value="539">карамбола, г</option>
+
+  <option value="540">карамель, мл</option>
+
+  <option value="542">карамель с начинкой, г</option>
+
+  <option value="543">карамель соленая, г</option>
+
+  <option value="541">карамельный соус, г</option>
+
+  <option value="544">карась, г</option>
+
+  <option value="545">карбонад, г</option>
+
+  <option value="546">кардамон, г</option>
+
+  <option value="547">кардамон зерна, ч. л.</option>
+
+  <option value="548">кардамон молотый, г</option>
+
+  <option value="549">кардамон стручки, шт.</option>
+
+  <option value="550">каркаде, г</option>
+
+  <option value="551">карп, г</option>
+
+  <option value="552">карп зеркальный, кг</option>
+
+  <option value="553">карп филе, кг</option>
+
+  <option value="554">карри, г</option>
+
+  <option value="555">карри листья, г</option>
+
+  <option value="556">карри паста, пакет</option>
+
+  <option value="557">картофель, г</option>
+
+  <option value="558">картофель вареный, г</option>
+
+  <option value="559">картофель вареный в мундире, г</option>
+
+  <option value="560">картофель молодой, г</option>
+
+  <option value="568">картофель печеный, г</option>
+
+  <option value="561">картофельное пюре, по вкусу</option>
+
+  <option value="562">картофельные ньокки, г</option>
+
+  <option value="563">картофельные хлопья, г</option>
+
+  <option value="564">картофельные чипсы, г</option>
+
+  <option value="565">картофельный крахмал, г</option>
+
+  <option value="566">картофельный отвар, г</option>
+
+  <option value="567">картофельный хэш замороженный, г</option>
+
+  <option value="569">катык, г</option>
+
+  <option value="570">каффир-лайм листья, по вкусу</option>
+
+  <option value="571">каша, г</option>
+
+  <option value="572">каша для детского питания, г</option>
+
+  <option value="573">каштановая мука, г</option>
+
+  <option value="574">каштановый крем, г</option>
+
+  <option value="575">каштаны, г</option>
+
+  <option value="576">каштаны вареные, г</option>
+
+  <option value="577">каштаны консервированные, г</option>
+
+  <option value="578">каштаны очищенные, г</option>
+
+  <option value="579">квас, г</option>
+
+  <option value="582">квас хлебный, г</option>
+
+  <option value="580">квасное сусло, г</option>
+
+  <option value="581">квасной концентрат сухой, упаковка</option>
+
+  <option value="583">кедровая мука, г</option>
+
+  <option value="584">кедровые орехи, г</option>
+
+  <option value="585">кедровые орехи жареные, г</option>
+
+  <option value="586">кета, г</option>
+
+  <option value="587">кетчуп острый, по вкусу</option>
+
+  <option value="588">кетчуп томатный, г</option>
+
+  <option value="589">кетчуп тосканский, ст. л.</option>
+
+  <option value="590">кетчуп шашлычный, г</option>
+
+  <option value="591">кефаль, г</option>
+
+  <option value="592">кефир, по вкусу</option>
+
+  <option value="593">кефир 1%, г</option>
+
+  <option value="594">кефир 2,5%, г</option>
+
+  <option value="595">кефир 3,2%, г</option>
+
+  <option value="596">кефир обезжиренный, г</option>
+
+  <option value="597">кешью, г</option>
+
+  <option value="598">кивано, г</option>
+
+  <option value="599">киви, кг</option>
+
+  <option value="600">киви желе, г</option>
+
+  <option value="601">кижуч, г</option>
+
+  <option value="602">кижуч горячего копчения филе, г</option>
+
+  <option value="603">кизил, г</option>
+
+  <option value="604">килька, г</option>
+
+  <option value="605">кимчи, г</option>
+
+  <option value="606">кинза свежая, зубчик</option>
+
+  <option value="607">кинза сушеная, г</option>
+
+  <option value="608">киноа, г</option>
+
+  <option value="609">киноа молотая, г</option>
+
+  <option value="610">кипяток, г</option>
+
+  <option value="611">кирш, ст. л.</option>
+
+  <option value="612">кисель, г</option>
+
+  <option value="613">кисель сухой, г</option>
+
+  <option value="614">кисломолочный напиток Тан, мл</option>
+
+  <option value="615">кишки, г</option>
+
+  <option value="616">клейковина, г</option>
+
+  <option value="617">клементины, г</option>
+
+  <option value="618">кленовый сироп, г</option>
+
+  <option value="619">клубника, г</option>
+
+  <option value="620">клубника в сиропе, г</option>
+
+  <option value="621">клубника замороженная, г</option>
+
+  <option value="623">клубника сушеная, г</option>
+
+  <option value="622">клубника, протертая с сахаром, г</option>
+
+  <option value="624">клубничное варенье, г</option>
+
+  <option value="625">клубничное желе, упаковка</option>
+
+  <option value="626">клубничное пюре, г</option>
+
+  <option value="627">клубничный джем, г</option>
+
+  <option value="628">клубничный джем густой, мл</option>
+
+  <option value="629">клубничный компот, стакан</option>
+
+  <option value="630">клубничный ликер, г</option>
+
+  <option value="631">клубничный сироп, г</option>
+
+  <option value="632">клюква, г</option>
+
+  <option value="633">клюква вяленая, г</option>
+
+  <option value="634">клюква замороженная, г</option>
+
+  <option value="635">клюква, протертая с сахаром, г</option>
+
+  <option value="636">клюквенное варенье, г</option>
+
+  <option value="637">клюквенный джем, г</option>
+
+  <option value="638">клюквенный морс, ст. л.</option>
+
+  <option value="639">клюквенный сироп, г</option>
+
+  <option value="640">клюквенный соус, г</option>
+
+  <option value="641">козлиная печень, г</option>
+
+  <option value="642">козлятина молодая, кг</option>
+
+  <option value="643">кока-кола, ст. л.</option>
+
+  <option value="644">кокосовая вода, стакан</option>
+
+  <option value="645">кокосовая мука, ст. л.</option>
+
+  <option value="646">кокосовая стружка, г</option>
+
+  <option value="647">кокосовая стружка цветная, г</option>
+
+  <option value="648">кокосовое масло, мл</option>
+
+  <option value="649">кокосовое молоко, г</option>
+
+  <option value="650">кокосовые сливки, г</option>
+
+  <option value="651">кокосовый ликер, ст. л.</option>
+
+  <option value="652">кокосовый экстракт, г</option>
+
+  <option value="653">кокосы, г</option>
+
+  <option value="654">кола, г</option>
+
+  <option value="655">колбаса, г</option>
+
+  <option value="656">колбаса вареная, г</option>
+
+  <option value="657">колбаса варено-копченая, г</option>
+
+  <option value="658">колбаса копченая, г</option>
+
+  <option value="659">колбаса кровяная, г</option>
+
+  <option value="660">колбаса полукопченая, г</option>
+
+  <option value="661">колбаса сырокопченая, г</option>
+
+  <option value="662">колбаска свиная свежая (salsiccia), шт.</option>
+
+  <option value="663">колбаски, г</option>
+
+  <option value="664">колбаски для жарки, г</option>
+
+  <option value="665">колбаски домашние, шт.</option>
+
+  <option value="666">колбаски охотничьи, г</option>
+
+  <option value="667">колбаски сырокопченые, шт.</option>
+
+  <option value="668">компот, г</option>
+
+  <option value="670">конопля семена, г</option>
+
+  <option value="669">конопляное масло, ст. л.</option>
+
+  <option value="671">конфеты, по вкусу</option>
+
+  <option value="672">конфеты M&amp;M’s, г</option>
+
+  <option value="674">конфеты Коровка, г</option>
+
+  <option value="675">конфеты Трюфель, г</option>
+
+  <option value="673">конфеты жевательные лакричные, г</option>
+
+  <option value="676">конфитюр, по вкусу</option>
+
+  <option value="677">конфитюрка, упаковка</option>
+
+  <option value="678">коньяк, г</option>
+
+  <option value="679">копчености, г</option>
+
+  <option value="680">коренья, по вкусу</option>
+
+  <option value="681">кориандр, г</option>
+
+  <option value="682">кориандр зелень, г</option>
+
+  <option value="683">кориандр молотый, г</option>
+
+  <option value="684">кориандр семена, г</option>
+
+  <option value="685">коринка, ст. л.</option>
+
+  <option value="686">корица, г</option>
+
+  <option value="687">корица молотая, г</option>
+
+  <option value="688">корнишоны, г</option>
+
+  <option value="689">корнишоны маринованые, г</option>
+
+  <option value="690">корюшка, г</option>
+
+  <option value="691">корюшка горячего копчения, г</option>
+
+  <option value="692">кости, г</option>
+
+  <option value="693">кости мозговые, г</option>
+
+  <option value="694">кость сахарная, г</option>
+
+  <option value="695">кофе в зернах, стакан</option>
+
+  <option value="696">кофе зеленый, г</option>
+
+  <option value="703">кофе молотый, ст. л.</option>
+
+  <option value="704">кофе растворимый, г</option>
+
+  <option value="705">кофе свежесваренный, г</option>
+
+  <option value="706">кофе черный, г</option>
+
+  <option value="707">кофе эспрессо, стакан</option>
+
+  <option value="697">кофейные зерна в шоколаде, г</option>
+
+  <option value="698">кофейный ликер, г</option>
+
+  <option value="699">кофейный ликер Kahlua, мл</option>
+
+  <option value="700">кофейный напиток, мл</option>
+
+  <option value="701">кофейный сироп, г</option>
+
+  <option value="702">кофейный экстракт, мл</option>
+
+  <option value="710">краб снежный, по вкусу</option>
+
+  <option value="708">крабовое мясо, г</option>
+
+  <option value="709">крабовые палочки, по вкусу</option>
+
+  <option value="711">крабы, г</option>
+
+  <option value="712">крапива, г</option>
+
+  <option value="714">краситель пищевой, г</option>
+
+  <option value="715">краситель пищевой вишневый, щепотка</option>
+
+  <option value="716">краситель пищевой желтый, г</option>
+
+  <option value="717">краситель пищевой зеленый, ст. л.</option>
+
+  <option value="718">краситель пищевой красный, г</option>
+
+  <option value="719">краситель пищевой оранжевый, г</option>
+
+  <option value="720">краситель пищевой фиолетовый, г</option>
+
+  <option value="721">краситель пищевой черный, г</option>
+
+  <option value="713">краситель-гель пищевой, шт.</option>
+
+  <option value="722">красная смородина, г</option>
+
+  <option value="723">красная смородина, протертая с сахаром, ст. л.</option>
+
+  <option value="724">красноперка, шт.</option>
+
+  <option value="725">красносмородиновое варенье, г</option>
+
+  <option value="726">красный винный соус, г</option>
+
+  <option value="727">крахмал, г</option>
+
+  <option value="728">креветки, г</option>
+
+  <option value="729">креветки замороженные, г</option>
+
+  <option value="730">креветки королевские, г</option>
+
+  <option value="731">креветки очищенные, г</option>
+
+  <option value="732">креветки очищенные в рассоле, г</option>
+
+  <option value="733">креветки салатные, г</option>
+
+  <option value="734">креветки сушеные, г</option>
+
+  <option value="735">креветки тигровые, г</option>
+
+  <option value="736">крекер, г</option>
+
+  <option value="737">крекер соленый, г</option>
+
+  <option value="738">крем заварной, г</option>
+
+  <option value="739">крем заварной порошковый, г</option>
+
+  <option value="740">крем-фреш, г</option>
+
+  <option value="741">кресс-салат, г</option>
+
+  <option value="742">кровь, мл</option>
+
+  <option value="743">кролик, г</option>
+
+  <option value="744">кролик тушка, г</option>
+
+  <option value="745">кролик филе, г</option>
+
+  <option value="746">кроличья печень, г</option>
+
+  <option value="747">круассаны, по вкусу</option>
+
+  <option value="748">крутоны мелкие, г</option>
+
+  <option value="749">крыжовник, г</option>
+
+  <option value="750">крыжовниковое варенье, банка</option>
+
+  <option value="751">кукуруза, г</option>
+
+  <option value="752">кукуруза замороженная, г</option>
+
+  <option value="753">кукуруза консервированная, г</option>
+
+  <option value="754">кукуруза обжаренная кикос, г</option>
+
+  <option value="755">кукурузная крупа, г</option>
+
+  <option value="756">кукурузная мука, г</option>
+
+  <option value="757">кукурузное масло, г</option>
+
+  <option value="758">кукурузные лепешки, шт.</option>
+
+  <option value="759">кукурузные палочки, г</option>
+
+  <option value="760">кукурузные хлопья, г</option>
+
+  <option value="761">кукурузные хлопья глазированные, г</option>
+
+  <option value="762">кукурузные чипсы, г</option>
+
+  <option value="763">кукурузный (золотой) сироп, г</option>
+
+  <option value="764">кукурузный крахмал, по вкусу</option>
+
+  <option value="765">кумин, г</option>
+
+  <option value="766">кумкваты, горсть</option>
+
+  <option value="767">кунжут, г</option>
+
+  <option value="772">кунжут черный, ч. л.</option>
+
+  <option value="768">кунжутная мука, г</option>
+
+  <option value="769">кунжутная паста, г</option>
+
+  <option value="770">кунжутное масло, г</option>
+
+  <option value="771">кунжутные семечки, по вкусу</option>
+
+  <option value="773">купаты, шт.</option>
+
+  <option value="774">курага, по вкусу</option>
+
+  <option value="775">курдючное сало, г</option>
+
+  <option value="776">курдючный жир, г</option>
+
+  <option value="777">куриная ветчина, г</option>
+
+  <option value="778">куриная кожа, г</option>
+
+  <option value="779">куриная печень, г</option>
+
+  <option value="780">куриное карпаччо, г</option>
+
+  <option value="781">куриное филе, г</option>
+
+  <option value="782">куриные бедра, г</option>
+
+  <option value="783">куриные голени, г</option>
+
+  <option value="784">куриные голени копченые, шт.</option>
+
+  <option value="785">куриные грудки, г</option>
+
+  <option value="786">куриные грудки вареные, г</option>
+
+  <option value="787">куриные грудки копченые, г</option>
+
+  <option value="788">куриные желудочки, шт.</option>
+
+  <option value="789">куриные кости, г</option>
+
+  <option value="790">куриные крылья, г</option>
+
+  <option value="791">куриные окорочка, г</option>
+
+  <option value="792">куриные окорочка копченые, г</option>
+
+  <option value="793">куриные потрошки, г</option>
+
+  <option value="794">куриные сердечки, г</option>
+
+  <option value="795">куриный бульон, г</option>
+
+  <option value="796">куриный паштет, г</option>
+
+  <option value="797">куриный суповой набор, кг</option>
+
+  <option value="798">куриный фарш, г</option>
+
+  <option value="799">курица, г</option>
+
+  <option value="800">курица вареная, г</option>
+
+  <option value="801">курица для жарки, кг</option>
+
+  <option value="802">курица копченая, г</option>
+
+  <option value="803">курица тушка, г</option>
+
+  <option value="804">куркума, г</option>
+
+  <option value="805">куропатки, г</option>
+
+  <option value="806">кускус, г</option>
+
+  <option value="807">кускус жемчужный, стакан</option>
+
+  <option value="808">кэроб, г</option>
+
+  <option value="809">лаванда, г</option>
+
+  <option value="810">лаванда сушеная, щепотка</option>
+
+  <option value="811">лавандовый краситель, ч. л.</option>
+
+  <option value="812">лаваш, по вкусу</option>
+
+  <option value="813">лаваш армянский, г</option>
+
+  <option value="814">лаваш персидский круглый, г</option>
+
+  <option value="815">лаваш тонкий, пласт</option>
+
+  <option value="816">лавровые листья свежие, шт.</option>
+
+  <option value="817">лавровый лист, г</option>
+
+  <option value="818">лайм, г</option>
+
+  <option value="819">лайм листья, шт.</option>
+
+  <option value="820">лаймовая цедра, г</option>
+
+  <option value="821">лаймовый сок, г</option>
+
+  <option value="822">лангустины, шт.</option>
+
+  <option value="823">лапша, г</option>
+
+  <option value="824">лапша для лагмана, упаковка</option>
+
+  <option value="825">лапша ширатаки, г</option>
+
+  <option value="826">лапша яичная в гнездах, шт.</option>
+
+  <option value="827">латук, г</option>
+
+  <option value="828">легкие, г</option>
+
+  <option value="829">лед, г</option>
+
+  <option value="830">леди-фиш тушка, шт.</option>
+
+  <option value="831">лемонграсс (лимонное сорго), г</option>
+
+  <option value="832">лен семена, г</option>
+
+  <option value="833">лепешки, г</option>
+
+  <option value="834">лепешки арабские, шт.</option>
+
+  <option value="835">лесные орехи, г</option>
+
+  <option value="836">лечо, г</option>
+
+  <option value="837">ливер, г</option>
+
+  <option value="838">ликер, г</option>
+
+  <option value="839">ликер Alchermes, г</option>
+
+  <option value="840">ликер Amaretto, г</option>
+
+  <option value="841">ликер Baileys, г</option>
+
+  <option value="842">ликер Cointreau, г</option>
+
+  <option value="843">ликер кремовый, г</option>
+
+  <option value="844">ликер сливочный, г</option>
+
+  <option value="845">лимонад, г</option>
+
+  <option value="846">лимонная кислота, г</option>
+
+  <option value="847">лимонная цедра, г</option>
+
+  <option value="848">лимонник стебель, г</option>
+
+  <option value="849">лимонник ягоды, г</option>
+
+  <option value="850">лимонные корочки засахаренные, г</option>
+
+  <option value="851">лимонные цукаты, г</option>
+
+  <option value="852">лимонный сок, г</option>
+
+  <option value="853">лимонный уксус, г</option>
+
+  <option value="854">лимонный экстракт, г</option>
+
+  <option value="855">лимончелло, г</option>
+
+  <option value="856">лимоны, г</option>
+
+  <option value="857">лимоны сушеные, </option>
+
+  <option value="858">лингвине, шт.</option>
+
+  <option value="859">лисички, г</option>
+
+  <option value="860">лисички сушеные, г</option>
+
+  <option value="861">личи, шт.</option>
+
+  <option value="862">личи компот, г</option>
+
+  <option value="863">лобстер, г</option>
+
+  <option value="864">лонган, г</option>
+
+  <option value="865">лонгконг, шт.</option>
+
+  <option value="866">лососевые молоки, г</option>
+
+  <option value="867">лососевый фарш, г</option>
+
+  <option value="868">лосось, г</option>
+
+  <option value="869">лосось горячего копчения, г</option>
+
+  <option value="870">лосось копченый, г</option>
+
+  <option value="871">лосось свежесоленый, г</option>
+
+  <option value="872">лосось свежий, г</option>
+
+  <option value="873">лосось свежий филе, г</option>
+
+  <option value="874">лосось слабосоленый, г</option>
+
+  <option value="875">лосось стейки, г</option>
+
+  <option value="876">лосось филе, г</option>
+
+  <option value="877">лосось филе на коже, г</option>
+
+  <option value="878">лосось холодного копчения, г</option>
+
+  <option value="879">лосятина, кг</option>
+
+  <option value="880">лук белый, по вкусу</option>
+
+  <option value="881">лук зеленый, г</option>
+
+  <option value="882">лук красный, по вкусу</option>
+
+  <option value="883">лук маринованный, г</option>
+
+  <option value="888">лук репчатый, г</option>
+
+  <option value="889">лук репчатый мелкий, г</option>
+
+  <option value="890">лук салатный, шт.</option>
+
+  <option value="891">лук сушеный, г</option>
+
+  <option value="886">лук-порей, горсть</option>
+
+  <option value="887">лук-резанец, по вкусу</option>
+
+  <option value="892">лук-шалот, г</option>
+
+  <option value="893">лук-шалот красный, шт.</option>
+
+  <option value="884">луковая шелуха, г</option>
+
+  <option value="885">луковый порошок, г</option>
+
+  <option value="894">льняная мука, г</option>
+
+  <option value="895">льняное масло, ч. л.</option>
+
+  <option value="896">льняное семя, г</option>
+
+  <option value="897">льняное семя молотое, г</option>
+
+  <option value="898">любисток, г</option>
+
+  <option value="899">маасдам, г</option>
+
+  <option value="900">мадера, г</option>
+
+  <option value="901">майонез, г</option>
+
+  <option value="906">майонез «Слобода» Легкий, г</option>
+
+  <option value="907">майонез «Слобода» На перепелиных яйцах, г</option>
+
+  <option value="908">майонез «Слобода» Оливковый, г</option>
+
+  <option value="909">майонез «Слобода» Провансаль, г</option>
+
+  <option value="910">майонез «Слобода» С лимонным соком, г</option>
+
+  <option value="911">майонез «Слобода» Сметанный, г</option>
+
+  <option value="902">майонез домашний, г</option>
+
+  <option value="903">майонез легкий, г</option>
+
+  <option value="905">майонез оливковый, г</option>
+
+  <option value="904">майонезный соус «Слобода» Постный, г</option>
+
+  <option value="912">майоран, г</option>
+
+  <option value="913">майоран свежий, по вкусу</option>
+
+  <option value="914">майоран сушеный, г</option>
+
+  <option value="915">мак, г</option>
+
+  <option value="936">мак молотый, г</option>
+
+  <option value="916">макаронные изделия, г</option>
+
+  <option value="917">макаронные изделия мелкие, г</option>
+
+  <option value="918">макароны, г</option>
+
+  <option value="921">макароны баветте, г</option>
+
+  <option value="923">макароны букатини, г</option>
+
+  <option value="924">макароны джильи, г</option>
+
+  <option value="925">макароны диталони, г</option>
+
+  <option value="927">макароны орзо, г</option>
+
+  <option value="931">макароны рисони, г</option>
+
+  <option value="919">макароны-бабочки (farfalle), г</option>
+
+  <option value="920">макароны-бабочки (farfalle) мини, г</option>
+
+  <option value="922">макароны-бантики, г</option>
+
+  <option value="926">макароны-звездочки, стакан</option>
+
+  <option value="929">макароны-ракушки (conchiglie rigate), г</option>
+
+  <option value="928">макароны-ракушки (conchiglie), г</option>
+
+  <option value="930">макароны-ракушки крупные, г</option>
+
+  <option value="932">макароны-рожки (pipe rigate), г</option>
+
+  <option value="933">макароны-спиральки (fusilli), г</option>
+
+  <option value="934">макароны-ушки (orecchiette), г</option>
+
+  <option value="935">маккерончини, г</option>
+
+  <option value="937">маковая масса, пачка</option>
+
+  <option value="938">малина, г</option>
+
+  <option value="939">малина замороженная, г</option>
+
+  <option value="941">малина сушеная, г</option>
+
+  <option value="940">малина, протертая с сахаром, стакан</option>
+
+  <option value="942">малиновое варенье, г</option>
+
+  <option value="943">малиновое желе, г</option>
+
+  <option value="944">малиновое пюре, г</option>
+
+  <option value="945">малиновый джем, г</option>
+
+  <option value="946">малиновый крем, г</option>
+
+  <option value="947">малиновый сироп, ч. л.</option>
+
+  <option value="948">малиновый соус, ч. л.</option>
+
+  <option value="949">малиновый уксус, мл</option>
+
+  <option value="950">малиновый чай, г</option>
+
+  <option value="951">манго, по вкусу</option>
+
+  <option value="953">манго консервированное, г</option>
+
+  <option value="952">манговый сироп, мл</option>
+
+  <option value="954">мангольд, г</option>
+
+  <option value="955">мангустин, шт.</option>
+
+  <option value="956">мандариновое пюре, г</option>
+
+  <option value="957">мандариновые цукаты, г</option>
+
+  <option value="958">мандариновый сок, г</option>
+
+  <option value="959">мандарины, по вкусу</option>
+
+  <option value="960">мандарины в собственном соку, г</option>
+
+  <option value="961">манная крупа, г</option>
+
+  <option value="962">маракуйя, г</option>
+
+  <option value="963">маргарин, г</option>
+
+  <option value="964">маргарин сливочный, г</option>
+
+  <option value="965">мармелад, по вкусу</option>
+
+  <option value="966">мармелад бутербродный, г</option>
+
+  <option value="967">марсала, стакан</option>
+
+  <option value="968">мартини, г</option>
+
+  <option value="969">мартини красный, г</option>
+
+  <option value="970">марципан, по вкусу</option>
+
+  <option value="971">марципан зеленый, г</option>
+
+  <option value="972">марципан розовый, г</option>
+
+  <option value="973">маршмеллоу, г</option>
+
+  <option value="974">маршмеллоу крем, г</option>
+
+  <option value="975">маршмеллоу мини, г</option>
+
+  <option value="976">маскарпоне, г</option>
+
+  <option value="977">маслины, г</option>
+
+  <option value="978">маслины без косточек, г</option>
+
+  <option value="979">масло авокадо, г</option>
+
+  <option value="980">масло виноградных косточек, г</option>
+
+  <option value="981">масло грецкого ореха, ч. л.</option>
+
+  <option value="982">масло для фритюра, г</option>
+
+  <option value="983">масло кедрового ореха, г</option>
+
+  <option value="984">маслята, г</option>
+
+  <option value="985">мастика, г</option>
+
+  <option value="986">мастика желатиновая, г</option>
+
+  <option value="987">мастика шоколадная, г</option>
+
+  <option value="988">матча, г</option>
+
+  <option value="989">мафальдине, г</option>
+
+  <option value="990">маца, г</option>
+
+  <option value="991">мацони, г</option>
+
+  <option value="992">маш, г</option>
+
+  <option value="993">мед, г</option>
+
+  <option value="994">мед акации, г</option>
+
+  <option value="995">мед гречишный, г</option>
+
+  <option value="996">мед жидкий, г</option>
+
+  <option value="997">мед лавандовый, г</option>
+
+  <option value="998">мелисса, г</option>
+
+  <option value="999">меренги, шт.</option>
+
+  <option value="1000">мидии, г</option>
+
+  <option value="1001">мидии в раковинах, г</option>
+
+  <option value="1002">мидии в раковинах крупные черные, г</option>
+
+  <option value="1003">мидии в раковинах мелкие зеленые, г</option>
+
+  <option value="1004">мидии замороженные, шт.</option>
+
+  <option value="1005">мидии копченые в масле, г</option>
+
+  <option value="1006">микрозелень, горсть</option>
+
+  <option value="1007">миндаль, г</option>
+
+  <option value="1008">миндаль жареный, г</option>
+
+  <option value="1009">миндаль измельченный, г</option>
+
+  <option value="1022">миндаль очищенный, г</option>
+
+  <option value="1023">миндаль рубленый, г</option>
+
+  <option value="1010">миндальная масса, г</option>
+
+  <option value="1011">миндальная мука, г</option>
+
+  <option value="1012">миндальная паста, г</option>
+
+  <option value="1013">миндальная эссенция, г</option>
+
+  <option value="1014">миндальное масло, г</option>
+
+  <option value="1015">миндальное молоко, г</option>
+
+  <option value="1016">миндальное печенье, г</option>
+
+  <option value="1017">миндальное пралине, г</option>
+
+  <option value="1018">миндальные лепестки, г</option>
+
+  <option value="1019">миндальный ликер, г</option>
+
+  <option value="1020">миндальный сироп, г</option>
+
+  <option value="1021">миндальный экстракт, капля</option>
+
+  <option value="1024">мини-кукуруза, шт.</option>
+
+  <option value="1025">минога, г</option>
+
+  <option value="1026">минтай, г</option>
+
+  <option value="1027">минтай печень, г</option>
+
+  <option value="1028">минтай филе, г</option>
+
+  <option value="1029">мисо-паста, г</option>
+
+  <option value="1030">мисо-суп, пакет</option>
+
+  <option value="1031">можжевельник ягоды, г</option>
+
+  <option value="1032">мойва, г</option>
+
+  <option value="1033">моллюски, г</option>
+
+  <option value="1034">молоко, г</option>
+
+  <option value="1035">молоко 0,5%, г</option>
+
+  <option value="1036">молоко 1,5%, г</option>
+
+  <option value="1037">молоко 2,5%, г</option>
+
+  <option value="1038">молоко 3,2%, г</option>
+
+  <option value="1039">молоко 3,6%, г</option>
+
+  <option value="1040">молоко 4%, г</option>
+
+  <option value="1041">молоко 6%, г</option>
+
+  <option value="1042">молоко козье, г</option>
+
+  <option value="1043">молоко концентрированное, г</option>
+
+  <option value="1044">молоко рисовое, мл</option>
+
+  <option value="1045">молоко сгущенное, г</option>
+
+  <option value="1046">молоко сгущенное вареное, ст. л.</option>
+
+  <option value="1047">молоко сгущенное с какао, г</option>
+
+  <option value="1048">молоко сухое, г</option>
+
+  <option value="1049">молоко сухое обезжиренное, ст. л.</option>
+
+  <option value="1050">молоко топленое, г</option>
+
+  <option value="1051">молочная смесь, г</option>
+
+  <option value="1052">молочные продукты, г</option>
+
+  <option value="1053">морепродукты, шт.</option>
+
+  <option value="1054">морковное пюре, г</option>
+
+  <option value="1055">морковь, г</option>
+
+  <option value="1056">морковь вареная, г</option>
+
+  <option value="1057">морковь крупная, г</option>
+
+  <option value="1058">морковь молодая, г</option>
+
+  <option value="1059">морковь по-корейски, г</option>
+
+  <option value="1060">морковь тертая, шт.</option>
+
+  <option value="1061">мороженое, по вкусу</option>
+
+  <option value="1062">мороженое ванильное, г</option>
+
+  <option value="1063">мороженое клубничное, г</option>
+
+  <option value="1064">мороженое лимонное, по вкусу</option>
+
+  <option value="1065">мороженое малиновое, г</option>
+
+  <option value="1066">мороженое пломбир, г</option>
+
+  <option value="1067">мороженое шоколадное, мл</option>
+
+  <option value="1068">морошка, г</option>
+
+  <option value="1069">морские гребешки, кг</option>
+
+  <option value="1070">морской коктейль, г</option>
+
+  <option value="1071">морской коктейль в масле, упаковка</option>
+
+  <option value="1072">морской коктейль замороженный, г</option>
+
+  <option value="1073">морской черт, г</option>
+
+  <option value="1074">морской язык, г</option>
+
+  <option value="1075">морской язык филе, г</option>
+
+  <option value="1076">мортаделла, г</option>
+
+  <option value="1077">моцарелла, г</option>
+
+  <option value="1078">моцарелла для запекания, г</option>
+
+  <option value="1079">моцарелла для пиццы, г</option>
+
+  <option value="1080">моцарелла мини, г</option>
+
+  <option value="1081">моцарелла с травами, г</option>
+
+  <option value="1082">моцарелла шарик большой, г</option>
+
+  <option value="1083">мука, г</option>
+
+  <option value="1084">мука 1 сорт, г</option>
+
+  <option value="1085">мука 2 сорт, г</option>
+
+  <option value="1086">мука «Аладушкин», г</option>
+
+  <option value="1087">мука грубого помола, г</option>
+
+  <option value="1088">мука для темпуры, г</option>
+
+  <option value="1089">мука из пророщенной пшеницы, ст. л.</option>
+
+  <option value="1090">мука манитоба, г</option>
+
+  <option value="1092">мука с отрубями, ч. л.</option>
+
+  <option value="1093">мука с семечками, г</option>
+
+  <option value="1091">мука самоподнимающаяся, г</option>
+
+  <option value="1094">мука хлебопекарная, г</option>
+
+  <option value="1095">мука цельнозерновая, г</option>
+
+  <option value="1096">мускат белый, мл</option>
+
+  <option value="1097">мускатное вино, г</option>
+
+  <option value="1098">мускатный орех, г</option>
+
+  <option value="1099">мускатный орех молотый, г</option>
+
+  <option value="1100">мюсли, г</option>
+
+  <option value="1101">мягкий творог, г</option>
+
+  <option value="1102">мясной бульон, г</option>
+
+  <option value="1103">мясной фарш, г</option>
+
+  <option value="1104">мясо, г</option>
+
+  <option value="1105">мясо дикого кабана, г</option>
+
+  <option value="1106">мясо криля, г</option>
+
+  <option value="1107">мясо на косточке, кг</option>
+
+  <option value="1108">мята, г</option>
+
+  <option value="1109">мята сушеная, г</option>
+
+  <option value="1110">мятный сироп, г</option>
+
+  <option value="1111">мятный шнапс, г</option>
+
+  <option value="1112">нардек, г</option>
+
+  <option value="1113">нектарины, шт.</option>
+
+  <option value="1114">нога ягненка без кости, г</option>
+
+  <option value="1115">нори, г</option>
+
+  <option value="1116">нуга, г</option>
+
+  <option value="1117">нуга с орехами, г</option>
+
+  <option value="1118">нут, г</option>
+
+  <option value="1120">нут консервированный, г</option>
+
+  <option value="1119">нутелла, г</option>
+
+  <option value="1121">нутовая мука, г</option>
+
+  <option value="1122">облепиха, г</option>
+
+  <option value="1123">облепиха замороженная, г</option>
+
+  <option value="1124">облепиховый сироп, стакан</option>
+
+  <option value="1125">овощи, г</option>
+
+  <option value="1126">овощная смесь, г</option>
+
+  <option value="1127">овощная смесь замороженная, г</option>
+
+  <option value="1128">овощная смесь замороженная для wok, г</option>
+
+  <option value="1129">овощная смесь по-китайски, г</option>
+
+  <option value="1130">овощной бульон, по вкусу</option>
+
+  <option value="1131">овсяная мука, г</option>
+
+  <option value="1132">овсяное молоко, стакан</option>
+
+  <option value="1133">овсяное печенье, г</option>
+
+  <option value="1134">овсяное толокно, г</option>
+
+  <option value="1135">овсяные зерна, г</option>
+
+  <option value="1136">овсяные отруби, г</option>
+
+  <option value="1137">овсяные хлопья, г</option>
+
+  <option value="1138">овсяные хлопья быстрого приготовления, г</option>
+
+  <option value="1139">огуречный рассол, стакан</option>
+
+  <option value="1140">огурцы, г</option>
+
+  <option value="1141">огурцы консервированные, шт.</option>
+
+  <option value="1142">огурцы малосольные, шт.</option>
+
+  <option value="1143">огурцы маринованные, банка</option>
+
+  <option value="1144">огурцы свежие, г</option>
+
+  <option value="1145">огурцы соленые, г</option>
+
+  <option value="1146">одуванчики, г</option>
+
+  <option value="1147">окорок, г</option>
+
+  <option value="1148">окорок варено-копченый, г</option>
+
+  <option value="1149">окунь, г</option>
+
+  <option value="1150">окунь красный филе, г</option>
+
+  <option value="1151">окунь морской, г</option>
+
+  <option value="1152">окунь морской филе, г</option>
+
+  <option value="1153">окунь филе, г</option>
+
+  <option value="1154">оленина, г</option>
+
+  <option value="1155">оливки, г</option>
+
+  <option value="1156">оливки без косточек, г</option>
+
+  <option value="1157">оливки зеленые, по вкусу</option>
+
+  <option value="1158">оливки зеленые консервированные, банка</option>
+
+  <option value="1159">оливки каламата, г</option>
+
+  <option value="1160">оливки консервированные, г</option>
+
+  <option value="1162">оливки черные, по вкусу</option>
+
+  <option value="1161">оливки, фаршированные анчоусами, г</option>
+
+  <option value="1163">оливковая паста, г</option>
+
+  <option value="1164">оливковое масло, г</option>
+
+  <option value="1165">оливковое масло Extra Virgin, г</option>
+
+  <option value="1166">опунция плоды, г</option>
+
+  <option value="1167">опята, по вкусу</option>
+
+  <option value="1168">опята замороженные, г</option>
+
+  <option value="1169">опята маринованные, г</option>
+
+  <option value="1170">орегано, г</option>
+
+  <option value="1171">орегано свежий, г</option>
+
+  <option value="1172">орегано сушеный, г</option>
+
+  <option value="1173">орехи, г</option>
+
+  <option value="1174">орехи бразильские, г</option>
+
+  <option value="1175">орехи макадамия, г</option>
+
+  <option value="1176">орехи пекан, г</option>
+
+  <option value="1177">орехи пекан засахаренные, </option>
+
+  <option value="1178">орехи пинии, г</option>
+
+  <option value="1179">ореховая крошка, стакан</option>
+
+  <option value="1180">ореховая паста, шт.</option>
+
+  <option value="1181">ореховое масло, ст. л.</option>
+
+  <option value="1182">ореховый ликер, мл</option>
+
+  <option value="1183">ореховый соус, ст. л.</option>
+
+  <option value="1184">осетр, г</option>
+
+  <option value="1185">осетрина холодного копчения, г</option>
+
+  <option value="1186">осьминог, г</option>
+
+  <option value="1187">осьминоги консервированные, г</option>
+
+  <option value="1188">осьминоги мини, г</option>
+
+  <option value="1189">отруби, г</option>
+
+  <option value="1190">ошеек, г</option>
+
+  <option value="1191">пагр, г</option>
+
+  <option value="1192">пажитник, г</option>
+
+  <option value="1193">пажитник семена, г</option>
+
+  <option value="1194">палтус, г</option>
+
+  <option value="1195">пальмовое масло, г</option>
+
+  <option value="1196">пангасиус, г</option>
+
+  <option value="1197">панеттоне, шт.</option>
+
+  <option value="1199">панчетта, г</option>
+
+  <option value="1200">папайя, г</option>
+
+  <option value="1201">папайя консервированная в собственном соку, г</option>
+
+  <option value="1202">папоротник, г</option>
+
+  <option value="1203">папоротник соленый, упаковка</option>
+
+  <option value="1204">паппарделле, г</option>
+
+  <option value="1205">паприка, г</option>
+
+  <option value="1206">паприка копченая, ст. л.</option>
+
+  <option value="1207">паприка красная, ст. л.</option>
+
+  <option value="1208">паприка красная молотая, г</option>
+
+  <option value="1209">паприка острая копченая, г</option>
+
+  <option value="1210">паприка сладкая, г</option>
+
+  <option value="1211">паприка сладкая копченая, г</option>
+
+  <option value="1212">паприка сладкая хлопьями, ч. л.</option>
+
+  <option value="1213">пармезан, г</option>
+
+  <option value="1214">паста, г</option>
+
+  <option value="1215">паста веджимайт, г</option>
+
+  <option value="1216">паста тахини, г</option>
+
+  <option value="1217">паста хариса, ст. л.</option>
+
+  <option value="1218">пастернак, г</option>
+
+  <option value="1219">пастила, г</option>
+
+  <option value="1220">пастила виноградная, г</option>
+
+  <option value="1221">патиссоны, г</option>
+
+  <option value="1222">патока, г</option>
+
+  <option value="1223">патока крахмальная, г</option>
+
+  <option value="1224">патока черная (меласса), г</option>
+
+  <option value="1225">пахта, г</option>
+
+  <option value="1226">паштет, г</option>
+
+  <option value="1227">пекарский порошок, г</option>
+
+  <option value="1228">пекарский порошок, ч. л.</option>
+
+  <option value="1229">пекорино, г</option>
+
+  <option value="1230">пектин, г</option>
+
+  <option value="1231">пеленгас, г</option>
+
+  <option value="1232">пельмени, г</option>
+
+  <option value="1233">пенне, г</option>
+
+  <option value="1234">пенне ригате, г</option>
+
+  <option value="1235">пеперончино, ч. л.</option>
+
+  <option value="1236">пеперончино молотый, щепотка</option>
+
+  <option value="1237">переводной лист для шоколада, шт.</option>
+
+  <option value="1238">перепелки, тушка</option>
+
+  <option value="1239">перец, г</option>
+
+  <option value="1240">перец белый, г</option>
+
+  <option value="1241">перец белый горошком, по вкусу</option>
+
+  <option value="1242">перец белый молотый, г</option>
+
+  <option value="1243">перец белый свежемолотый, ч. л.</option>
+
+  <option value="1244">перец болгарский, г</option>
+
+  <option value="1245">перец болгарский желтый, г</option>
+
+  <option value="1246">перец болгарский зеленый, г</option>
+
+  <option value="1247">перец болгарский красный, г</option>
+
+  <option value="1248">перец горошком, г</option>
+
+  <option value="1249">перец горошком смесь, г</option>
+
+  <option value="1250">перец душистый, щепотка</option>
+
+  <option value="1251">перец душистый горошком, г</option>
+
+  <option value="1252">перец душистый молотый, г</option>
+
+  <option value="1253">перец испанский острый, шт.</option>
+
+  <option value="1254">перец кайенский, г</option>
+
+  <option value="1255">перец кайенский красный, г</option>
+
+  <option value="1256">перец кайенский молотый, щепотка</option>
+
+  <option value="1257">перец красный, г</option>
+
+  <option value="1258">перец красный горошком, г</option>
+
+  <option value="1259">перец красный жгучий, г</option>
+
+  <option value="1260">перец красный молотый, г</option>
+
+  <option value="1261">перец красный острый, г</option>
+
+  <option value="1262">перец красный острый молотый, по вкусу</option>
+
+  <option value="1263">перец красный хлопьями, щепотка</option>
+
+  <option value="1264">перец лимонный, г</option>
+
+  <option value="1265">перец маринованный, г</option>
+
+  <option value="1266">перец острый, г</option>
+
+  <option value="1267">перец острый зеленый, шт.</option>
+
+  <option value="1268">перец острый молотый, щепотка</option>
+
+  <option value="1269">перец падрон, г</option>
+
+  <option value="1270">перец пеперони, г</option>
+
+  <option value="1271">перец пеперони красный, шт.</option>
+
+  <option value="1272">перец розовый горошком, г</option>
+
+  <option value="1273">перец свежемолотый смесь, г</option>
+
+  <option value="1274">перец сенегальский, по вкусу</option>
+
+  <option value="1275">перец сладкий, г</option>
+
+  <option value="1276">перец сладкий желтый, г</option>
+
+  <option value="1277">перец сладкий зеленый, г</option>
+
+  <option value="1278">перец сладкий красный, г</option>
+
+  <option value="1279">перец сладкий красный маринованный, шт.</option>
+
+  <option value="1280">перец сладкий красный молотый, г</option>
+
+  <option value="1281">перец сладкий оранжевый, г</option>
+
+  <option value="1282">перец сладкий сушеный, г</option>
+
+  <option value="1283">перец сычуаньский, г</option>
+
+  <option value="1284">перец халапеньо, г</option>
+
+  <option value="1285">перец халапеньо маринованный, шт.</option>
+
+  <option value="1286">перец черный, ст. л.</option>
+
+  <option value="1287">перец черный горошком, по вкусу</option>
+
+  <option value="1288">перец черный молотый, г</option>
+
+  <option value="1289">перец черный свежемолотый, г</option>
+
+  <option value="1290">перец чили, г</option>
+
+  <option value="1291">перец чили зеленый, стручок</option>
+
+  <option value="1292">перец чили красный, стручок</option>
+
+  <option value="1293">перец чили маринованный, по вкусу</option>
+
+  <option value="1294">перец чили молотый, г</option>
+
+  <option value="1295">перец чили сухой, ст. л.</option>
+
+  <option value="1296">перец чили хлопьями, по вкусу</option>
+
+  <option value="1297">перец ямайский, г</option>
+
+  <option value="1298">перловая крупа, г</option>
+
+  <option value="1299">перловая мука, г</option>
+
+  <option value="1300">персики, г</option>
+
+  <option value="1301">персики консервированные, г</option>
+
+  <option value="1302">персики сушеные, горсть</option>
+
+  <option value="1303">персиковое пюре, г</option>
+
+  <option value="1304">персиковый джем, г</option>
+
+  <option value="1305">персиковый мармелад, ст. л.</option>
+
+  <option value="1306">персиковый сироп, мл</option>
+
+  <option value="1307">персиковый сок, г</option>
+
+  <option value="1308">перцовая паста, ч. л.</option>
+
+  <option value="1309">петрушка, г</option>
+
+  <option value="1310">петрушка зелень, г</option>
+
+  <option value="1311">петрушка итальянская, пучок</option>
+
+  <option value="1312">петрушка корень, г</option>
+
+  <option value="1313">петрушка рубленая, г</option>
+
+  <option value="1314">петрушка сушеная, г</option>
+
+  <option value="1315">печень, г</option>
+
+  <option value="1316">печенье, по вкусу</option>
+
+  <option value="1317">печенье Oreo, г</option>
+
+  <option value="1321">печенье «Дамские пальчики», г</option>
+
+  <option value="1318">печенье Амаретти, г</option>
+
+  <option value="1324">печенье Савоярди, г</option>
+
+  <option value="1329">печенье Юбилейное молочное, г</option>
+
+  <option value="1319">печенье бисквитное, г</option>
+
+  <option value="1320">печенье галетное, шт.</option>
+
+  <option value="1322">печенье песочное, г</option>
+
+  <option value="1323">печенье рассыпчатое, г</option>
+
+  <option value="1325">печенье сахарное, г</option>
+
+  <option value="1326">печенье сладкое, г</option>
+
+  <option value="1327">печенье сухое, г</option>
+
+  <option value="1328">печенье шоколадное, г</option>
+
+  <option value="1330">пиво, г</option>
+
+  <option value="1331">пиво имбирное, мл</option>
+
+  <option value="1332">пиво нефильтрованное, г</option>
+
+  <option value="1333">пиво светлое, г</option>
+
+  <option value="1334">пиво темное, банка</option>
+
+  <option value="1335">пикша, шт.</option>
+
+  <option value="1336">питы, по вкусу</option>
+
+  <option value="1337">повидло, г</option>
+
+  <option value="1338">подсолнечное масло, г</option>
+
+  <option value="1339">подсолнечные семечки, г</option>
+
+  <option value="1340">полба, г</option>
+
+  <option value="1341">полба недозрелая, г</option>
+
+  <option value="1342">полента, по вкусу</option>
+
+  <option value="1343">полента быстрого приготовления, стакан</option>
+
+  <option value="1344">помело, г</option>
+
+  <option value="1345">помидоры, г</option>
+
+  <option value="1346">помидоры бурые, г</option>
+
+  <option value="1347">помидоры вяленые, по вкусу</option>
+
+  <option value="1348">помидоры вяленые в масле, г</option>
+
+  <option value="1349">помидоры желтые, шт.</option>
+
+  <option value="1350">помидоры зеленые, кг</option>
+
+  <option value="1351">помидоры консервированные, г</option>
+
+  <option value="1352">помидоры консервированные в собственном соку, г</option>
+
+  <option value="1353">помидоры консервированные в собственном соку с базиликом, г</option>
+
+  <option value="1354">помидоры протертые пассата, г</option>
+
+  <option value="1355">помидоры соленые, шт.</option>
+
+  <option value="1356">помидоры сушеные хлопьями, г</option>
+
+  <option value="1357">помидоры черри, г</option>
+
+  <option value="1358">помидоры черри желтые, г</option>
+
+  <option value="1359">попкорн, г</option>
+
+  <option value="1360">поросенок, кг</option>
+
+  <option value="1361">портвейн, г</option>
+
+  <option value="1362">портобелло, г</option>
+
+  <option value="1363">портулак, г</option>
+
+  <option value="1364">посыпка кондитерская, по вкусу</option>
+
+  <option value="1365">почки, г</option>
+
+  <option value="1366">приправа 4 перца, г</option>
+
+  <option value="1367">приправа 5 специй (five spice), ч. л.</option>
+
+  <option value="1368">приправа для баранины, ст. л.</option>
+
+  <option value="1369">приправа для картофеля, г</option>
+
+  <option value="1370">приправа для курицы, г</option>
+
+  <option value="1371">приправа для макарон, по вкусу</option>
+
+  <option value="1372">приправа для маринования свинины, по вкусу</option>
+
+  <option value="1373">приправа для морепродуктов, по вкусу</option>
+
+  <option value="1374">приправа для мяса, г</option>
+
+  <option value="1375">приправа для паэльи, по вкусу</option>
+
+  <option value="1376">приправа для пиццы, ч. л.</option>
+
+  <option value="1377">приправа для плова, г</option>
+
+  <option value="1378">приправа для птицы, ст. л.</option>
+
+  <option value="1379">приправа для рыбы, г</option>
+
+  <option value="1380">приправа для салатов, по вкусу</option>
+
+  <option value="1381">приправа заатар, ч. л.</option>
+
+  <option value="1382">приправа креольская, ст. л.</option>
+
+  <option value="1383">приправа с сушеными грибами, ч. л.</option>
+
+  <option value="1384">приправы, г</option>
+
+  <option value="1385">прованские травы, г</option>
+
+  <option value="1386">проволоне, г</option>
+
+  <option value="1387">просекко, мл</option>
+
+  <option value="1388">простокваша, г</option>
+
+  <option value="1389">протеин сывороточный, г</option>
+
+  <option value="1390">прошутто, г</option>
+
+  <option value="1391">пряники, г</option>
+
+  <option value="1392">пряничные специи, г</option>
+
+  <option value="1393">пряности, г</option>
+
+  <option value="1394">псиллиум, г</option>
+
+  <option value="1395">птитим, г</option>
+
+  <option value="1396">пудинг, г</option>
+
+  <option value="1397">пудинг ванильный, г</option>
+
+  <option value="1398">пудинг ванильный инстант, упаковка</option>
+
+  <option value="1399">пудинг карамельный, г</option>
+
+  <option value="1400">пшеница, г</option>
+
+  <option value="1401">пшеничная крупа, г</option>
+
+  <option value="1402">пшеничная мука, г</option>
+
+  <option value="1403">пшеничная мука цельнозерновая, г</option>
+
+  <option value="1404">пшеничные зародыши, стакан</option>
+
+  <option value="1405">пшеничные отруби, г</option>
+
+  <option value="1406">пшеничные ростки, г</option>
+
+  <option value="1407">пшеничные хлопья, г</option>
+
+  <option value="1408">пшенные хлопья, ст. л.</option>
+
+  <option value="1409">пшено, г</option>
+
+  <option value="1410">пыльца цветочная, г</option>
+
+  <option value="1411">пюре, по вкусу</option>
+
+  <option value="1412">радиккио, шт.</option>
+
+  <option value="1413">разрыхлитель, г</option>
+
+  <option value="1414">раки, шт.</option>
+
+  <option value="1415">раковые шейки, г</option>
+
+  <option value="1416">раковые шейки в рассоле, г</option>
+
+  <option value="1417">рамбутан, г</option>
+
+  <option value="1418">рапаны, г</option>
+
+  <option value="1419">рапсовое масло, по вкусу</option>
+
+  <option value="1420">рассол, г</option>
+
+  <option value="1421">рассол от каперсов, ст. л.</option>
+
+  <option value="1422">рассол от оливок, ст. л.</option>
+
+  <option value="1423">растительное масло, г</option>
+
+  <option value="1424">растительное масло для жарки, г</option>
+
+  <option value="1425">растительное масло нерафинированное, стакан</option>
+
+  <option value="1426">растительное масло рафинированное, г</option>
+
+  <option value="1427">растительное молоко, стакан</option>
+
+  <option value="1428">ревень, г</option>
+
+  <option value="1429">реган, веточка</option>
+
+  <option value="1430">редис, г</option>
+
+  <option value="1431">редька, г</option>
+
+  <option value="1432">редька белая, шт.</option>
+
+  <option value="1433">редька зеленая, шт.</option>
+
+  <option value="1434">редька черная, шт.</option>
+
+  <option value="1435">репа, г</option>
+
+  <option value="1436">репа белая, шт.</option>
+
+  <option value="1437">ржаная закваска, г</option>
+
+  <option value="1438">ржаная закваска густая, г</option>
+
+  <option value="1439">ржаная мука, г</option>
+
+  <option value="1440">ржаные отруби, г</option>
+
+  <option value="1441">ригатони, г</option>
+
+  <option value="1442">рикотта, г</option>
+
+  <option value="1443">рикотта твердая, г</option>
+
+  <option value="1444">рис, г</option>
+
+  <option value="1445">рис арборио, г</option>
+
+  <option value="1446">рис басмати, г</option>
+
+  <option value="1447">рис бурый, г</option>
+
+  <option value="1448">рис бурый и дикий смесь, г</option>
+
+  <option value="1449">рис вареный, г</option>
+
+  <option value="1450">рис виола, г</option>
+
+  <option value="1451">рис девзира, г</option>
+
+  <option value="1452">рис дикий, г</option>
+
+  <option value="1453">рис дикий и золотистый смесь, г</option>
+
+  <option value="1454">рис длиннозерный, г</option>
+
+  <option value="1455">рис длиннозерный золотистый, г</option>
+
+  <option value="1456">рис для плова, г</option>
+
+  <option value="1457">рис для пудинга, г</option>
+
+  <option value="1458">рис для ризотто, г</option>
+
+  <option value="1459">рис для суши, г</option>
+
+  <option value="1460">рис жасминовый, г</option>
+
+  <option value="1461">рис золотистый, г</option>
+
+  <option value="1462">рис индика, г</option>
+
+  <option value="1463">рис италика, г</option>
+
+  <option value="1464">рис карнароли, г</option>
+
+  <option value="1465">рис красный, г</option>
+
+  <option value="1466">рис круглозерный, г</option>
+
+  <option value="1467">рис кубанский, г</option>
+
+  <option value="1476">рис пропаренный, г</option>
+
+  <option value="1477">рис пропаренный и дикий смесь, г</option>
+
+  <option value="1478">рис японика, г</option>
+
+  <option value="1468">рисовая бумага, г</option>
+
+  <option value="1469">рисовая лапша, г</option>
+
+  <option value="1470">рисовая мука, г</option>
+
+  <option value="1471">рисовое вино, ч. л.</option>
+
+  <option value="1472">рисовые хлопья, г</option>
+
+  <option value="1473">рисовые шарики воздушные, г</option>
+
+  <option value="1474">рисовый крахмал, ст. л.</option>
+
+  <option value="1475">рисовый уксус, по вкусу</option>
+
+  <option value="1479">рожь, г</option>
+
+  <option value="1480">розмарин, шт.</option>
+
+  <option value="1481">розмарин сушеный, по вкусу</option>
+
+  <option value="1482">розовая вода, г</option>
+
+  <option value="1483">розовые бутоны сушеные, г</option>
+
+  <option value="1484">розовые лепестки, г</option>
+
+  <option value="1485">розы, г</option>
+
+  <option value="1486">рокфор, г</option>
+
+  <option value="1487">ром, бутылка</option>
+
+  <option value="1490">ром темный, г</option>
+
+  <option value="1488">ромашка сушеная, г</option>
+
+  <option value="1489">ромовый экстракт, ч. л.</option>
+
+  <option value="1491">ростбиф, г</option>
+
+  <option value="1492">рукола, г</option>
+
+  <option value="1493">рулька, по вкусу</option>
+
+  <option value="1494">рыба, г</option>
+
+  <option value="1495">рыба белая, г</option>
+
+  <option value="1496">рыба белая филе, г</option>
+
+  <option value="1497">рыба консервированная, банка</option>
+
+  <option value="1498">рыба копченая, г</option>
+
+  <option value="1499">рыба копченая филе, г</option>
+
+  <option value="1500">рыба красная, г</option>
+
+  <option value="1501">рыба красная соленая, г</option>
+
+  <option value="1502">рыба красная филе, г</option>
+
+  <option value="1504">рыба морская, г</option>
+
+  <option value="1505">рыба солнечник филе, шт.</option>
+
+  <option value="1503">рыба-меч, г</option>
+
+  <option value="1506">рыба-соль, тушка</option>
+
+  <option value="1507">рыбное филе, г</option>
+
+  <option value="1508">рыбные консервы, г</option>
+
+  <option value="1509">рыбные кости, г</option>
+
+  <option value="1510">рыбные обрезки, головы, плавники, по вкусу</option>
+
+  <option value="1511">рыбный бульон, г</option>
+
+  <option value="1512">рыбный соус, г</option>
+
+  <option value="1513">рыбный соус Nam Pla, г</option>
+
+  <option value="1514">рыбный соус тайский, г</option>
+
+  <option value="1515">рыбный фарш, г</option>
+
+  <option value="1516">рябина черноплодная, г</option>
+
+  <option value="1517">рябчик, г</option>
+
+  <option value="1518">ряженка, г</option>
+
+  <option value="1519">ряженка 4%, г</option>
+
+  <option value="1520">сайда, г</option>
+
+  <option value="1521">сайда филе, г</option>
+
+  <option value="1522">сайра, г</option>
+
+  <option value="1523">сайра консервированная, банка</option>
+
+  <option value="1524">саке, ст. л.</option>
+
+  <option value="1525">салака, г</option>
+
+  <option value="1526">салат, г</option>
+
+  <option value="1527">салат айсберг, г</option>
+
+  <option value="1528">салат китайский, г</option>
+
+  <option value="1529">салат корн, пучок</option>
+
+  <option value="1530">салат кочанный, г</option>
+
+  <option value="1531">салат кучерявый, г</option>
+
+  <option value="1532">салат листовой, г</option>
+
+  <option value="1534">салат романо, г</option>
+
+  <option value="1535">салат фриссе, г</option>
+
+  <option value="1533">салатный микс, г</option>
+
+  <option value="1536">сало, г</option>
+
+  <option value="1537">сало копченое в перце, г</option>
+
+  <option value="1538">сало копченое с мясными прослойками, г</option>
+
+  <option value="1539">сало с мясными прослойками, г</option>
+
+  <option value="1540">сальник, г</option>
+
+  <option value="1541">сальса, г</option>
+
+  <option value="1542">сальса верде, ч. л.</option>
+
+  <option value="1543">салями, г</option>
+
+  <option value="1544">салями итальянская, г</option>
+
+  <option value="1545">сардельки, г</option>
+
+  <option value="1546">сардельки копченые, г</option>
+
+  <option value="1547">сардинки маленькие, шт.</option>
+
+  <option value="1548">сардины, г</option>
+
+  <option value="1549">сардины в масле, банка</option>
+
+  <option value="1550">сахар, г</option>
+
+  <option value="1551">сахар ванильный, г</option>
+
+  <option value="1552">сахар демерара, г</option>
+
+  <option value="1553">сахар жемчужный, г</option>
+
+  <option value="1554">сахар коричневый, г</option>
+
+  <option value="1555">сахар коричневый крупнокристаллический, г</option>
+
+  <option value="1556">сахар мусковадо, горсть</option>
+
+  <option value="1566">сахар пальмовый, г</option>
+
+  <option value="1569">сахар тростниковый, г</option>
+
+  <option value="1567">сахар-рафинад, г</option>
+
+  <option value="1568">сахар-рафинад с корицей, г</option>
+
+  <option value="1557">сахарная пудра, г</option>
+
+  <option value="1558">сахарная пудра апельсиновая, г</option>
+
+  <option value="1559">сахарная пудра ванильная, г</option>
+
+  <option value="1560">сахарные жемчужинки, г</option>
+
+  <option value="1561">сахарные кондитерские украшения, горсть</option>
+
+  <option value="1562">сахарный песок, г</option>
+
+  <option value="1563">сахарный песок крупный, г</option>
+
+  <option value="1564">сахарный песок мелкий, г</option>
+
+  <option value="1565">сахарный сироп, г</option>
+
+  <option value="1570">сванская соль, г</option>
+
+  <option value="1571">свекла, г</option>
+
+  <option value="1572">свекла вареная, г</option>
+
+  <option value="1573">свекольная ботва, г</option>
+
+  <option value="1574">свекольные листья, г</option>
+
+  <option value="1575">свиная вырезка, г</option>
+
+  <option value="1576">свиная голова, г</option>
+
+  <option value="1577">свиная грудинка, г</option>
+
+  <option value="1578">свиная корейка, г</option>
+
+  <option value="1579">свиная корейка копченая, г</option>
+
+  <option value="1580">свиная корейка на кости, г</option>
+
+  <option value="1581">свиная лопатка варено-копченая, г</option>
+
+  <option value="1582">свиная мякоть, г</option>
+
+  <option value="1583">свиная пашина, кг</option>
+
+  <option value="1584">свиная печень, г</option>
+
+  <option value="1585">свиная рулька, по вкусу</option>
+
+  <option value="1586">свиная рулька варено-копченая, г</option>
+
+  <option value="1587">свиная рулька копченая, г</option>
+
+  <option value="1588">свиная шейка, кусок</option>
+
+  <option value="1589">свинина, г</option>
+
+  <option value="1590">свинина вареная, г</option>
+
+  <option value="1591">свинина нежирная, г</option>
+
+  <option value="1592">свинина с жирком, г</option>
+
+  <option value="1593">свиное сердце, г</option>
+
+  <option value="1594">свиное филе, г</option>
+
+  <option value="1595">свиной подчеревок, г</option>
+
+  <option value="1596">свиной фарш, г</option>
+
+  <option value="1597">свиной язык, г</option>
+
+  <option value="1598">свиные котлеты на косточке, шт.</option>
+
+  <option value="1599">свиные легкие, г</option>
+
+  <option value="1600">свиные ножки, г</option>
+
+  <option value="1601">свиные отбивные, г</option>
+
+  <option value="1602">свиные отбивные на косточке, г</option>
+
+  <option value="1603">свиные ребра, г</option>
+
+  <option value="1604">свиные уши, шт.</option>
+
+  <option value="1605">свиные щечки, шт.</option>
+
+  <option value="1606">свити, г</option>
+
+  <option value="1607">сельдерей, г</option>
+
+  <option value="1608">сельдерей зелень, г</option>
+
+  <option value="1609">сельдерей корень, г</option>
+
+  <option value="1610">сельдерей корень сушеный, по вкусу</option>
+
+  <option value="1612">сельдерей семена, ч. л.</option>
+
+  <option value="1613">сельдерей стебли, г</option>
+
+  <option value="1611">сельдерейная соль, г</option>
+
+  <option value="1614">сельдь, г</option>
+
+  <option value="1615">сельдь слабосоленая, г</option>
+
+  <option value="1616">сельдь соленая, шт.</option>
+
+  <option value="1617">сельдь филе, г</option>
+
+  <option value="1618">семга, г</option>
+
+  <option value="1619">семга копченая, г</option>
+
+  <option value="1620">семга свежая, г</option>
+
+  <option value="1621">семга соленая, г</option>
+
+  <option value="1622">семга филе на коже, г</option>
+
+  <option value="1623">семечки, г</option>
+
+  <option value="1624">семечки смесь, ст. л.</option>
+
+  <option value="1625">семолина, г</option>
+
+  <option value="1626">сервелат варено-копченый, г</option>
+
+  <option value="1627">сибас, г</option>
+
+  <option value="1628">сидр, г</option>
+
+  <option value="1629">сироп, г</option>
+
+  <option value="1630">сироп от консервированных груш, г</option>
+
+  <option value="1631">сироп от консервированных персиков, ст. л.</option>
+
+  <option value="1632">сироп топинамбура, стакан</option>
+
+  <option value="1633">скумбрия, по вкусу</option>
+
+  <option value="1634">скумбрия свежая, г</option>
+
+  <option value="1635">скумбрия филе, г</option>
+
+  <option value="1636">скумбрия холодного копчения, г</option>
+
+  <option value="1637">сливки, упаковка</option>
+
+  <option value="1638">сливки 10-20%, г</option>
+
+  <option value="1639">сливки 15%, г</option>
+
+  <option value="1640">сливки 20%, г</option>
+
+  <option value="1641">сливки 33-35%, г</option>
+
+  <option value="1642">сливки жирные, г</option>
+
+  <option value="1643">сливки кондитерские, г</option>
+
+  <option value="1644">сливовая паста, г</option>
+
+  <option value="1645">сливовое варенье, г</option>
+
+  <option value="1646">сливовое вино, г</option>
+
+  <option value="1647">сливовый джем, г</option>
+
+  <option value="1648">сливовый ликер, ст. л.</option>
+
+  <option value="1649">сливовый соус, г</option>
+
+  <option value="1650">сливочное масло, г</option>
+
+  <option value="1651">сливы, кг</option>
+
+  <option value="1652">сливы замороженные, г</option>
+
+  <option value="1653">смалец, г</option>
+
+  <option value="1654">смесь для кекса, шт.</option>
+
+  <option value="1655">смесь для оладий, г</option>
+
+  <option value="1656">смесь для хлеба 8 злаков, г</option>
+
+  <option value="1657">сметана, г</option>
+
+  <option value="1658">сметана 10%, г</option>
+
+  <option value="1659">сметана 15%, ч. л.</option>
+
+  <option value="1660">сметана 18%, г</option>
+
+  <option value="1661">сметана 20%, г</option>
+
+  <option value="1662">сметана 25%, г</option>
+
+  <option value="1663">сметана 30%, г</option>
+
+  <option value="1664">сметана 35%, г</option>
+
+  <option value="1665">сметана жирная, г</option>
+
+  <option value="1666">сметана нежирная, г</option>
+
+  <option value="1667">сметана некислая, г</option>
+
+  <option value="1668">смородина сушеная, г</option>
+
+  <option value="1669">смородиновые листья, г</option>
+
+  <option value="1670">сморчки сухие, г</option>
+
+  <option value="1671">снежок, л</option>
+
+  <option value="1672">сныть, г</option>
+
+  <option value="1673">сода, г</option>
+
+  <option value="1674">соевая мука, г</option>
+
+  <option value="1675">соевое масло, г</option>
+
+  <option value="1676">соевое молоко, г</option>
+
+  <option value="1677">соевые ростки, г</option>
+
+  <option value="1678">соевый соус, г</option>
+
+  <option value="1679">сок, г</option>
+
+  <option value="1680">сок из красных апельсинов, мл</option>
+
+  <option value="1681">сок мультивитаминный, мл</option>
+
+  <option value="1682">сок юзу, мл</option>
+
+  <option value="1683">солод, ч. л.</option>
+
+  <option value="1684">солод жидкий, г</option>
+
+  <option value="1686">солод темный, г</option>
+
+  <option value="1685">солодовый экстракт, г</option>
+
+  <option value="1687">соломка, г</option>
+
+  <option value="1688">соль, г</option>
+
+  <option value="1689">соль гималайская, г</option>
+
+  <option value="1690">соль крупного помола, г</option>
+
+  <option value="1691">соль морская, г</option>
+
+  <option value="1692">сом филе, г</option>
+
+  <option value="1693">сосиски, г</option>
+
+  <option value="1694">сосиски из куриного фарша, шт.</option>
+
+  <option value="1695">сосиски копченые, г</option>
+
+  <option value="1696">соус, г</option>
+
+  <option value="1697">соус black bean, ст. л.</option>
+
+  <option value="1698">соус sambal oelek, ч. л.</option>
+
+  <option value="1699">соус барбекю, г</option>
+
+  <option value="1700">соус краснодарский, г</option>
+
+  <option value="1701">соус красный острый, г</option>
+
+  <option value="1702">соус мирин, по вкусу</option>
+
+  <option value="1703">соус наршараб, г</option>
+
+  <option value="1704">соус острый, г</option>
+
+  <option value="1705">соус песто, по вкусу</option>
+
+  <option value="1706">соус сацебели, г</option>
+
+  <option value="1707">соус табаско, капля</option>
+
+  <option value="1708">соус терияки, г</option>
+
+  <option value="1709">соус ткемали, стакан</option>
+
+  <option value="1710">соус ткемали благородный, г</option>
+
+  <option value="1711">соус ткемали ранний, ст. л.</option>
+
+  <option value="1712">соус устричный, ч. л.</option>
+
+  <option value="1713">соус чили, г</option>
+
+  <option value="1714">соус чили сладкий, ч. л.</option>
+
+  <option value="1715">соус экзотический, г</option>
+
+  <option value="1716">соя, г</option>
+
+  <option value="1717">спагетти, г</option>
+
+  <option value="1720">спагетти лунги, г</option>
+
+  <option value="1718">спагетти № 3, г</option>
+
+  <option value="1719">спагетти № 5, г</option>
+
+  <option value="1721">спаржа, кг</option>
+
+  <option value="1722">спаржа белая, г</option>
+
+  <option value="1723">спаржа зеленая, г</option>
+
+  <option value="1724">спаржа молодая, г</option>
+
+  <option value="1725">спек, г</option>
+
+  <option value="1726">спельта, стакан</option>
+
+  <option value="1727">спельтовая (полбяная) мука, г</option>
+
+  <option value="1728">специи, г</option>
+
+  <option value="1729">спирт, г</option>
+
+  <option value="1730">спирулина порошок, г</option>
+
+  <option value="1731">спред, г</option>
+
+  <option value="1732">ставрида, г</option>
+
+  <option value="1733">стейк семги, шт.</option>
+
+  <option value="1734">стейк семги, г</option>
+
+  <option value="1735">стеклянная лапша, г</option>
+
+  <option value="1736">страчателла, г</option>
+
+  <option value="1737">судак, г</option>
+
+  <option value="1738">судак филе, г</option>
+
+  <option value="1739">судак филе на коже, г</option>
+
+  <option value="1740">сулугуни, г</option>
+
+  <option value="1741">сулугуни копченый, г</option>
+
+  <option value="1742">сумах, г</option>
+
+  <option value="1743">суповой набор, г</option>
+
+  <option value="1744">сухари, по вкусу</option>
+
+  <option value="1745">сухари белые, г</option>
+
+  <option value="1746">сухари молотые, г</option>
+
+  <option value="1747">сухари панировочные, г</option>
+
+  <option value="1748">сухари ржаные, г</option>
+
+  <option value="1749">сухарная крошка, г</option>
+
+  <option value="1750">сухофрукты, г</option>
+
+  <option value="1751">сухофрукты тропические, по вкусу</option>
+
+  <option value="1752">сушки, г</option>
+
+  <option value="1753">сыворотка, г</option>
+
+  <option value="1754">сыр, г</option>
+
+  <option value="1755">сыр tete de moine, г</option>
+
+  <option value="1756">сыр Австрия блю, г</option>
+
+  <option value="1776">сыр Маскарпоне, г</option>
+
+  <option value="1757">сыр адыгейский, г</option>
+
+  <option value="1758">сыр бри, г</option>
+
+  <option value="1759">сыр буко, г</option>
+
+  <option value="1760">сыр гауда, г</option>
+
+  <option value="1761">сыр гойя, г</option>
+
+  <option value="1762">сыр голландский, г</option>
+
+  <option value="1763">сыр голубой, г</option>
+
+  <option value="1764">сыр гравьера, г</option>
+
+  <option value="1765">сыр джугас, г</option>
+
+  <option value="1766">сыр домашний, г</option>
+
+  <option value="1767">сыр дорблю, г</option>
+
+  <option value="1768">сыр имеретинский, г</option>
+
+  <option value="1769">сыр кефалотири, г</option>
+
+  <option value="1771">сыр козий мягкий, г</option>
+
+  <option value="1772">сыр козий твердый, г</option>
+
+  <option value="1773">сыр колбасный, г</option>
+
+  <option value="1774">сыр копченый, г</option>
+
+  <option value="1775">сыр коттедж, г</option>
+
+  <option value="1777">сыр мраморный, г</option>
+
+  <option value="1778">сыр мягкий, по вкусу</option>
+
+  <option value="1779">сыр овечий, г</option>
+
+  <option value="1780">сыр панир, г</option>
+
+  <option value="1781">сыр пеше миньон, г</option>
+
+  <option value="1782">сыр плавленый, г</option>
+
+  <option value="1783">сыр плавленый шоколадный, г</option>
+
+  <option value="1784">сыр пластинками, г</option>
+
+  <option value="1785">сыр полутвердый, г</option>
+
+  <option value="1786">сыр провола, г</option>
+
+  <option value="1787">сыр российский, г</option>
+
+  <option value="1791">сыр с плесенью, г</option>
+
+  <option value="1792">сыр с плесенью мягкий, г</option>
+
+  <option value="1788">сыр скаморца, г</option>
+
+  <option value="1789">сыр скаморца копченый, г</option>
+
+  <option value="1790">сыр сливочный, г</option>
+
+  <option value="1793">сыр твердый, г</option>
+
+  <option value="1794">сыр филадельфия, г</option>
+
+  <option value="1795">сыр фонтина, г</option>
+
+  <option value="1796">сыр хаварти, г</option>
+
+  <option value="1797">сыр швейцарский, г</option>
+
+  <option value="1770">сырки творожные, г</option>
+
+  <option value="1798">сычужный фермент, ч. л.</option>
+
+  <option value="1799">таледжо, г</option>
+
+  <option value="1800">тальолини, г</option>
+
+  <option value="1801">тальятелле, г</option>
+
+  <option value="1802">тальятелле-гнезда, шт.</option>
+
+  <option value="1803">тамаринд, шт.</option>
+
+  <option value="1804">тамариндовая паста, ч. л.</option>
+
+  <option value="1805">тапиока, г</option>
+
+  <option value="1806">тарталетки, по вкусу</option>
+
+  <option value="1807">тартар, ст. л.</option>
+
+  <option value="1808">тархун, г</option>
+
+  <option value="1809">творог, г</option>
+
+  <option value="1810">творог 18%, г</option>
+
+  <option value="1811">творог 2%, г</option>
+
+  <option value="1812">творог 5%, г</option>
+
+  <option value="1813">творог 9%, г</option>
+
+  <option value="1814">творог жирный, г</option>
+
+  <option value="1815">творог зерненый, г</option>
+
+  <option value="1816">творог обезжиренный, г</option>
+
+  <option value="1817">творожная масса, г</option>
+
+  <option value="1818">творожная паста, г</option>
+
+  <option value="1819">творожный сыр, г</option>
+
+  <option value="1820">творожный сыр соленый, г</option>
+
+  <option value="1821">творожок клубничный, г</option>
+
+  <option value="1822">текила, стакан</option>
+
+  <option value="1823">телятина, по вкусу</option>
+
+  <option value="1824">телятина вареная, г</option>
+
+  <option value="1825">телячий фарш, г</option>
+
+  <option value="1826">телячьи отбивные на косточке, шт.</option>
+
+  <option value="1827">телячьи шницели, шт.</option>
+
+  <option value="1828">телячьи эскалопы, г</option>
+
+  <option value="1829">телячья вырезка, г</option>
+
+  <option value="1830">телячья печень, г</option>
+
+  <option value="1831">телячья щека, шт.</option>
+
+  <option value="1832">тесто бездрожжевое, г</option>
+
+  <option value="1833">тесто готовое, г</option>
+
+  <option value="1834">тесто для вонтонов, г</option>
+
+  <option value="1835">тесто для пиццы, шт.</option>
+
+  <option value="1836">тесто дрожжевое, по вкусу</option>
+
+  <option value="1837">тесто катаифи, г</option>
+
+  <option value="1838">тесто макаронное, г</option>
+
+  <option value="1839">тесто макаронное для лазаньи, г</option>
+
+  <option value="1840">тесто пельменное, г</option>
+
+  <option value="1841">тесто песочное, по вкусу</option>
+
+  <option value="1842">тесто пресное, г</option>
+
+  <option value="1843">тесто пряничное, г</option>
+
+  <option value="1844">тесто слоеное, г</option>
+
+  <option value="1845">тесто слоеное бездрожжевое, по вкусу</option>
+
+  <option value="1846">тесто слоеное дрожжевое, кг</option>
+
+  <option value="1847">тесто фило, г</option>
+
+  <option value="1848">тилапия, г</option>
+
+  <option value="1849">тилапия филе, г</option>
+
+  <option value="1850">тильзитер, г</option>
+
+  <option value="1851">тимьян, горсть</option>
+
+  <option value="1852">тимьян лимонный, веточка</option>
+
+  <option value="1853">тимьян свежий, по вкусу</option>
+
+  <option value="1854">тимьян сушеный, г</option>
+
+  <option value="1855">ткемали, г</option>
+
+  <option value="1856">тмин, г</option>
+
+  <option value="1857">тмин молотый, г</option>
+
+  <option value="1858">томатная паста, г</option>
+
+  <option value="1859">томатное пюре, г</option>
+
+  <option value="1860">томатный концентрат, г</option>
+
+  <option value="1861">томатный порошок, г</option>
+
+  <option value="1862">томатный сок, г</option>
+
+  <option value="1863">томатный соус, г</option>
+
+  <option value="1864">томатный соус итальянский, г</option>
+
+  <option value="1865">томатный соус острый, г</option>
+
+  <option value="1866">томатный соус с базиликом, г</option>
+
+  <option value="1867">тоник, бутылка</option>
+
+  <option value="1868">топинамбур, г</option>
+
+  <option value="1869">топленое масло, г</option>
+
+  <option value="1870">тортильи, по вкусу</option>
+
+  <option value="1871">тортильони, г</option>
+
+  <option value="1872">тофу, г</option>
+
+  <option value="1873">травы ароматные, г</option>
+
+  <option value="1874">травы пряные с перцем, ч. л.</option>
+
+  <option value="1875">травы сухие, г</option>
+
+  <option value="1876">треска, г</option>
+
+  <option value="1877">треска печень, г</option>
+
+  <option value="1878">треска филе, г</option>
+
+  <option value="1879">трюфель, г</option>
+
+  <option value="1882">трюфель черный, шт.</option>
+
+  <option value="1880">трюфельная крошка, г</option>
+
+  <option value="1881">трюфельное масло, ст. л.</option>
+
+  <option value="1883">тунец, по вкусу</option>
+
+  <option value="1884">тунец консервированный, г</option>
+
+  <option value="1885">тунец филе, г</option>
+
+  <option value="1886">тушенка, г</option>
+
+  <option value="1887">тыква, г</option>
+
+  <option value="1888">тыквенное масло, шт.</option>
+
+  <option value="1889">тыквенное пюре, г</option>
+
+  <option value="1890">тыквенные семечки, г</option>
+
+  <option value="1891">тюлька свежая, г</option>
+
+  <option value="1892">угорь, г</option>
+
+  <option value="1893">угорь копченый, г</option>
+
+  <option value="1894">угурт, г</option>
+
+  <option value="1895">укроп, г</option>
+
+  <option value="1897">укроп свежий, г</option>
+
+  <option value="1898">укроп сушеный, г</option>
+
+  <option value="1896">укропное семя, ч. л.</option>
+
+  <option value="1899">уксус, г</option>
+
+  <option value="1900">уксус 9%, г</option>
+
+  <option value="1901">уксус из сидра, ст. л.</option>
+
+  <option value="1903">уксус столовый, г</option>
+
+  <option value="1902">уксусная эссенция, г</option>
+
+  <option value="1904">улитки, г</option>
+
+  <option value="1905">улитки виноградные, шт.</option>
+
+  <option value="1906">урюк, г</option>
+
+  <option value="1907">устрицы, г</option>
+
+  <option value="1908">утиная грудка, г</option>
+
+  <option value="1909">утиная печень, г</option>
+
+  <option value="1910">утиное филе, г</option>
+
+  <option value="1911">утиные бедрышки, г</option>
+
+  <option value="1912">утиные ножки, по вкусу</option>
+
+  <option value="1913">утка, по вкусу</option>
+
+  <option value="1914">утка печеная, г</option>
+
+  <option value="1915">утка тушка, тушка</option>
+
+  <option value="1916">уцхо-сунели, г</option>
+
+  <option value="1917">фазан, г</option>
+
+  <option value="1918">фарш (баранина и говядина), г</option>
+
+  <option value="1919">фарш (свинина и курица), г</option>
+
+  <option value="1920">фасоль, г</option>
+
+  <option value="1921">фасоль белая, г</option>
+
+  <option value="1922">фасоль белая консервированная, г</option>
+
+  <option value="1923">фасоль белая лима, г</option>
+
+  <option value="1924">фасоль зеленая стручковая, г</option>
+
+  <option value="1925">фасоль кенийская, горсть</option>
+
+  <option value="1926">фасоль кидни красная, г</option>
+
+  <option value="1927">фасоль консервированная, г</option>
+
+  <option value="1928">фасоль красная, г</option>
+
+  <option value="1929">фасоль красная вареная, стакан</option>
+
+  <option value="1930">фасоль красная консервированная, г</option>
+
+  <option value="1931">фасоль молодая замороженная, г</option>
+
+  <option value="1932">фасоль пинто, г</option>
+
+  <option value="1933">фасоль спаржевая вареная, г</option>
+
+  <option value="1934">фасоль стручковая, г</option>
+
+  <option value="1935">фасоль стручковая замороженная, г</option>
+
+  <option value="1936">фасоль стручковая консервированная, г</option>
+
+  <option value="1937">фасоль черный глаз, г</option>
+
+  <option value="1938">фейхоа, г</option>
+
+  <option value="1939">фенхель, г</option>
+
+  <option value="1940">фенхель семена, г</option>
+
+  <option value="1941">фенхель семена молотые, г</option>
+
+  <option value="1942">фестонате, г</option>
+
+  <option value="1943">фета, г</option>
+
+  <option value="1944">фетаки, г</option>
+
+  <option value="1945">фетакса, г</option>
+
+  <option value="1946">феттучине, г</option>
+
+  <option value="1947">фиалки засахаренные, шт.</option>
+
+  <option value="1948">фиалковый сироп, г</option>
+
+  <option value="1949">физалис, по вкусу</option>
+
+  <option value="1950">филе красного окуня, шт.</option>
+
+  <option value="1951">филе лосося, г</option>
+
+  <option value="1952">филе палтуса, шт.</option>
+
+  <option value="1953">финики, г</option>
+
+  <option value="1954">финики без косточек, стакан</option>
+
+  <option value="1955">финики иранские, г</option>
+
+  <option value="1956">финики иранские без косточек, шт.</option>
+
+  <option value="1957">фисташки, г</option>
+
+  <option value="1958">фисташки очищенные, г</option>
+
+  <option value="1959">фисташки очищенные несоленые, горсть</option>
+
+  <option value="1960">фисташки рубленые, г</option>
+
+  <option value="1961">фисташковая мука, г</option>
+
+  <option value="1962">фисташковая паста, г</option>
+
+  <option value="1963">фисташковое масло, г</option>
+
+  <option value="1964">фокачча, по вкусу</option>
+
+  <option value="1965">форель, г</option>
+
+  <option value="1966">форель вареная, г</option>
+
+  <option value="1967">форель горячего копчения, г</option>
+
+  <option value="1968">форель озерная свежая, шт.</option>
+
+  <option value="1969">форель слабосоленая, г</option>
+
+  <option value="1970">форель стейки, шт.</option>
+
+  <option value="1971">форель филе, г</option>
+
+  <option value="1972">форель холодного копчения, г</option>
+
+  <option value="1973">фрикадельки, г</option>
+
+  <option value="1974">фрукт дракона, шт.</option>
+
+  <option value="1975">фруктовый сироп, г</option>
+
+  <option value="1976">фруктовый сок, г</option>
+
+  <option value="1977">фруктовый сок без сахара, стакан</option>
+
+  <option value="1978">фруктоза, г</option>
+
+  <option value="1979">фрукты, г</option>
+
+  <option value="1980">фрукты консервированные, г</option>
+
+  <option value="1981">фундук, г</option>
+
+  <option value="1982">фундучная мука, г</option>
+
+  <option value="1983">фунчоза, г</option>
+
+  <option value="1984">халва, г</option>
+
+  <option value="1985">халва ванильная, г</option>
+
+  <option value="1986">халва подсолнечная, г</option>
+
+  <option value="1987">халуми, г</option>
+
+  <option value="1988">хамон, г</option>
+
+  <option value="1989">хек, г</option>
+
+  <option value="1990">хек филе, г</option>
+
+  <option value="1991">херес, стакан</option>
+
+  <option value="1992">хересный уксус, ч. л.</option>
+
+  <option value="1993">хлеб, г</option>
+
+  <option value="1994">хлеб 7 злаков, батон</option>
+
+  <option value="1995">хлеб белый, г</option>
+
+  <option value="1996">хлеб белый сухой, г</option>
+
+  <option value="1997">хлеб бородинский, кусок</option>
+
+  <option value="1998">хлеб датский ржаной, г</option>
+
+  <option value="1999">хлеб для сэндвичей, г</option>
+
+  <option value="2001">хлеб ржаной, г</option>
+
+  <option value="2003">хлеб с кунжутом, кусок</option>
+
+  <option value="2002">хлеб серый, г</option>
+
+  <option value="2004">хлеб цельнозерновой, г</option>
+
+  <option value="2000">хлебная крошка, г</option>
+
+  <option value="2005">хлебцы пшенично-ржаные цельнозерновые, г</option>
+
+  <option value="2006">хлопья 4 злака, г</option>
+
+  <option value="2007">хлопья 5 злаков, г</option>
+
+  <option value="2008">хлопья 7 злаков, ст. л.</option>
+
+  <option value="2009">хлопья быстрого приготовления, стакан</option>
+
+  <option value="2010">хлорид кальция, г</option>
+
+  <option value="2011">хмели-сунели, г</option>
+
+  <option value="2012">хмель, ст. л.</option>
+
+  <option value="2013">хрен, г</option>
+
+  <option value="2014">хрен протертый, г</option>
+
+  <option value="2015">хрен со сливками, г</option>
+
+  <option value="2016">хурма, г</option>
+
+  <option value="2017">хурма спелая, г</option>
+
+  <option value="2018">цесарка тушка, г</option>
+
+  <option value="2019">цикорий, ч. л.</option>
+
+  <option value="2020">цитроновые цукаты, горсть</option>
+
+  <option value="2021">цитрусовые цукаты, шт.</option>
+
+  <option value="2022">цитрусовый свежевыжатый сок, мл</option>
+
+  <option value="2023">цукаты, г</option>
+
+  <option value="2024">цукини, г</option>
+
+  <option value="2025">цукини цветы, шт.</option>
+
+  <option value="2026">цыплята, г</option>
+
+  <option value="2027">цыплята-корнишоны, шт.</option>
+
+  <option value="2028">чабер, г</option>
+
+  <option value="2029">чабрец, г</option>
+
+  <option value="2030">чабрец сушеный, г</option>
+
+  <option value="2031">чай дарджилинг, пакетик</option>
+
+  <option value="2032">чай жасминовый, ст. л.</option>
+
+  <option value="2033">чай зеленый, пакетик</option>
+
+  <option value="2034">чай копченый лапсанг сушонг, г</option>
+
+  <option value="2035">чай красный, г</option>
+
+  <option value="2036">чай ройбуш, ст. л.</option>
+
+  <option value="2037">чай черный, г</option>
+
+  <option value="2038">чай черный крупнолистовой, ч. л.</option>
+
+  <option value="2039">чай черный со специями, пакет</option>
+
+  <option value="2040">чай эрл грей, стакан</option>
+
+  <option value="2041">чатни манго, г</option>
+
+  <option value="2042">чеддер, г</option>
+
+  <option value="2043">черемуха, г</option>
+
+  <option value="2044">черемуховая мука, г</option>
+
+  <option value="2045">черемша, г</option>
+
+  <option value="2046">черешневый джем, г</option>
+
+  <option value="2047">черешня, г</option>
+
+  <option value="2048">черешня консервированная без косточек, ст. л.</option>
+
+  <option value="2049">черная смородина, г</option>
+
+  <option value="2050">черника, г</option>
+
+  <option value="2051">черника замороженная, г</option>
+
+  <option value="2052">чернила каракатицы, г</option>
+
+  <option value="2053">черничный джем, стакан</option>
+
+  <option value="2054">чернослив, г</option>
+
+  <option value="2055">чернослив без косточек, г</option>
+
+  <option value="2056">чернослив вяленый, г</option>
+
+  <option value="2057">чернослив копченый без косточек, г</option>
+
+  <option value="2058">черносмородиновое варенье, г</option>
+
+  <option value="2059">черносмородиновый джем, г</option>
+
+  <option value="2060">чеснок, г</option>
+
+  <option value="2061">чеснок молодой, г</option>
+
+  <option value="2062">чеснок сушеный, г</option>
+
+  <option value="2063">чесночная соль, щепотка</option>
+
+  <option value="2064">чесночное масло, по вкусу</option>
+
+  <option value="2065">чесночный порошок, г</option>
+
+  <option value="2066">чечевица, г</option>
+
+  <option value="2067">чечевица вареная, ст. л.</option>
+
+  <option value="2068">чечевица зеленая, г</option>
+
+  <option value="2069">чечевица красная, г</option>
+
+  <option value="2070">чечил спагетти, г</option>
+
+  <option value="2072">чиа семена, г</option>
+
+  <option value="2071">чиабатта, кусок</option>
+
+  <option value="2073">чипотле молотый, щепотка</option>
+
+  <option value="2074">чипсы, г</option>
+
+  <option value="2075">чоризо, г</option>
+
+  <option value="2076">шалфей, г</option>
+
+  <option value="2077">шалфей свежий, пучок</option>
+
+  <option value="2078">шалфей сушеный, лист</option>
+
+  <option value="2079">шампанское, г</option>
+
+  <option value="2080">шампанское советское, стакан</option>
+
+  <option value="2081">шампанское сухое, ст. л.</option>
+
+  <option value="2082">шампиньоны, по вкусу</option>
+
+  <option value="2083">шампиньоны замороженные, г</option>
+
+  <option value="2084">шампиньоны консервированные, г</option>
+
+  <option value="2085">шампиньоны маринованные, г</option>
+
+  <option value="2086">шампиньоны свежие, г</option>
+
+  <option value="2087">шафран, г</option>
+
+  <option value="2088">шафран имеретинский, г</option>
+
+  <option value="2089">шафран молотый, ч. л.</option>
+
+  <option value="2090">шафран нити, шт.</option>
+
+  <option value="2091">шелковица, г</option>
+
+  <option value="2092">шелковица сушеная, г</option>
+
+  <option value="2093">шиповник, г</option>
+
+  <option value="2094">шиповниковый сироп, г</option>
+
+  <option value="2095">шнапс, г</option>
+
+  <option value="2096">шнитт-лук, стебель</option>
+
+  <option value="2097">шоколад, г</option>
+
+  <option value="2098">шоколад белый, г</option>
+
+  <option value="2099">шоколад горький с апельсиновой цедрой, г</option>
+
+  <option value="2100">шоколад молочный, г</option>
+
+  <option value="2101">шоколад мятный, г</option>
+
+  <option value="2115">шоколад полусладкий, г</option>
+
+  <option value="2116">шоколад с орехами, г</option>
+
+  <option value="2117">шоколад черный горький, г</option>
+
+  <option value="2118">шоколад черный горький 70%, г</option>
+
+  <option value="2119">шоколад черный горький 75%, ч. л.</option>
+
+  <option value="2120">шоколад черный горький 85%, г</option>
+
+  <option value="2102">шоколадная паста, г</option>
+
+  <option value="2103">шоколадная стружка, г</option>
+
+  <option value="2105">шоколадно-ореховая паста, г</option>
+
+  <option value="2104">шоколадное масло, г</option>
+
+  <option value="2106">шоколадные горошины, г</option>
+
+  <option value="2107">шоколадные капли, г</option>
+
+  <option value="2108">шоколадные капли белые, г</option>
+
+  <option value="2109">шоколадные конфеты, г</option>
+
+  <option value="2110">шоколадные хлопья, г</option>
+
+  <option value="2111">шоколадные шарики из готовых завтраков, горсть</option>
+
+  <option value="2112">шоколадный ликер, г</option>
+
+  <option value="2113">шоколадный сироп, г</option>
+
+  <option value="2114">шоколадный соус, г</option>
+
+  <option value="2121">шортенинг, стакан</option>
+
+  <option value="2122">шпик, шт.</option>
+
+  <option value="2123">шпик копченый, г</option>
+
+  <option value="2124">шпинат, г</option>
+
+  <option value="2125">шпинат замороженный, г</option>
+
+  <option value="2126">шпинат молодой, г</option>
+
+  <option value="2127">шпинат свежий, г</option>
+
+  <option value="2128">шпроты, г</option>
+
+  <option value="2129">шпроты в масле, г</option>
+
+  <option value="2130">шрот, г</option>
+
+  <option value="2131">щавель замороженный, г</option>
+
+  <option value="2132">щавель свежий, веточка</option>
+
+  <option value="2133">щука, г</option>
+
+  <option value="2134">щука филе, г</option>
+
+  <option value="2135">эгг-ног, стакан</option>
+
+  <option value="2136">эдам, г</option>
+
+  <option value="2137">эль, мл</option>
+
+  <option value="2138">эмменталь, г</option>
+
+  <option value="2139">эскалоп, г</option>
+
+  <option value="2140">эстрагон, г</option>
+
+  <option value="2141">эстрагон сушеный, веточка</option>
+
+  <option value="2142">яблоки, г</option>
+
+  <option value="2143">яблоки антоновка, кг</option>
+
+  <option value="2144">яблоки гала, г</option>
+
+  <option value="2145">яблоки голден, г</option>
+
+  <option value="2146">яблоки гренни смит, кг</option>
+
+  <option value="2147">яблоки зеленые, г</option>
+
+  <option value="2148">яблоки красные, шт.</option>
+
+  <option value="2149">яблоки моченые, шт.</option>
+
+  <option value="2150">яблоки нетвердых сортов, г</option>
+
+  <option value="2151">яблоки сладкие, г</option>
+
+  <option value="2152">яблоки сушеные, г</option>
+
+  <option value="2153">яблочная эссенция, ч. л.</option>
+
+  <option value="2154">яблочное варенье, г</option>
+
+  <option value="2155">яблочное повидло, г</option>
+
+  <option value="2156">яблочное пюре, г</option>
+
+  <option value="2157">яблочные чипсы, стакан</option>
+
+  <option value="2158">яблочный джем, г</option>
+
+  <option value="2159">яблочный сироп, ст. л.</option>
+
+  <option value="2160">яблочный сок, г</option>
+
+  <option value="2161">яблочный соус, ст. л.</option>
+
+  <option value="2162">яблочный уксус, г</option>
+
+  <option value="2163">ягнятина, г</option>
+
+  <option value="2164">ягнятина кострец, г</option>
+
+  <option value="2165">ягнятина фарш, г</option>
+
+  <option value="2166">ягнячьи отбивные на косточке, шт.</option>
+
+  <option value="2167">ягнячья голень нарубленная, г</option>
+
+  <option value="2168">ягнячья корейка, г</option>
+
+  <option value="2169">ягодное варенье, ст. л.</option>
+
+  <option value="2170">ягодное желе, г</option>
+
+  <option value="2171">ягодный сироп, г</option>
+
+  <option value="2172">ягодный сок, г</option>
+
+  <option value="2173">ягодный соус кислый, г</option>
+
+  <option value="2174">ягоды, г</option>
+
+  <option value="2175">ягоды вяленые, по вкусу</option>
+
+  <option value="2176">ягоды замороженные, г</option>
+
+  <option value="2177">ягоды лесные, г</option>
+
+  <option value="2178">ягоды лесные замороженные, г</option>
+
+  <option value="2179">яичные белки, г</option>
+
+  <option value="2180">яичные желтки, г</option>
+
+  <option value="2181">яичные желтки вареные, шт.</option>
+
+  <option value="2182">яичные желтки крупные, г</option>
+
+  <option value="2183">яичный меланж, г</option>
+
+  <option value="2184">яичный порошок, ст. л.</option>
+
+  <option value="2185">яйца куриные, г</option>
+
+  <option value="2186">яйца куриные крупные, г</option>
+
+  <option value="2187">яйца перепелиные, г</option>
+
+  <option value="2188">японская крошка панко, г</option>
+
+  <option value="2189">ячменные хлопья, г</option>
+
+  <option value="2190">ячмень, г</option>
+
+  <option value="2191">ячневая крупа, г</option>
+
+  <option value="411">ёрш-носарь, шт.</option>
+
+</select></td></tr>
+<tr><th><label for="id_time_cooking">Time cooking:</label></th><td><input type="number" name="time_cooking" min="0" required id="id_time_cooking"></td></tr>
+<tr><th><label for="id_text">Text:</label></th><td><textarea name="text" cols="40" rows="10" required id="id_text">
+</textarea></td></tr>
+<tr><th><label for="id_image">Картинка:</label></th><td><input type="file" name="image" accept="image/*" id="id_image"></td></tr>
