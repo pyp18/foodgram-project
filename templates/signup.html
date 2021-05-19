@@ -13,41 +13,54 @@
 
 <body class="body">
     <header class="header">
-        <nav class="nav">
-            <div class="nav__container container">
-                <ul class="nav__items list">
-                    <li class="nav__item nav__item_disabled"><a href="#" class="nav__link link">Рецепты</a></li>
-                    <li class="nav__item nav__item_disabled"><a href="#" class="nav__link link">Список покупок</a></li>
-                </ul>
-                <ul class="nav__items list">
-                    <li class="nav__item"><a href="#" class="nav__link link">Войти</a></li>
-                    <li class="nav__item"><a href="#" class="button button_style_blue">Создать аккаунт</a></li>
-                </ul>
-            </div>
-        </nav>
+        {% include 'navbar.html' %}
     </header>
     <main class="main container">
         <div class="main__header">
             <h1 class="main__title">Регистрация</h1>
         </div>
         <div class="form-container">
-            <form class="form">
-                {% for field in form %}
+            <form class="form" method="post">
+                {% csrf_token %}
                 <div class="form__group">
-                    <label for="id_password" class="form__label">{{ field }}</label>
+                    <label for="id_first_name" class="form__label">Имя</label>
                     <div class="form__field-group">
-                        {{ field.label }}
+                        <input type="text" name="first_name" id="id_first_name" class="form__input">
                         <span class="form__error"></span>
                     </div>
                 </div>
-                {% endfor %}
+                <div class="form__group">
+                    <label for="id_username" class="form__label">Имя пользователя</label>
+                    <div class="form__field-group">
+                        <input type="text" name="username" id="id_username" class="form__input">
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="id_email" class="form__label">Адрес электронной почты</label>
+                    <div class="form__field-group">
+                        <input type="email" name="email" id="id_email" class="form__input">
+                        <span class="form__error"></span>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="id_password1" class="form__label">Пароль</label>
+                    <div class="form__field-group">
+                        <input type="password" name="password1" id="id_password1" class="form__input">
+                        <span class="form__error"></span>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="id_password2" class="form__label">Повторите пароль</label>
+                    <div class="form__field-group">
+                        <input type="password" name="password2" id="id_password2" class="form__input">
+                        <span class="form__error"></span>
+                    </div>
+                </div>
                 <div class="form__footer">
-                    <button class="button button_style_blue" button type="submit">Создать аккаунт</button>
+                    <button class="button button_style_blue">Создать аккаунт</button>
                 </div>
             </form>
         </div>
-
-
     </main>
     <footer class="footer">
         <div class="footer__container container">

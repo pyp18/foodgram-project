@@ -1,9 +1,22 @@
+from typing import Optional
 from django.db import models
 from django import forms
 from django.contrib.auth import get_user_model
 from django.db.models.deletion import CASCADE
+from django.db.models.expressions import Exists
+from django.db.models import OuterRef, Exists
 # Create your models here.
 User = get_user_model()
+
+
+class RecipeQuerySet(models.QuerySet):
+    def with_is_favorite(self, user_id: Optional[int]):
+        return self.annotate(is_favorite=Exists(
+            Favourite.objects.filter(
+                user_id=user_id,
+                recipe_id=OuterRef('pk'),
+            ),
+        ))
 
 class Tag(models.Model):
     class ChoiceTag(models.TextChoices):
@@ -37,12 +50,13 @@ class Recipe(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipes', verbose_name='Автор')
     title = models.CharField(max_length=150, verbose_name='Название рецепта')
     image = models.ImageField(upload_to="images/", blank=True, null=True, verbose_name='Картинка')
-    text = models.TextField()
+    text = models.TextField(verbose_name='Описание')
     tag = models.ManyToManyField(Tag, related_name='tag')
     time_cooking = models.PositiveIntegerField()
     slug = models.SlugField(max_length=40, unique=True)
     ingredient = models.ManyToManyField(Ingredient, through="RecipeIngredient")
     pub_date = models.DateTimeField("date published", auto_now_add=True)
+    objects = RecipeQuerySet.as_manager()
 
     class Meta:
         ordering = ('-pub_date', )

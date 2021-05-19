@@ -4392,6 +4392,6 @@
 
 </select></td></tr>
 <tr><th><label for="id_time_cooking">Time cooking:</label></th><td><input type="number" name="time_cooking" min="0" required id="id_time_cooking"></td></tr>
-<tr><th><label for="id_text">Text:</label></th><td><textarea name="text" cols="40" rows="10" required id="id_text">
+<tr><th><label for="id_text">Описание:</label></th><td><textarea name="text" cols="40" rows="10" required id="id_text">
 </textarea></td></tr>
 <tr><th><label for="id_image">Картинка:</label></th><td><input type="file" name="image" accept="image/*" id="id_image"></td></tr>
