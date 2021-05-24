@@ -12,26 +12,34 @@ User = get_user_model()
 class RecipeQuerySet(models.QuerySet):
     def with_is_favorite(self, user_id: Optional[int]):
         return self.annotate(is_favorite=Exists(
-            Favourite.objects.filter(
+            Favorite.objects.filter(
                 user_id=user_id,
                 recipe_id=OuterRef('pk'),
             ),
         ))
 
-class Tag(models.Model):
-    class ChoiceTag(models.TextChoices):
-        breakfast = 'Завтрак'
-        lunch = 'Обед'
-        dinner = 'Ужин'
 
+class Tag(models.Model):
+
+    MEALS = (
+        ('Завтрак', 'breakfast'),
+        ('Обед', 'lunch'),
+        ('Ужин', 'dinner'),
+    )
     title = models.CharField(
+        verbose_name='Название тега',
         max_length=100,
         unique=True,
-        choices=ChoiceTag.choices
+        choices=MEALS
     )
+    display_name = models.CharField(
+        max_length=20, verbose_name='Имя тега в шаблоне', default='Name')
+    color = models.CharField(
+        max_length=50, verbose_name='Цвет тега', default="Red")
 
     def __str__(self):
-        return self.title
+        return f'{self.title}'
+
 
 class Ingredient(models.Model):
     title = models.CharField(max_length=150, verbose_name='Название')
@@ -47,13 +55,15 @@ class Ingredient(models.Model):
 
 
 class Recipe(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipes', verbose_name='Автор')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='recipes', verbose_name='Автор')
     title = models.CharField(max_length=150, verbose_name='Название рецепта')
-    image = models.ImageField(upload_to="images/", blank=True, null=True, verbose_name='Картинка')
+    image = models.ImageField(
+        upload_to="images/", blank=True, null=True, verbose_name='Картинка')
     text = models.TextField(verbose_name='Описание')
-    tag = models.ManyToManyField(Tag, related_name='tag')
+    tags = models.ManyToManyField(Tag, related_name='tags')
     time_cooking = models.PositiveIntegerField()
-    slug = models.SlugField(max_length=40, unique=True)
+    slug = models.SlugField(max_length=40, unique=False)
     ingredient = models.ManyToManyField(Ingredient, through="RecipeIngredient")
     pub_date = models.DateTimeField("date published", auto_now_add=True)
     objects = RecipeQuerySet.as_manager()
@@ -66,19 +76,35 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
+
 class RecipeIngredient(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=CASCADE)
-    Ingredient = models.ForeignKey(Ingredient, on_delete=CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     count = models.PositiveIntegerField()
-    
+
     def __str__(self):
-        return f"{self.Ingredient}, {self.recipe}"
+        return f"{self.ingredient}, {self.recipe}"
 
 
-
-class Favourite(models.Model):
-    user = models.ForeignKey(User, on_delete=CASCADE, related_name = 'favourites', verbose_name = 'пользователь')
-    recipe = models.ForeignKey(Recipe, on_delete=CASCADE, related_name = 'favourites', verbose_name = 'рецепт')
+class Favorite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             related_name='favorites', verbose_name='пользователь')
+    recipe = models.ForeignKey(
+        Recipe, on_delete=models.CASCADE, related_name='favorites', verbose_name='рецепт')
 
     def __str__(self):
         return f'Избранный {self.recipe} у {self.user}'
+
+
+class Follow(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="follower")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="following")
+
+    class Meta:
+        unique_together = ["author", "user"]
+        verbose_name_plural = "Подписки"
+
+    def __str__(self):
+        return f'{self.user} на {self.author}'

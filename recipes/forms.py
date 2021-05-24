@@ -1,11 +1,10 @@
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from recipes.models import Ingredient, Recipe
-from django.forms import ModelForm 
+from django.forms import ModelForm
 
 User = get_user_model()
-
-
 
 
 class CreationForm(UserCreationForm):
@@ -13,30 +12,46 @@ class CreationForm(UserCreationForm):
         # укажем модель, с которой связана создаваемая форма
         model = User
         # укажем, какие поля должны быть видны в форме и в каком порядке
-        fields = ('first_name', 'last_name', 'username', 'email') 
+        fields = ('first_name', 'last_name', 'username', 'email')
 
 
+class RecipeForm(ModelForm):
 
-from django import forms 
- 
- 
-class RecipeForm(ModelForm): 
-    class Meta: 
-        # ru на основе какой модели создаётся класс формы 
+    class Meta:
         model = Recipe
-        # ru укажем, какие поля будут в форме 
-        fields = ('title', 'tag', 'ingredient', 'time_cooking', 'text', 'image') 
- 
-    def clean_text(self): 
-        data = self.cleaned_data['text'] 
-        if not data: 
-            raise forms.ValidationError('Напишите хоть что нибудь!') 
-        return data 
+        fields = (
+            'title',
+            'time_cooking',
+            'text',
+            'image',
+            'tags'
+        )
+        labels = {
+            'title': 'Название',
+            'text': 'Текст',
+            'ingredient': 'Ингредиенты',
+            'time_cooking': 'Время приготовления',
+            'tags': 'Теги',
+        }
+
+        widgets = {
+            'tags': forms.CheckboxSelectMultiple()
+        }
+
+
+class IngredientsForm(ModelForm):
+
+    class Meta:
+        model = Ingredient
+        fields = ('title', 'unit')
+        labels = {'title': 'Название', 'unit': 'Единицы  измерения'}
 
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+    first_name = forms.CharField(
+        max_length=30, required=False, help_text='Optional.')
+    email = forms.EmailField(
+        max_length=254, help_text='Required. Inform a valid email address.')
 
     class Meta:
         model = User

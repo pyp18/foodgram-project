@@ -52,6 +52,5 @@ const authorRecipeSubscribe = new AuthorRecipe(container_subscribe, '.author-sub
 });
 
 authorRecipe.addEvent();
-authorRecipeSubscribe.addEvent();
-
+//authorRecipeSubscribe.addEvent();
 

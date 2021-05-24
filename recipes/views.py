@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
-from .models import Favourite, Recipe
+from .models import Favorite, Recipe, RecipeIngredient, Ingredient, Follow
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -11,51 +11,86 @@ from django.urls import reverse_lazy
 from .forms import CreationForm
 from django.contrib.auth.decorators import login_required 
 from recipes.forms import RecipeForm
-from django.shortcuts import redirect 
-from django.contrib.auth import login, authenticate
-from .forms import SignUpForm
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status, mixins
+from django.shortcuts import redirect
+from rest_framework import viewsets
+
 
 User = get_user_model()
 
-@login_required 
-def new_recipe(request): 
-    form = RecipeForm(request.POST or None, files=request.FILES or None) 
+
+def get_ingredients(request):
+    ingredients = {}
+    for key in request.POST:
+        if key.startswith('nameIngredient'):
+            value_ingredient = key[15:]
+            ingredients[request.POST[key]] = request.POST[
+                'valueIngredient_' + value_ingredient
+            ]
+    return ingredients
+
+
+def new_recipe(request):
+    form = RecipeForm(request.POST or None, files=request.FILES or None)
+    ingredients = get_ingredients(request)
     if not form.is_valid():
-        a_file = open("test.txt", "w")
-        text = form
-        print(text, file=a_file)
-        a_file.close()
-        return render(request, 'formRecipe.html', {'form': form, 'is_new': True}) 
+        return render(request, 'formRecipe.html', {
+            'form': form,
+            'is_new': True,
+            },
+            print(form.errors)
+        )
     recipe = form.save(commit=False)
     recipe.user = request.user
-    a_file = open("test.txt", "w")
-    text = form
-    print(text, file=a_file)
-    a_file.close()
-    print("SAVED")
+    recipe.save()
+    RecipeIngredient.objects.filter(recipe=recipe).delete()
+    objs = []
+    for title, count in ingredients.items():
+        ingredient = get_object_or_404(Ingredient, title=title)
+        objs.append(RecipeIngredient(
+            recipe=recipe,
+            ingredient=ingredient,
+            count=count
+        )
+        )
+    RecipeIngredient.objects.bulk_create(objs)
+    form.save_m2m()
+    print('AOAOAOAOAOAOAOOAOAOAOAOAOAOAOAOAOAOAOAOAOA')
     return redirect('index')
 
 
-def add_to_favorite(request):
-    Favourite.objects.get_or_create(user=request.user, recipe=request.recipe.id)
+@login_required
+def profile_follow(request, username):
+    author = get_object_or_404(User, username=username)
+    following = author.following.exists()
+    if request.user != author and not following:
+        Follow.objects.get_or_create(user=request.user, author=author)
+    return redirect('profile', username=username)
 
 
+@login_required
+def profile_unfollow(request, username):
+    author = get_object_or_404(User, username=username)
+    get_object_or_404(Follow, user=request.user, author=author).delete()
+    return redirect('profile', username=username)
 
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('index')
-    else:
-        form = SignUpForm(request.POST)
-        print(form)
-        form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+
+@login_required
+def profile_follow_recipe_page(request, pk, username):
+    author = get_object_or_404(User, username=username)
+    following = author.following.exists()
+    if request.user != author and not following:
+        Follow.objects.get_or_create(user=request.user, author=author)
+    return redirect('recipe', pk=pk)
+
+
+@login_required
+def profile_unfollow_recipe_page(request, pk, username):
+    author = get_object_or_404(User, username=username)
+    get_object_or_404(Follow, user=request.user, author=author).delete()
+    return redirect('recipe', pk=pk)
 
 
 
@@ -64,7 +99,6 @@ class BaseRecipeListView(ListView):
     queryset = Recipe.objects.all()
     paginate_by = 6
     page_title = None
-
     def get_context_data(self, **kwargs):
         kwargs.update({'page_title':self.get_page_title()})
 
@@ -80,35 +114,48 @@ class IndexView(BaseRecipeListView):
     page_title = 'Recipes'
     template_name = 'ready/recipe_list.html'
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        user = self.request.user
+        qs = qs.with_is_favorite(user_id=user.id)
+
+        return qs
+
 
 class FavouriteView(LoginRequiredMixin, BaseRecipeListView):
     page_title = 'Избранное'
+    template_name = 'ready/recipe_list.html'
 
     def get_queryset(self):
         qs = super().get_queryset()
         user = self.request.user
-        qs = qs.filter(favourites__user=self.request.user).with_is_favorite(user_id=user.id)
+        qs = qs.filter(favorites__user=self.request.user).with_is_favorite(user_id=user.id)
 
         return qs
 
-class ProfileView(BaseRecipeListView):
-
-    template_name = 'ready/profile.html'
-
-    def get(self, request, *args, **kwargs):
-        self.user = get_object_or_404(User, username=kwargs.get('username'))
-
-        return super().get(request, *args, **kwargs)
+class SubscriptionsView(LoginRequiredMixin, BaseRecipeListView):
+    page_title = 'Подписки'
+    template_name = 'myFollow.html'
 
     def get_queryset(self):
-        qs = super().get_queryset()
-        qs = qs.filter(user=self.user).with_is_favorite(user_id=self.user.id)
+        qs = Follow.objects.all()
+        user = self.request.user
+        qs = qs.filter(user=user)
 
         return qs
 
-    def get_page_title(self):
-        return self.user.get_full_name()
-        
+def profile(request, username):
+    author = get_object_or_404(User, username=username)
+    page_obj = author.recipes.all()
+    following = author.following.exists()
+    context = {
+        'author': author,
+        'following': following,
+        'page_obj': page_obj,
+        'user': username
+    }
+    return render(request, 'ready/profileANDREW.html', context)
+
 
 class RecipeDetailView(DetailView):
     queryset = Recipe.objects.all()

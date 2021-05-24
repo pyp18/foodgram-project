@@ -14,7 +14,9 @@
 
 <body class="body">
     <header class="header">
-        {% include 'navbar.html' %}
+        <nav class="nav">
+            {% include 'navbar.html' %}
+        </nav>
     </header>
     <main class="main container">
         <div class="main__header">
@@ -33,21 +35,13 @@
                     <p class="form__label">Теги</p>
                     <div class="form__field-group">
                         <div class="tags">
+                            {% for tag in form.fields.tags.choices.queryset %}
                             <div class="tags__item">
-                                <input type="checkbox" name="breakfast" id="id_breakfast"
-                                    class="tags__checkbox tags__checkbox_style_orange">
-                                <label for="id_breakfast" class="tags__label">{{form.tag.1}}</label>
+                                <input type="checkbox" name="tags" value="{{ tag.id }}" id="id_{{ tag.title }}"
+                                    class="tags__checkbox tags__checkbox_style_{{ tag.color }}" checked>
+                                <label for="id_tags_{{ tag.id }}" class="tags__label">{{ tag.title }}</label>
                             </div>
-                            <div class="tags__item">
-                                <input type="checkbox" name="lunch" id="id_lunch"
-                                    class="tags__checkbox tags__checkbox_style_green" checked>
-                                <label for="id_lunch" class="tags__label">{{form.tag.2}}</label>
-                            </div>
-                            <div class="tags__item">
-                                <input type="checkbox" name="dinner" id="id_dinner"
-                                    class="tags__checkbox tags__checkbox_style_purple" checked>
-                                <label for="id_dinner" class="tags__label">{{form.tag.0}}</label>
-                            </div>
+                            {% endfor %}
                         </div>
                         <span class="form__error"></span>
                     </div>
@@ -57,7 +51,7 @@
                     <div class="form__field-group">
                         <div class="form__field-group-ingredientes">
                             <div class="form__dropdown">
-                                {{ form.ingredient|addclass:'form__input' }}
+                                <input class="form__input" id="nameIngredient" type="text">
                                 <div class="form__dropdown-items"></div>
                             </div>
                             <input type="number" id="cantidad" class="form__input" min="0">
@@ -96,8 +90,6 @@
                 </div>
             </form>
         </div>
-        ​
-        ​
     </main>
     <footer class="footer">
         <div class="footer__container container">

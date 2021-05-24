@@ -1,5 +1,6 @@
 <div class="card" data-id="{{ recipe.id }}">
-    <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="card__image">
+    <img src="{% if recipe.image %}{{ recipe.image.url }}{% else %}#{% endif %}" alt="{{ recipe.title }}"
+        class="card__image">
 
     <div class="card__body">
         <a class="card__title link" href="{% url 'recipe' pk=recipe.id %}" target="_blank">
@@ -31,18 +32,8 @@
     <div class="card__footer">
         <button class="button button_style_light-blue" name="purchases" data-out><span
                 class="icon-plus button__icon"></span>Добавить в покупки</button>
-        <button class="button button_style_none" name="favorites" data-out><span class="icon-favorite"></span>
-        </button>
-    </div>
-    <div class="card__footer">
-        {% if user.is_authenticated %}
-        {% if recipe.is_favourite %}
-        <button class="button button_style_none" name="favourites">
-            <span class="icon-favorite icon-favorite_active"></span></button>
-        {% else %}
-        <button class="button button_style_none" name="favourites" data-out>
-            <span class="icon-favourite"></span></button>
-        {% endif %}
-        {% endif %}
+        <div class="single-card" data-id="{{ recipe.id }}" data-author="1">
+            {% include 'ready/favorite_button.html' %}
+        </div>
     </div>
 </div>
