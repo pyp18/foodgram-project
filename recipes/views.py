@@ -32,6 +32,7 @@ def get_ingredients(request):
     return ingredients
 
 
+
 def new_recipe(request):
     form = RecipeForm(request.POST or None, files=request.FILES or None)
     ingredients = get_ingredients(request)
@@ -59,6 +60,39 @@ def new_recipe(request):
     form.save_m2m()
     print('AOAOAOAOAOAOAOOAOAOAOAOAOAOAOAOAOAOAOAOAOA')
     return redirect('index')
+
+
+def recipe_edit(request, id):
+    recipe_base = get_object_or_404(Recipe, pk=id)
+    form = RecipeForm(request.POST or None, files=request.FILES or None, instance=recipe_base)
+    ingredients = get_ingredients(request)
+    if not form.is_valid():
+        return render(request, 'formRecipe.html', {
+            'form': form,
+            'is_new': True,
+            },
+            print(form.errors)
+        )
+    recipe = form.save(commit=False)
+    recipe.user = request.user
+    recipe.save()
+    RecipeIngredient.objects.filter(recipe=recipe).delete()
+    objs = []
+    for title, count in ingredients.items():
+        ingredient = get_object_or_404(Ingredient, title=title)
+        objs.append(RecipeIngredient(
+            recipe=recipe,
+            ingredient=ingredient,
+            count=count
+        )
+        )
+    RecipeIngredient.objects.bulk_create(objs)
+    form.save_m2m()
+    print('AOAOAOAOAOAOAOOAOAOAOAOAOAOAOAOAOAOAOAOAOA')
+    return redirect('index')
+
+
+
 
 
 @login_required
