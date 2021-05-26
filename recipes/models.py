@@ -64,7 +64,7 @@ class Recipe(models.Model):
     tags = models.ManyToManyField(Tag, related_name='tags')
     time_cooking = models.PositiveIntegerField()
     slug = models.SlugField(max_length=40, unique=False)
-    ingredient = models.ManyToManyField(Ingredient, through="RecipeIngredient")
+    ingredient = models.ManyToManyField(Ingredient, through="RecipeIngredient", related_name='ingredients')
     pub_date = models.DateTimeField("date published", auto_now_add=True)
     objects = RecipeQuerySet.as_manager()
 
@@ -78,7 +78,7 @@ class Recipe(models.Model):
 
 
 class RecipeIngredient(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ingredients_recipe_set')
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     count = models.PositiveIntegerField()
 
@@ -108,3 +108,20 @@ class Follow(models.Model):
 
     def __str__(self):
         return f'{self.user} на {self.author}'
+
+
+class ShoppingList(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="buyer",
+    )
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name="shopping_list",
+        verbose_name='Рецепт'
+    )
+    class Meta:
+        verbose_name = 'Список покупок'
+        verbose_name_plural = 'Список покупок'

@@ -23,7 +23,7 @@
 </div>
 
 {% if page_obj.has_other_pages %}
-{% include 'paginator.html' with items=page_obj paginator=paginator %}
+{% include 'ready/paginator.html' with items=page_obj paginator=paginator %}
 {% endif %}
 {% endblock %}
 

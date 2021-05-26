@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
-from .models import Favorite, Recipe, RecipeIngredient, Ingredient, Follow
+from .models import Favorite, Recipe, RecipeIngredient, Ingredient, Follow, ShoppingList
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -67,9 +67,10 @@ def recipe_edit(request, id):
     form = RecipeForm(request.POST or None, files=request.FILES or None, instance=recipe_base)
     ingredients = get_ingredients(request)
     if not form.is_valid():
-        return render(request, 'formRecipe.html', {
+        return render(request, 'EditRecipe.html', {
             'form': form,
             'is_new': True,
+            'recipe': recipe_base
             },
             print(form.errors)
         )
@@ -92,7 +93,10 @@ def recipe_edit(request, id):
     return redirect('index')
 
 
-
+def recipe_delete(request, id):
+    recipe = Recipe.objects.filter(user=request.user, id=id)
+    recipe.delete()
+    return redirect('index')
 
 
 @login_required
@@ -200,3 +204,36 @@ class RecipeDetailView(DetailView):
         qs = qs.with_is_favorite(user_id=self.request.user.id)
 
         return qs
+
+
+def shopping_list(request):
+    shopping_list = ShoppingList.objects.filter(user=request.user).all()
+    return render(
+        request,
+        'shopping_list.html',
+        {'shopping_list': shopping_list},
+    )
+
+
+def shopping_list_download(request):
+    result = shopping_list_ingredients(request)
+    response = HttpResponse(result, content_type='text/plain')
+    response['Content-Disposition'] = 'attachment; filename = download.txt'
+    return response
+
+
+def shopping_list_ingredients(request):
+    shopping_list = ShoppingList.objects.filter(user=request.user).all()
+    ingredients = {}
+    for item in shopping_list:
+        for x in item.recipe.ingredients_recipe_set.all():
+            name = f'{x.ingredient.title} ({x.ingredient.unit})'
+            units = x.count
+            if name in ingredients.keys():
+                ingredients[name] += units
+            else:
+                ingredients[name] = units
+    download = []
+    for key, units in ingredients.items():
+        download.append(f'{key} - {units} \n')
+    return download

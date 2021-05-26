@@ -1,3 +1,5 @@
+
+from recipes.models import ShoppingList
 from django.urls import path
 from django.urls.conf import include
 from user import views as views_user
@@ -19,4 +21,6 @@ urlpatterns = [
     path('favorites/', views.AddToFavorites.as_view()),
     path('favorites/<int:id>/', views.RemoveFromFavorites.as_view()),
     path('', include(router.urls)),
+    path('purchases/<int:pk>/', views.remove_purchase, name='delete_purchase'),
+    path('purchases/', views.PurchaseView.as_view())
 ]

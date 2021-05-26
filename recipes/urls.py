@@ -18,10 +18,13 @@ views_patterns = [
     path("unfollow_recipe_page/<int:pk>/<str:username>/", views.profile_unfollow_recipe_page, name="unfollow_recipe_page"),
     path("my_subscriptions/", views.SubscriptionsView.as_view(), name="my_subscriptions"),
     path("recipes/edit/<int:id>/", views.recipe_edit, name="edit"),
+    path('shopping_list/', views.shopping_list, name='shopping_list'),
+    path('download_shoplist/', views.shopping_list_download, name='download_shoplist'),
+    path("recipes/delete/<int:id>/", views.recipe_delete, name="recipe_delete"),
 ]
 
 api_patterns = [
-
+    
 ]
 
 urlpatterns = [

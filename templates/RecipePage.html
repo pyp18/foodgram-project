@@ -58,6 +58,7 @@
                 <ul class="single-card__items">
                     <li class="single-card__item"><button class="button button_style_blue" name="purchases"
                             data-out><span class="icon-plus"></span> Добавить в покупки</button></li>
+                    {% if recipe.user != request.user %}
                     {% if recipe.user.following.exists %}
                     <a class="button button_style_light-blue button_size_auto"
                         href="{% url 'unfollow_recipe_page' recipe.id recipe.user %}" role="button">Отписаться</a>
@@ -67,6 +68,7 @@
                         Подписаться на {{ recipe.user }}</a>
                     {% else %}
                     <a class="button button_style_light-blue button_size_auto" role="button">Подписаться</a>
+                    {% endif %}
                     {% endif %}
                 </ul>
                 <div class="single-card__section">
