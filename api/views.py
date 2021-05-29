@@ -1,4 +1,4 @@
-from rest_framework import status, mixins
+from rest_framework import status, mixins, filters
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -8,16 +8,14 @@ from recipes.models import Ingredient, Favorite
 from .serializers import IngredientSerializer
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+
 
 class GetIngredient(viewsets.GenericViewSet, mixins.ListModelMixin):
+    queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
-
-    def get_queryset(self):
-        queryset = Ingredient.objects.all()
-        ingredient = self.request.query_params.get('query')
-        if ingredient is not None:
-            queryset = queryset.filter(title__startswith=ingredient)
-        return queryset
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('title',)
 
 
 class AddToFavorites(APIView):
@@ -25,7 +23,7 @@ class AddToFavorites(APIView):
     def post(self, request, format=None):
         Favorite.objects.get_or_create(
             user=request.user,
-            recipe_id=request.data["id"],
+            recipe_id=request.data.get('id'),
         )
 
         return Response({'success': True}, status=status.HTTP_200_OK)
@@ -34,7 +32,7 @@ class AddToFavorites(APIView):
 class RemoveFromFavorites(APIView):
 
     def delete(self, request, id, format=None):
-        recipe = Favorite.objects.filter(recipe_id=id, user=request.user)
+        recipe = get_object_or_404(Favorite, recipe_id=id, user=request.user)
         recipe.delete()
         return Response({'success': True}, status=status.HTTP_200_OK)
 
@@ -48,9 +46,8 @@ class PurchaseView(APIView):
         return Response({'success': True})
 
 
-
-
+@login_required
 def remove_purchase(request, pk):
-    purchase = ShoppingList.objects.filter(user=request.user, recipe = pk)
+    purchase = get_object_or_404(ShoppingList, user=request.user, recipe=pk)
     purchase.delete()
     return redirect('shopping_list')

@@ -27,3 +27,4 @@ django-debug-toolbar
 isort
 flake8
 
+python-dotenv

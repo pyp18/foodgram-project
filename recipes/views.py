@@ -6,16 +6,11 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
-from django.views.generic import CreateView
 from django.urls import reverse_lazy
-from .forms import CreationForm
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required
 from recipes.forms import RecipeForm
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status, mixins
 from django.shortcuts import redirect
-from rest_framework import viewsets
+from foodgram.settings import GlobalPaginator
 
 
 User = get_user_model()
@@ -32,7 +27,6 @@ def get_ingredients(request):
     return ingredients
 
 
-
 def new_recipe(request):
     form = RecipeForm(request.POST or None, files=request.FILES or None)
     ingredients = get_ingredients(request)
@@ -40,8 +34,7 @@ def new_recipe(request):
         return render(request, 'formRecipe.html', {
             'form': form,
             'is_new': True,
-            },
-            print(form.errors)
+        },
         )
     recipe = form.save(commit=False)
     recipe.user = request.user
@@ -58,21 +51,20 @@ def new_recipe(request):
         )
     RecipeIngredient.objects.bulk_create(objs)
     form.save_m2m()
-    print('AOAOAOAOAOAOAOOAOAOAOAOAOAOAOAOAOAOAOAOAOA')
     return redirect('index')
 
 
 def recipe_edit(request, id):
     recipe_base = get_object_or_404(Recipe, pk=id)
-    form = RecipeForm(request.POST or None, files=request.FILES or None, instance=recipe_base)
+    form = RecipeForm(request.POST or None,
+                      files=request.FILES or None, instance=recipe_base)
     ingredients = get_ingredients(request)
     if not form.is_valid():
         return render(request, 'EditRecipe.html', {
             'form': form,
             'is_new': True,
             'recipe': recipe_base
-            },
-            print(form.errors)
+        },
         )
     recipe = form.save(commit=False)
     recipe.user = request.user
@@ -89,12 +81,11 @@ def recipe_edit(request, id):
         )
     RecipeIngredient.objects.bulk_create(objs)
     form.save_m2m()
-    print('AOAOAOAOAOAOAOOAOAOAOAOAOAOAOAOAOAOAOAOAOA')
     return redirect('index')
 
 
 def recipe_delete(request, id):
-    recipe = Recipe.objects.filter(user=request.user, id=id)
+    recipe = get_object_or_404(Recipe, user=request.user, id=id)
     recipe.delete()
     return redirect('index')
 
@@ -131,26 +122,24 @@ def profile_unfollow_recipe_page(request, pk, username):
     return redirect('recipe', pk=pk)
 
 
-
 class BaseRecipeListView(ListView):
     context_object_name = 'recipe_list'
     queryset = Recipe.objects.all()
-    paginate_by = 6
+    paginate_by = GlobalPaginator
     page_title = None
+
     def get_context_data(self, **kwargs):
-        kwargs.update({'page_title':self.get_page_title()})
+        kwargs.update({'page_title': self.get_page_title()})
 
         return super().get_context_data(**kwargs)
 
     def get_page_title(self):
-        assert self.page_title, f'Attribute "page_title" is not set for {self.__class__.__name__}'
-
         return self.page_title
 
 
 class IndexView(BaseRecipeListView):
     page_title = 'Recipes'
-    template_name = 'ready/recipe_list.html'
+    template_name = 'recipe_list.html'
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -162,14 +151,16 @@ class IndexView(BaseRecipeListView):
 
 class FavouriteView(LoginRequiredMixin, BaseRecipeListView):
     page_title = 'Избранное'
-    template_name = 'ready/recipe_list.html'
+    template_name = 'recipe_list.html'
 
     def get_queryset(self):
         qs = super().get_queryset()
         user = self.request.user
-        qs = qs.filter(favorites__user=self.request.user).with_is_favorite(user_id=user.id)
+        qs = qs.filter(favorites__user=self.request.user).with_is_favorite(
+            user_id=user.id)
 
         return qs
+
 
 class SubscriptionsView(LoginRequiredMixin, BaseRecipeListView):
     page_title = 'Подписки'
@@ -182,6 +173,7 @@ class SubscriptionsView(LoginRequiredMixin, BaseRecipeListView):
 
         return qs
 
+
 def profile(request, username):
     author = get_object_or_404(User, username=username)
     page_obj = author.recipes.all()
@@ -192,7 +184,7 @@ def profile(request, username):
         'page_obj': page_obj,
         'user': username
     }
-    return render(request, 'ready/profileANDREW.html', context)
+    return render(request, 'profile_list.html', context)
 
 
 class RecipeDetailView(DetailView):
@@ -206,6 +198,7 @@ class RecipeDetailView(DetailView):
         return qs
 
 
+@login_required
 def shopping_list(request):
     shopping_list = ShoppingList.objects.filter(user=request.user).all()
     return render(
@@ -215,6 +208,7 @@ def shopping_list(request):
     )
 
 
+@login_required
 def shopping_list_download(request):
     result = shopping_list_ingredients(request)
     response = HttpResponse(result, content_type='text/plain')
@@ -222,11 +216,12 @@ def shopping_list_download(request):
     return response
 
 
+@login_required
 def shopping_list_ingredients(request):
     shopping_list = ShoppingList.objects.filter(user=request.user).all()
     ingredients = {}
     for item in shopping_list:
-        for x in item.recipe.ingredients_recipe_set.all():
+        for x in item.recipe.recipe_ingredient.all():
             name = f'{x.ingredient.title} ({x.ingredient.unit})'
             units = x.count
             if name in ingredients.keys():

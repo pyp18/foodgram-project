@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate
-from django.shortcuts import redirect 
+from django.shortcuts import redirect
 from recipes.forms import SignUpForm
-
 
 
 def signup(request):
@@ -19,4 +18,4 @@ def signup(request):
         form = SignUpForm(request.POST)
         print(form)
         form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'registration/signup.html', {'form': form})

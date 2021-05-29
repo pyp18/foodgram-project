@@ -13,7 +13,7 @@
 
 <body class="body">
     <header class="header">
-        {% include 'navbar.html' %}
+        {% include 'includes/navbar.html' %}
     </header>
     <main class="main container">
         <div class="single-card" data-id="{{ recipe.id }}" data-author="12">
@@ -23,7 +23,7 @@
                 <div class="single-card__header-info">
                     <h1 class="single-card__title">{{ recipe.title }}</h1>
                     <div class="single-card__favorite">
-                        {% include 'ready/favorite_button.html' %}
+                        {% include 'includes/favorite_button.html' %}
                         <div class="single-card__favorite-tooltip tooltip">Добавить в избранное</div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
             </div>
         </div>
     </main>
-    {% include 'footer.html' %}
+    {% include 'includes/footer.html' %}
     <script src="{% static 'js/components/Purchases.js' %}"></script>
     <script src="{% static 'js/components/Subscribe.js' %}"></script>
     <script src="{% static 'js/config/config.js' %}"></script>
