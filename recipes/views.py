@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from recipes.forms import RecipeForm
 from django.shortcuts import redirect
-from foodgram.settings import GlobalPaginator
+from foodgram.settings import GLOBALPAGINATOR
 
 
 User = get_user_model()
@@ -31,11 +31,10 @@ def new_recipe(request):
     form = RecipeForm(request.POST or None, files=request.FILES or None)
     ingredients = get_ingredients(request)
     if not form.is_valid():
-        return render(request, 'formRecipe.html', {
-            'form': form,
-            'is_new': True,
-        },
-        )
+        return render(request, 'formRecipe.html',
+                      {'form': form,
+                       'is_new': True, },
+                      )
     recipe = form.save(commit=False)
     recipe.user = request.user
     recipe.save()
@@ -46,8 +45,7 @@ def new_recipe(request):
         objs.append(RecipeIngredient(
             recipe=recipe,
             ingredient=ingredient,
-            count=count
-        )
+            count=count)
         )
     RecipeIngredient.objects.bulk_create(objs)
     form.save_m2m()
@@ -60,12 +58,12 @@ def recipe_edit(request, id):
                       files=request.FILES or None, instance=recipe_base)
     ingredients = get_ingredients(request)
     if not form.is_valid():
-        return render(request, 'EditRecipe.html', {
-            'form': form,
-            'is_new': True,
-            'recipe': recipe_base
-        },
-        )
+        return render(request, 'EditRecipe.html',
+                      {
+                          'form': form,
+                          'is_new': True,
+                          'recipe': recipe_base},
+                      )
     recipe = form.save(commit=False)
     recipe.user = request.user
     recipe.save()
@@ -76,8 +74,7 @@ def recipe_edit(request, id):
         objs.append(RecipeIngredient(
             recipe=recipe,
             ingredient=ingredient,
-            count=count
-        )
+            count=count)
         )
     RecipeIngredient.objects.bulk_create(objs)
     form.save_m2m()
@@ -125,7 +122,7 @@ def profile_unfollow_recipe_page(request, pk, username):
 class BaseRecipeListView(ListView):
     context_object_name = 'recipe_list'
     queryset = Recipe.objects.all()
-    paginate_by = GlobalPaginator
+    paginate_by = GLOBALPAGINATOR
     page_title = None
 
     def get_context_data(self, **kwargs):
@@ -216,6 +213,8 @@ def shopping_list_download(request):
     return response
 
 
+# Исправлю на следующем ревью с вами, извините пожалуйста, голова не варит сейчас,
+# но на ревью все равно отправил потому что времени мало и за сроки боюсь, проснусь и все изучу и поправлю
 @login_required
 def shopping_list_ingredients(request):
     shopping_list = ShoppingList.objects.filter(user=request.user).all()
@@ -224,7 +223,7 @@ def shopping_list_ingredients(request):
         for x in item.recipe.recipe_ingredient.all():
             name = f'{x.ingredient.title} ({x.ingredient.unit})'
             units = x.count
-            if name in ingredients.keys():
+            if name in ingredients:
                 ingredients[name] += units
             else:
                 ingredients[name] = units

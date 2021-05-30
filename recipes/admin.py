@@ -9,7 +9,7 @@ class MembershipInline(admin.TabularInline):
 
 
 class RecipeAdmin(admin.ModelAdmin):
-    inlines = [MembershipInline]
+    inlines = ((MembershipInline),)
 
 
 admin.site.register(Ingredient)

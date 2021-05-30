@@ -5,7 +5,6 @@ from django.contrib.auth import get_user_model
 from django.db.models.deletion import CASCADE
 from django.db.models.expressions import Exists
 from django.db.models import OuterRef, Exists
-# Create your models here.
 User = get_user_model()
 
 
@@ -37,12 +36,12 @@ class Tag(models.Model):
     color = models.CharField(
         max_length=50, verbose_name='Цвет тега', default='Red')
 
-    def __str__(self):
-        return f'{self.title}'
-
     class Meta:
         verbose_name = 'Тэг'
         verbose_name_plural = 'Тэги'
+
+    def __str__(self):
+        return f'{self.title}'
 
 
 class Ingredient(models.Model):
@@ -88,12 +87,12 @@ class RecipeIngredient(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     count = models.PositiveIntegerField()
 
-    def __str__(self):
-        return f'{self.ingredient}, {self.recipe}'
-
     class Meta:
         verbose_name = 'Ингридиент рецепта'
         verbose_name_plural = 'Ингридиенты рецепта'
+
+    def __str__(self):
+        return f'{self.ingredient}, {self.recipe}'
 
 
 class Favorite(models.Model):
@@ -102,12 +101,12 @@ class Favorite(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='favorites', verbose_name='рецепт')
 
-    def __str__(self):
-        return f'Избранный {self.recipe} у {self.user}'
-
     class Meta:
         verbose_name = 'Избранное'
         verbose_name_plural = 'Избранные'
+
+    def __str__(self):
+        return f'Избранный {self.recipe} у {self.user}'
 
 
 class Follow(models.Model):
@@ -118,10 +117,10 @@ class Follow(models.Model):
 
     class Meta:
         verbose_name_plural = 'Подписки'
-        constraints = [
+        constraints = (
             models.UniqueConstraint(
-                fields=['author', 'user'], name='Подписка')
-        ]
+                fields=('author', 'user'), name='Подписка'),
+        )
 
     def __str__(self):
         return f'{self.user} на {self.author}'

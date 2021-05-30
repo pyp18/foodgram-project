@@ -14,5 +14,5 @@ urlpatterns = [
     path('favorites/<int:id>/', views.RemoveFromFavorites.as_view()),
     path('purchases/<int:pk>/', views.remove_purchase, name='delete_purchase'),
     path('purchases/', views.PurchaseView.as_view()),
-    path('ingredients', GetIngredient.as_view({'get': 'list'}))
+    path('ingredients/', GetIngredient.as_view({'get': 'list'}))
 ]

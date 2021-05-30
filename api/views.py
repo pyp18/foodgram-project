@@ -9,9 +9,11 @@ from .serializers import IngredientSerializer
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from .permissions import IsLogged, IsOwner
 
 
 class GetIngredient(viewsets.GenericViewSet, mixins.ListModelMixin):
+    permission_classes = (IsLogged,)
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
     filter_backends = (filters.SearchFilter,)
@@ -19,6 +21,7 @@ class GetIngredient(viewsets.GenericViewSet, mixins.ListModelMixin):
 
 
 class AddToFavorites(APIView):
+    permission_classes = (IsLogged,)
 
     def post(self, request, format=None):
         Favorite.objects.get_or_create(
@@ -30,6 +33,7 @@ class AddToFavorites(APIView):
 
 
 class RemoveFromFavorites(APIView):
+    permission_classes = (IsLogged, IsOwner)
 
     def delete(self, request, id, format=None):
         recipe = get_object_or_404(Favorite, recipe_id=id, user=request.user)
@@ -38,6 +42,7 @@ class RemoveFromFavorites(APIView):
 
 
 class PurchaseView(APIView):
+    permission_classes = (IsLogged,)
 
     def post(self, request):
         recipe_id = request.data.get('id')
