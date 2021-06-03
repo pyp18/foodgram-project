@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from .models import Favorite, Recipe, RecipeIngredient, Ingredient, Follow, ShoppingList
@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from recipes.forms import RecipeForm
 from django.shortcuts import redirect
 from foodgram.settings import GLOBALPAGINATOR
+from django.db.models import Sum
 
 
 User = get_user_model()
@@ -33,7 +34,8 @@ def new_recipe(request):
     if not form.is_valid():
         return render(request, 'formRecipe.html',
                       {'form': form,
-                       'is_new': True, },
+                       'is_new': True,
+                       'page_title': 'Создание рецепта'},
                       )
     recipe = form.save(commit=False)
     recipe.user = request.user
@@ -62,7 +64,8 @@ def recipe_edit(request, id):
                       {
                           'form': form,
                           'is_new': True,
-                          'recipe': recipe_base},
+                          'recipe': recipe_base,
+                          'page_title': 'Редактирование рецепта'},
                       )
     recipe = form.save(commit=False)
     recipe.user = request.user
@@ -123,7 +126,7 @@ class BaseRecipeListView(ListView):
     context_object_name = 'recipe_list'
     queryset = Recipe.objects.all()
     paginate_by = GLOBALPAGINATOR
-    page_title = None
+    page_title = 'Рецепты'
 
     def get_context_data(self, **kwargs):
         kwargs.update({'page_title': self.get_page_title()})
@@ -135,7 +138,7 @@ class BaseRecipeListView(ListView):
 
 
 class IndexView(BaseRecipeListView):
-    page_title = 'Recipes'
+    page_title = 'Рецепты'
     template_name = 'recipe_list.html'
 
     def get_queryset(self):
@@ -159,16 +162,37 @@ class FavouriteView(LoginRequiredMixin, BaseRecipeListView):
         return qs
 
 
-class SubscriptionsView(LoginRequiredMixin, BaseRecipeListView):
-    page_title = 'Подписки'
-    template_name = 'myFollow.html'
+def button_message(recipes_counter):
+    if recipes_counter == 0:
+        return 'У пользователя нет рецептов'
+    elif recipes_counter <= 3:
+        return ''
+    elif recipes_counter == 4:
+        return 'Еще один рецепт'
+    elif recipes_counter <= 5:
+        return f'Еще {recipes_counter - 3} рецпта'
+    elif recipes_counter > 6:
+        return f'Еще {recipes_counter - 3} рецептов'
 
-    def get_queryset(self):
-        qs = Follow.objects.all()
-        user = self.request.user
-        qs = qs.filter(user=user)
 
-        return qs
+@login_required
+def my_subscriptions(request):
+    subscriptions = Follow.objects.filter(user=request.user).all()
+    counter_data = {}
+    for subscription in subscriptions:
+        recipes_counter = Recipe.objects.filter(
+            user=subscription.author).all().count()
+        counter_data[subscription.author.username] = button_message(
+            recipes_counter)
+    print(counter_data)
+
+    context = {
+        'user': request.user.username,
+        'subscriptions': subscriptions,
+        'counter_data': counter_data,
+        'page_title': 'Подписки'
+    }
+    return render(request, 'my_follow_fixed.html', context)
 
 
 def profile(request, username):
@@ -179,7 +203,8 @@ def profile(request, username):
         'author': author,
         'following': following,
         'page_obj': page_obj,
-        'user': username
+        'user': username,
+        'page_title': 'Профиль'
     }
     return render(request, 'profile_list.html', context)
 
@@ -187,6 +212,7 @@ def profile(request, username):
 class RecipeDetailView(DetailView):
     queryset = Recipe.objects.all()
     template_name = 'RecipePage.html'
+    page_title = 'Страница рецепта'
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -198,10 +224,14 @@ class RecipeDetailView(DetailView):
 @login_required
 def shopping_list(request):
     shopping_list = ShoppingList.objects.filter(user=request.user).all()
+    context = {
+        'shopping_list': shopping_list,
+        'page_title': 'Cписок покупок'
+    }
     return render(
         request,
         'shopping_list.html',
-        {'shopping_list': shopping_list},
+        context,
     )
 
 
@@ -213,21 +243,18 @@ def shopping_list_download(request):
     return response
 
 
-# Исправлю на следующем ревью с вами, извините пожалуйста, голова не варит сейчас,
-# но на ревью все равно отправил потому что времени мало и за сроки боюсь, проснусь и все изучу и поправлю
 @login_required
 def shopping_list_ingredients(request):
     shopping_list = ShoppingList.objects.filter(user=request.user).all()
-    ingredients = {}
-    for item in shopping_list:
-        for x in item.recipe.recipe_ingredient.all():
-            name = f'{x.ingredient.title} ({x.ingredient.unit})'
-            units = x.count
-            if name in ingredients:
-                ingredients[name] += units
-            else:
-                ingredients[name] = units
+    total = shopping_list.values('recipe__ingredient__title',
+                                 'recipe__ingredient__unit'
+                                 ).order_by('recipe__ingredient__title'
+                                            ).annotate(total_price=Sum(
+                                                'recipe__recipe_ingredient__count'))
     download = []
-    for key, units in ingredients.items():
-        download.append(f'{key} - {units} \n')
+    for item in total:
+        title = item['recipe__ingredient__title']
+        unit = item['recipe__ingredient__unit']
+        amount = item['total_price']
+        download.append(f'{title} - {unit} - {amount} \n')
     return download

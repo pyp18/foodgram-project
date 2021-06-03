@@ -31,10 +31,10 @@
 </div>
 <li class="list-group-item">
     {% if author != request.user %}
-    {% if following %}
+        {% if following %}
     <a class="button button_style_light-blue button_size_auto" href="{% url 'unfollow' author %}"
         role="button">Отписаться</a>
-    {% elif author != request.user %}
+        {% elif author != request.user %}
     <a class="button button_style_light-blue button_size_auto" href="{% url 'follow' author %}"
         role="button">Подписаться {{ user }}</a>
     {% else %}

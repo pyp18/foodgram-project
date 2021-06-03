@@ -6,14 +6,18 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block page_title %}Заголовок страницы{% endblock %} | FoodGram</title>
+    <title>{% block page_title %}{{ page_title }}{% endblock %} | FoodGram</title>
     {%block static_css %} {% endblock %}
     {% include 'includes/navbar.html' %}
 </head>
 
 <body class="body">
     <main class="main container">
-        {% block content %}{% endblock content %}
+        <div class="main__header">
+            <h1 class="main__title">{{ page_title }}</h1>
+        </div>
+        {% block content %}
+        {% endblock content %}
     </main>
 
     {% include 'includes/footer.html' %}

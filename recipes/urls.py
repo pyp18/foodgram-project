@@ -18,7 +18,7 @@ views_patterns = [
          views.profile_follow_recipe_page, name='follow_recipe_page'),
     path('unfollow_recipe_page/<int:pk>/<str:username>/',
          views.profile_unfollow_recipe_page, name='unfollow_recipe_page'),
-    path('my_subscriptions/', views.SubscriptionsView.as_view(),
+    path('my_subscriptions/', views.my_subscriptions,
          name='my_subscriptions'),
     path('recipes/edit/<int:id>/', views.recipe_edit, name='edit'),
     path('shopping_list/', views.shopping_list, name='shopping_list'),

@@ -5,8 +5,8 @@
     {% else %}
     <li class="pagination__item"><a class="pagination__link link" href="#"></a></li>
     {% endif %}
-    {% for num_page in paginator.page_range %}
-    {% if items.number == num_page %}
+        {% for num_page in paginator.page_range %}
+            {% if items.number == num_page %}
     <li class="pagination__item pagination__item_active"><a class="pagination__link link" href="?page={{ num_page }}">
             {{ num_page }}</a></li>
     {% else %}

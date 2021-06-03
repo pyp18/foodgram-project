@@ -7,13 +7,13 @@
             {{recipe.title}}</a>
         <ul class="card__items">
             {% for tag in recipe.tag.all %}
-            {% if tag.title == 'Завтрак' %}
+                {% if tag.title == 'Завтрак' %}
             <li class="card__item"><span class="badge badge_style_green">{{ tag.title }}</span></li>
             {% endif %}
-            {% if tag.title == 'Обед' %}
+                {% if tag.title == 'Обед' %}
             <li class="card__item"><span class="badge badge_style_orange">{{ tag.title }}</span></li>
             {% endif %}
-            {% if tag.title == 'Ужин' %}
+                {% if tag.title == 'Ужин' %}
             <li class="card__item"><span class="badge badge_style_purple">{{ tag.title }}</span></li>
             {% endif %}
             {% endfor %}

@@ -28,3 +28,4 @@ isort
 flake8
 
 python-dotenv
+pdfkit
