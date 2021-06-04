@@ -184,7 +184,6 @@ def my_subscriptions(request):
             user=subscription.author).all().count()
         counter_data[subscription.author.username] = button_message(
             recipes_counter)
-    print(counter_data)
 
     context = {
         'user': request.user.username,
