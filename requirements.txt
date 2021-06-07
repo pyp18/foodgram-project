@@ -1,31 +1,24 @@
-#Web framework
-django
-
-#Images
-Pillow
-
-#REST API
-djangorestframework
-
-#API filtering
+django==3.0.5        # via -r djangorestframework
+asgiref==3.2.10           # via django
+certifi==2020.4.5.1       # via requests
+chardet==3.0.4            # via requests
+idna==2.9                 # via request
+pyparsing==2.4.7          # via packaging
+pytz==2019.3              # via django
+requests==2.23.0
+six==1.14.0               # via packaging
+sqlparse==0.3.1           # via django
+urllib3==1.25.9           # via requests
+zipp==3.1.0               # via importlib-metadata
+django-cors-headers==3.6.0
+flake8==3.8.4
 django-filter
-
-#Others
-django-extensions
-ipython
-
-#PostgreSQL adapter
+gunicorn==20.0.4
+pillow
 psycopg2-binary
-
-#Gunicorn
-gunicorn
-
-#Debug tools
-django-debug-toolbar
-
-#Linters
-isort
-flake8
-
+django-simple-email-confirmation==0.70
+djangorestframework==3.11.0
+sorl-thumbnail
+django-environ
 python-dotenv
-pdfkit
+PyJWT==1.7.1
