@@ -1,6 +1,9 @@
+name: Django-app workflow
+
+on: [push]
+
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
-    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
