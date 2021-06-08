@@ -50,6 +50,6 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          sudo docker pull pyp18/yamdb_final
+          sudo docker pull pyp18/foodgram-project_web
           sudo docker stop $(sudo docker ps -a -q)
-          sudo docker run --rm -d -p 5000:5000 pyp18/yamdb_final
+          sudo docker run --rm -d -p 5000:5000 pyp18/foodgram-project_web
