@@ -16,7 +16,7 @@ if os.environ.get('DEBUG'):
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['84.201.177.180', 'localhost',]
 
 
 INSTALLED_APPS = [
