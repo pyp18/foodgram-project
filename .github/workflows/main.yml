@@ -53,12 +53,4 @@ jobs:
               sudo docker pull pyp18/foodgram-project_web
               sudo docker-compose stop
               sudo docker-compose rm web
-              touch .env 
-              echo "DB_ENGINE=${{ secrets.DB_ENGINE }}
-              DB_NAME=${{ secrets.DB_NAME }}
-              POSTGRES_USER=${{ secrets.POSTGRES_USER }}
-              POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
-              DB_HOST=${{ secrets.DB_HOST }}
-              DB_PORT=${{ secrets.DB_PORT }}
-              " > .env
               sudo docker-compose up -d web
