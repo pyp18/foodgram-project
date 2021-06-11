@@ -18,5 +18,4 @@ def signup(request):
         form = SignUpForm(request.POST) 
 
         print(form) 
-        form = SignUpForm() 
     return render(request, 'registration/signup.html', {'form': form}) 
