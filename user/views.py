@@ -3,8 +3,8 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import redirect
 from recipes.forms import SignUpForm
 
-
 def signup(request): 
+
     if request.method == 'POST': 
         form = SignUpForm(request.POST) 
         if form.is_valid(): 
@@ -14,6 +14,9 @@ def signup(request):
             user = authenticate(username=username, password=raw_password) 
             login(request, user) 
             return redirect('index') 
-    form = SignUpForm(request.POST) 
-    print(form) 
+    else: 
+        form = SignUpForm(request.POST) 
+
+        print(form) 
+        form = SignUpForm() 
     return render(request, 'registration/signup.html', {'form': form}) 
