@@ -7,7 +7,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 views_patterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('signup/', views_user.signup, name='signup'),
+    path('signup/', views_user.signup2, name='signup'),
     path('new/', views.new_recipe, name='new_recipe'),
     path('profile/<str:username>/', views.profile, name='profile'),
     path('recipes/<int:pk>/', views.RecipeDetailView.as_view(), name='recipe'),
