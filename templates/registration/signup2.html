@@ -1,4 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+{% block page_title %}
+{{ page_title }}
+{% endblock %}
+
+
+{% block static_css %}
+<link rel="stylesheet" href="{% static 'pages/form.css' %}">
+{% endblock %}
 
 {% block content %}
 <div class="main__header">
