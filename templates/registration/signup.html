@@ -19,16 +19,16 @@
     <form class="form" method="post">
         {% csrf_token %}
         <div class="form__group">
+            <label for="id_username" class="form__label">Имя пользователя</label>
+            <div class="form__field-group">
+                <input type="text" name="username" id="id_username" class="form__input">
+            </div>
+        </div>
+        <div class="form__group">
             <label for="id_first_name" class="form__label">Имя</label>
             <div class="form__field-group">
                 <input type="text" name="first_name" id="id_first_name" class="form__input">
                 <span class="form__error"></span>
-            </div>
-        </div>
-        <div class="form__group">
-            <label for="id_username" class="form__label">Имя пользователя</label>
-            <div class="form__field-group">
-                <input type="text" name="username" id="id_username" class="form__input">
             </div>
         </div>
         <div class="form__group">
@@ -59,15 +59,3 @@
 </div>
 </main>
 {% endblock %}
-<footer class="footer">
-    <div class="footer__container container">
-        <a href="#" class="footer__brand link">Продуктовый помощник</a>
-        <ul class="footer__items">
-            <li class="footer__item"><a href="#" class="footer__link link">Об авторе </a></li>
-            <li class="footer__item"><a href="#" class="footer__link link">Технологии</a></li>
-        </ul>
-    </div>
-</footer>
-</body>
-
-</html>
