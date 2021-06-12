@@ -1,59 +1,21 @@
 {% extends 'base.html' %}
-{% load static %}
-
-
-{% block page_title %}
-{{ page_title }}
-{% endblock %}
-
-
-{% block static_css %}
-<link rel="stylesheet" href="{% static 'pages/form.css' %}">
-{% endblock %}
 
 {% block content %}
-<div class="main__header">
-    <h1 class="main__title">Регистрация</h1>
-</div>
-<div class="form-container">
-    <form class="form" method="post">
-        {% csrf_token %}
-        <div class="form__group">
-            <label for="id_username" class="form__label">Имя пользователя</label>
-            <div class="form__field-group">
-                <input type="text" name="username" id="id_username" class="form__input">
-            </div>
-        </div>
-        <div class="form__group">
-            <label for="id_password1" class="form__label">Пароль</label>
-            <div class="form__field-group">
-                <input type="password" name="password1" id="id_password1" class="form__input">
-                <span class="form__error"></span>
-            </div>
-        </div>
-        <div class="form__group">
-            <label for="id_password2" class="form__label">Повторите пароль</label>
-            <div class="form__field-group">
-                <input type="password" name="password2" id="id_password2" class="form__input">
-                <span class="form__error"></span>
-            </div>
-        </div>
-        <div class="form__footer">
-            <button class="button button_style_blue">Создать аккаунт</button>
-        </div>
-    </form>
-</div>
-</main>
+<h2>Sign up</h2>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+        <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+    <p style="color: red">{{ error }}</p>
+    {% endfor %}
+    </p>
+    {% endfor %}
+    <button type="submit">Sign up</button>
+</form>
 {% endblock %}
-<footer class="footer">
-    <div class="footer__container container">
-        <a href="#" class="footer__brand link">Продуктовый помощник</a>
-        <ul class="footer__items">
-            <li class="footer__item"><a href="#" class="footer__link link">Об авторе </a></li>
-            <li class="footer__item"><a href="#" class="footer__link link">Технологии</a></li>
-        </ul>
-    </div>
-</footer>
-</body>
-
-</html>
