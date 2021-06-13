@@ -3,7 +3,7 @@ from django.urls.conf import include
 from recipes import views
 from user import views as views_user
 from rest_framework.urlpatterns import format_suffix_patterns
-
+from django.conf.urls import url
 
 views_patterns = [
     path('', views.IndexView.as_view(), name='index'),
@@ -25,6 +25,7 @@ views_patterns = [
     path('download_shoplist/', views.shopping_list_download,
          name='download_shoplist'),
     path('recipes/delete/<int:id>/', views.recipe_delete, name='recipe_delete'),
+
 ]
 
 api_patterns = [
@@ -35,4 +36,5 @@ urlpatterns = [
     path('api/v1/', include('api.urls')),
     path('', include(views_patterns)),
     path('', include(format_suffix_patterns(api_patterns))),
+    url(r'^password/$', views_user.change_password, name='change_password'),
 ]
