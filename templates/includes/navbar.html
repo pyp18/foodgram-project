@@ -23,9 +23,9 @@
         </ul>
         <ul class="nav__items list">
             {% if request.user.is_authenticated %}
+            {{ request.user }}
             <li
                 class="nav__item  {% if request.resolver_match.url_name == 'change_password' %} nav__item_active {% endif %}">
-                {{ request.user }}
                 <a href="{% url 'change_password' %}" class="nav__link link"> Изменить пароль</a>
             </li>
             <li class="nav__item"><a href="{% url 'logout' %}?next=/" class="nav__link link">Выход</a></li>
