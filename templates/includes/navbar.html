@@ -12,7 +12,10 @@
             <li class="nav__item {% if request.resolver_match.url_name == 'new_recipe' %} nav__item_active {% endif %}">
                 <a href="/new" class="nav__link link">Создать рецепт</a>
             </li>
-            <li class="nav__item"><a href="/my_favorites" class="nav__link link">Избранное</a></li>
+            <li
+                class="nav__item {% if request.resolver_match.url_name == 'my_favorites' %} nav__item_active {% endif %}">
+                <a href="/my_favorites" class="nav__link link">Избранное</a>
+            </li>
             {% endif %}
             <li
                 class="nav__item {% if request.resolver_match.url_name == 'shopping_list' %} nav__item_active {% endif %}">
