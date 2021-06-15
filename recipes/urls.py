@@ -29,7 +29,8 @@ views_patterns = [
         'tag_list/<str:display_name>/',
         views.index_with_tag,
         name='tag_detail'
-    )
+    ),
+    path('about_me/', views.about_me, name='about_me')
 
 ]
 

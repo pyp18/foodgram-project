@@ -150,7 +150,7 @@ class IndexView(BaseRecipeListView):
 
 
 
-def index_with_tag(request):
+def index_with_tag(request, display_name):
 
     tag = request.GET['display_name']
     recipes = Recipe.objects.filter(tags=tag)
@@ -162,6 +162,9 @@ def index_with_tag(request):
     }
     return render(request, 'recipe_list.html', context)   
 
+
+def about_me(request):
+    return render(request, 'about_me.html')
 
 class FavouriteView(LoginRequiredMixin, BaseRecipeListView):
     page_title = 'Избранное'
