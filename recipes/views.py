@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
-from .models import Favorite, Recipe, RecipeIngredient, Ingredient, Follow, ShoppingList
+from .models import Favorite, Recipe, RecipeIngredient, Ingredient, Follow, ShoppingList, Tag
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -147,6 +147,33 @@ class IndexView(BaseRecipeListView):
         qs = qs.with_is_favorite(user_id=user.id)
 
         return qs
+
+
+class indexWithTags(ListView):
+    template_name = 'recipes/includes/tag_list.html'
+    paginate_by = GLOBALPAGINATOR
+    context_object_name = 'tag'
+    extra_context = None
+
+    def _get_tag(self, *args, **kwargs):
+        tag = get_object_or_404(
+            Tag, display_name=self.kwargs.get('display_name')
+        )
+        return tag
+
+    def get_context_data(self, **kwargs):
+        kwargs.update({
+            'extra_context': {
+                'tags': Tag.objects.all(),
+                'tag_name': self._get_tag
+            },
+        })
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def get_queryset(self):
+        return self._get_tag().recipes.all()
+
 
 
 class FavouriteView(LoginRequiredMixin, BaseRecipeListView):

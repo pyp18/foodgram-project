@@ -25,6 +25,11 @@ views_patterns = [
     path('download_shoplist/', views.shopping_list_download,
          name='download_shoplist'),
     path('recipes/delete/<int:id>/', views.recipe_delete, name='recipe_delete'),
+    path(
+        'tag_list/<str:display_name>/',
+        views.indexWithTags.as_view(),
+        name='tag_detail'
+    )
 
 ]
 
