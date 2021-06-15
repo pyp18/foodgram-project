@@ -14,12 +14,21 @@
 
 {% block content %}
 <ul class="tags">
-    {% for tag in tags %}
     <li class="tags__item">
-        <a id="breakfast" class="tags__checkbox tags__checkbox_style_orange tags__checkbox_active" href="#"></a>
+        <a id="breakfast" class="tags__checkbox tags__checkbox_style_orange tags__checkbox_active"
+            href="{% url 'tag_detail' 'green' %}"></a>
         <span class="tags__label">Завтрак</span>
     </li>
-    {% endfor %}
+    <li class="tags__item">
+        <a id="lunch" class="tags__checkbox tags__checkbox_style_green tags__checkbox_active"
+            href="{% url 'tag_detail' 'orange' %}"></a>
+        <span for="lunch" class="tags__label">Обед</span>
+    </li>
+    <li class="tags__item">
+        <a id="dinner" class="tags__checkbox tags__checkbox_style_purple tags__checkbox_active"
+            href="{% url 'tag_detail' 'purple' %}"></a>
+        <label for="dinner" class="tags__label">Ужин</label>
+    </li>
 </ul>
 <div class="card-list">
     {% for recipe in page_obj %}
