@@ -27,7 +27,7 @@ views_patterns = [
     path('recipes/delete/<int:id>/', views.recipe_delete, name='recipe_delete'),
     path(
         'tag_list/<str:display_name>/',
-        views.indexWithTags.as_view(),
+        views.index_with_tag,
         name='tag_detail'
     )
 

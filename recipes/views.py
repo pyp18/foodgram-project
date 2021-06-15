@@ -149,31 +149,18 @@ class IndexView(BaseRecipeListView):
         return qs
 
 
-class indexWithTags(ListView):
-    template_name = 'recipes/includes/tag_list.html'
-    paginate_by = GLOBALPAGINATOR
-    context_object_name = 'tag'
-    extra_context = None
 
-    def _get_tag(self, *args, **kwargs):
-        tag = get_object_or_404(
-            Tag, display_name=self.kwargs.get('display_name')
-        )
-        return tag
+def index_with_tag(request):
 
-    def get_context_data(self, **kwargs):
-        kwargs.update({
-            'extra_context': {
-                'tags': Tag.objects.all(),
-                'tag_name': self._get_tag
-            },
-        })
-        context = super().get_context_data(**kwargs)
-        return context
+    tag = request.GET['display_name']
+    recipes = Recipe.objects.filter(tags=tag)
 
-    def get_queryset(self):
-        return self._get_tag().recipes.all()
-
+    context = {
+        'recipes': recipes,
+        'page_title': 'Рецепты',
+        'tag': tag
+    }
+    return render(request, 'recipe_list.html', context)   
 
 
 class FavouriteView(LoginRequiredMixin, BaseRecipeListView):
