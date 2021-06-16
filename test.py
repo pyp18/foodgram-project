@@ -68,7 +68,7 @@ PS C:\Windows\system32> docker logs 5d37f2b40c42
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
 10-listen-on-ipv6-by-default.sh: Getting the checksum of /etc/nginx/conf.d/default.conf
 10-listen-on-ipv6-by-default.sh: error: /etc/nginx/conf.d/default.conf differs from the packaged version4
-/docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh5
 /docker-entrypoint.sh: Configuration complete; ready for start up
 172.22.0.1 - - [11/Jun/2021:15:42:22 +0000] "GET / HTTP/1.1" 200 4006 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36" "-"
 172.22.0.1 - - [11/Jun/2021:15:42:22 +0000] "GET /favicon.ico HTTP/1.1" 404 6039 "http://127.0.0.1/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36" "-"
