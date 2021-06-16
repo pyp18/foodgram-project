@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block page_title %}
+{{ page_title }}
+{% endblock %}
+
+
+{% block static_css %}
+<link rel="stylesheet" href="{% static 'pages/index.css' %}">
+{% endblock %}
+{% block content %}
+
+<body class="body">
+    <main class="main container">
+        <div class="main__header">
+            <h1 class="main__title">Технологии</h1>
+        </div>
+        <div class="card-list card-list_column">
+            <ul class="shopping-list">
+                <li class="shopping-list__item">Данный проект написан и собран на двух языках программирования.
+                    Для написания бэкэнда был использован Python, фронтенд собран из JavaScript и
+                    языка гипертекстовой разметки Html. </li>
+            </ul>
+        </div>
+    </main>
+</body>
+{% endblock %}

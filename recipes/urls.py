@@ -30,7 +30,8 @@ views_patterns = [
         views.index_with_tag,
         name='tag_detail'
     ),
-    path('about_me/', views.about_me, name='about_me')
+    path('about_me/', views.about_me, name='about_me'),
+    path('technology/', views.technology, name='technology'),    
 
 ]
 

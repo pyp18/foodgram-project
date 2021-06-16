@@ -163,8 +163,16 @@ def index_with_tag(request, display_name):
     return render(request, 'recipe_list.html', context)   
 
 
+
 def about_me(request):
     return render(request, 'about_me.html')
+
+
+
+def technology(request):
+    return technology(request, 'techbology.html')
+
+
 
 class FavouriteView(LoginRequiredMixin, BaseRecipeListView):
     page_title = 'Избранное'
