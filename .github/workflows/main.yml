@@ -50,7 +50,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           stack_file_name: docker-compose.yaml
           script: |
-            sudo docker pull pyp18/foodgram-project_web:latest
             sudo docker-compose stop
-            sudo docker-compose rm web
+            sudo docker rmi pyp18/foodgram-project_web 
+            sudo docker pull pyp18/foodgram-project_web:latest
             sudo docker-compose up -d
