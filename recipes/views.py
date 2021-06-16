@@ -171,7 +171,7 @@ def about_me(request):
 
 
 def technology(request):
-    return technology(request, 'techbology.html')
+    return render(request, 'techbology.html')
 
 
 
