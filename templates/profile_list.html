@@ -29,19 +29,20 @@
         </li>
     </ul>
 </div>
-<li class="list-group-item">
-    {% if author != request.user %}
+<div>
+    <li class="list-group-item">
+        {% if author != request.user %}
         {% if following %}
-    <a class="button button_style_light-blue button_size_auto" href="{% url 'unfollow' author %}"
-        role="button">Отписаться</a>
+        <a class="button button_style_light-blue button_size_auto" href="{% url 'unfollow' author %}"
+            role="button">Отписаться</a>
         {% elif author != request.user %}
-    <a class="button button_style_light-blue button_size_auto" href="{% url 'follow' author %}"
-        role="button">Подписаться {{ user }}</a>
-    {% else %}
-    <a class="button button_style_light-blue button_size_auto" role="button">Подписаться</a>
-    {% endif %}
-    {% endif %}
-</li>
+        <a class="button button_style_light-blue button_size_auto" href="{% url 'follow' author %}"
+            role="button">Подписаться {{ user }}</a>
+        {% else %}
+        <a class="button button_style_light-blue button_size_auto" role="button">Подписаться</a>
+        {% endif %}
+        {% endif %}
+    </li>
 </div>
 <div class="card-list">
     {% for recipe in page_obj %}
