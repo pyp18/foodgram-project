@@ -106,6 +106,9 @@ def profile_unfollow(request, username):
     return redirect('profile', username=username)
 
 
+
+
+
 @login_required
 def profile_follow_recipe_page(request, pk, username):
     author = get_object_or_404(User, username=username)
@@ -147,21 +150,6 @@ class IndexView(BaseRecipeListView):
         qs = qs.with_is_favorite(user_id=user.id)
 
         return qs
-
-
-
-def index_with_tag(request, display_name):
-
-    tag = request.GET['display_name']
-    recipes = Recipe.objects.filter(tags=tag)
-
-    context = {
-        'recipes': recipes,
-        'page_title': 'Рецепты',
-        'tag': tag
-    }
-    return render(request, 'recipe_list.html', context)   
-
 
 
 
