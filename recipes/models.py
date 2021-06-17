@@ -41,7 +41,7 @@ class Tag(models.Model):
         verbose_name_plural = 'Тэги'
 
     def __str__(self):
-        return f'{self.title}, {self.display_name}'
+        return f'{self.title}'
 
 
 class Ingredient(models.Model):

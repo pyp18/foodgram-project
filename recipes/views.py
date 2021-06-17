@@ -54,6 +54,52 @@ def new_recipe(request):
     return redirect('index')
 
 
+
+def recipe_create(request):
+    form = RecipeForm(
+        request.POST or None,
+        files=request.FILES or None
+    )
+    if not form.is_valid():
+        context = {
+            'form': form,
+            'is_new': True,
+        }
+        return render(
+            request,
+            'formRecipe.html',
+            context
+        )
+    recipe = form.save(commit=False)
+    recipe.user = request.user
+    RecipeIngredient.objects.filter(recipe=recipe).delete()
+    objs = []
+    ingredients = get_ingredients(request)
+    if ingredients:
+        for title, count in ingredients.items():
+            ingredient = get_object_or_404(Ingredient, title=title)
+            objs.append(RecipeIngredient(
+                recipe=recipe,
+                ingredient=ingredient,
+                count=count
+            ))
+    else:
+        context = {
+            'form': form,
+            'error': 'error',
+        }
+        return render(
+            request,
+            'formRecipe.html',
+            context
+        )
+    recipe.user = request.user
+    recipe.save()
+    RecipeIngredient.objects.bulk_create(objs)
+    form.save_m2m()
+    return redirect('index')
+
+
 def recipe_edit(request, id):
     recipe_base = get_object_or_404(Recipe, pk=id)
     form = RecipeForm(request.POST or None,
@@ -139,16 +185,23 @@ class BaseRecipeListView(ListView):
     def get_page_title(self):
         return self.page_title
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        tags = self.request.GET.getlist("tag")
+        if tags:
+            qs = qs.filter(tags__display_name__in=tags).distinct()
+        return qs
 
 class IndexView(BaseRecipeListView):
-    page_title = 'Рецепты'
+    page_title = 'ПРОВЕРКА'
     template_name = 'recipe_list.html'
-
+    extra_context = {
+        'tags': Tag.objects.all()
+    }
     def get_queryset(self):
         qs = super().get_queryset()
         user = self.request.user
         qs = qs.with_is_favorite(user_id=user.id)
-
         return qs
 
 

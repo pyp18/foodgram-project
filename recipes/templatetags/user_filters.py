@@ -1,4 +1,6 @@
+from recipes.models import Tag
 from django import template
+
 
 register = template.Library()
 
@@ -19,11 +21,11 @@ def tag_link(request, tag):
     request_copy = request.GET.copy()
     request_copy["page"] = "1"
     tags = request_copy.getlist("tag")
-    if tag.display_name in tags:
-        tags.remove(tag.display_name)
+    if tag.title in tags:
+        tags.remove(tag.title)
         request_copy.setlist("tag", tags)
     else:
-        request_copy.appendlist("tag", tag.display_name)
+        request_copy.appendlist("tag", tag.title)
     return request_copy.urlencode()
 
 
