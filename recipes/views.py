@@ -193,7 +193,7 @@ class BaseRecipeListView(ListView):
         return qs
 
 class IndexView(BaseRecipeListView):
-    page_title = 'Рецепты'
+    page_title = 'Точно работает'
     template_name = 'recipe_list.html'
     extra_context = {
         'tags': Tag.objects.all()
