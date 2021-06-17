@@ -9,7 +9,7 @@ services:
         - ./.env
         
     web: 
-      image: pyp18/foodgram:v1
+      image: pyp18/godplease:v2
       restart: always 
       volumes: 
         - static_value:/code/static/ 
