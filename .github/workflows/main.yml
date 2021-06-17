@@ -35,5 +35,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: pyp18/foodgram
+          tags: pyp18/foodgram:v1
 
