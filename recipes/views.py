@@ -68,7 +68,6 @@ def recipe_create(request):
                       )
     recipe = form.save(commit=False)
     recipe.user = request.user
-    recipe.save()
     RecipeIngredient.objects.filter(recipe=recipe).delete()
     objs = []
     if ingredients:
@@ -89,6 +88,7 @@ def recipe_create(request):
             'formRecipe.html',
             context
         )
+    recipe.save()
     RecipeIngredient.objects.bulk_create(objs)
     form.save_m2m()
     return redirect('index')
