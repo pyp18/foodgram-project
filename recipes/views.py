@@ -85,7 +85,7 @@ def recipe_create(request):
         }
         return render(
             request,
-            'recipes/recipe_create.html',
+            'formRecipe.html',
             context
         )
     recipe.save()
