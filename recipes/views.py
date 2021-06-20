@@ -58,23 +58,18 @@ def new_recipe(request):
 def recipe_create(request):
     form = RecipeForm(
         request.POST or None,
-        files=request.FILES or None
-    )
+        files=request.FILES or None)
+    ingredients = get_ingredients(request)
     if not form.is_valid():
-        context = {
-            'form': form,
-            'is_new': True,
-        }
-        return render(
-            request,
-            'formRecipe.html',
-            context
-        )
+        return render(request, 'formRecipe.html',
+                      {'form': form,
+                       'is_new': True,
+                       'page_title': 'Создание рецепта'},
+                      )
     recipe = form.save(commit=False)
     recipe.user = request.user
     RecipeIngredient.objects.filter(recipe=recipe).delete()
     objs = []
-    ingredients = get_ingredients(request)
     if ingredients:
         for title, count in ingredients.items():
             ingredient = get_object_or_404(Ingredient, title=title)
@@ -90,10 +85,9 @@ def recipe_create(request):
         }
         return render(
             request,
-            'formRecipe.html',
+            'recipes/recipe_create.html',
             context
         )
-    recipe.user = request.user
     recipe.save()
     RecipeIngredient.objects.bulk_create(objs)
     form.save_m2m()
