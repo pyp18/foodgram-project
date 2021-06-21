@@ -48,8 +48,8 @@ def new_recipe(request):
             ingredient=ingredient,
             count=count)
         )
-    recipe.save()
     RecipeIngredient.objects.bulk_create(objs)
+    recipe.save()
     form.save_m2m()
     return redirect('index')
 
