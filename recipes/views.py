@@ -93,7 +93,6 @@ def recipe_create(request):
             'formRecipe.html',
             context
         )
-    recipe.user = request.user
     recipe.save()
     RecipeIngredient.objects.bulk_create(objs)
     form.save_m2m()
