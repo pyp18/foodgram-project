@@ -72,6 +72,7 @@ def recipe_create(request):
         )
     recipe = form.save(commit=False)
     recipe.user = request.user
+    recipe.save()
     RecipeIngredient.objects.filter(recipe=recipe).delete()
     objs = []
     ingredients = get_ingredients(request)
@@ -84,6 +85,8 @@ def recipe_create(request):
                 count=count
             ))
     else:
+        last_recipe = Recipe.objects.latest('pub_date')
+        last_recipe.delete()
         context = {
             'form': form,
             'error': 'error',
@@ -93,7 +96,6 @@ def recipe_create(request):
             'formRecipe.html',
             context
         )
-    recipe.save()
     RecipeIngredient.objects.bulk_create(objs)
     form.save_m2m()
     return redirect('index')
@@ -127,6 +129,7 @@ def recipe_edit(request, id):
     RecipeIngredient.objects.bulk_create(objs)
     form.save_m2m()
     return redirect('index')
+
 
 
 def recipe_delete(request, id):
@@ -190,6 +193,7 @@ class BaseRecipeListView(ListView):
         if tags:
             qs = qs.filter(tags__display_name__in=tags).distinct()
         return qs
+
 
 class IndexView(BaseRecipeListView):
     page_title = 'Рецепты'
