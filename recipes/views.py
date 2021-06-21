@@ -39,6 +39,7 @@ def new_recipe(request):
                       )
     recipe = form.save(commit=False)
     recipe.user = request.user
+    recipe.save()
     RecipeIngredient.objects.filter(recipe=recipe).delete()
     objs = []
     for title, count in ingredients.items():
@@ -48,7 +49,6 @@ def new_recipe(request):
             ingredient=ingredient,
             count=count)
         )
-    recipe.save()
     RecipeIngredient.objects.bulk_create(objs)
     form.save_m2m()
     return redirect('index')
