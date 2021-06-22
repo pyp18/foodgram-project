@@ -15,8 +15,7 @@
     <main class="main container">
         <div class="main__header">
             <h1 class="main__title">{{ page_title }}</h1>
-            {% if request.resolver_match.url_name == 'index' or request.resolver_match.url_name == 'my_favorites' or
-            request.resolver_match.url_name == 'profile' %}
+            {% if request.resolver_match.url_name == 'index' or request.resolver_match.url_name == 'my_favorites' or request.resolver_match.url_name == 'profile' %}
             {% load user_filters %}
             <ul class="tags">
                 {% with active_tags=request.GET|get_tags %}
