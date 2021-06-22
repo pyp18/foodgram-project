@@ -15,8 +15,9 @@
     <main class="main container">
         <div class="main__header">
             <h1 class="main__title">{{ page_title }}</h1>
-            {% block content %}
-            {% endblock content %}
+        </div>
+        {% block content %}
+        {% endblock content %}
     </main>
 
     {% include 'includes/footer.html' %}
