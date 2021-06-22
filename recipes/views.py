@@ -268,6 +268,9 @@ def profile(request, username):
     author = get_object_or_404(User, username=username)
     page_obj = author.recipes.all()
     following = author.following.exists()
+    tags = request.GET.getlist("tag")
+    if tags:
+        page_obj = page_obj.filter(tags__display_name__in=tags).distinct()
     context = {
         'author': author,
         'following': following,
