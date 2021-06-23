@@ -70,13 +70,14 @@
         </div>
         <div class="form__group">
             <span class="form__label">Загрузить фото</span>
-            <div class="form__field-group"></div>
-            {{ form.image|addclass:'form__input' }}
-            <span class="form__error">
-                {% if error %}
-                <h3>Добавьте ингредиенты в ваш рецепт.</h3>
-                {% endif %}
-            </span>
+            <div class="form__field-group">
+                {{ form.image|addclass:'form__input' }}
+                <span class="form__error">
+                    {% if error %}
+                    <h3>Добавьте ингредиенты в ваш рецепт.</h3>
+                    {% endif %}
+                </span>
+            </div>
         </div>
         <div class="form__footer">
             <button type="submit" class="button button_style_blue">Создать рецепт</button>
