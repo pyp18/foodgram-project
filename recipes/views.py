@@ -198,10 +198,8 @@ class BaseRecipeListView(ListView):
 class IndexView(BaseRecipeListView):
     page_title = 'Рецепты'
     template_name = 'recipe_list.html'
-    user = super().get_user()
     extra_context = {
-        'tags': Tag.objects.all(),
-        'purchase_counter': ShoppingList.objects.all().count()
+        'tags': Tag.objects.all()
     }
     def get_queryset(self):
         qs = super().get_queryset()
