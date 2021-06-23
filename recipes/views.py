@@ -196,17 +196,22 @@ class BaseRecipeListView(ListView):
 
 
 class IndexView(BaseRecipeListView):
+    def get_user(self):
+        user = self.request.user
+        return user
+
     page_title = 'Рецепты'
     template_name = 'recipe_list.html'
     extra_context = {
         'tags': Tag.objects.all(),
-        'purchase_counter': ShoppingList.objects.all()
+        'purchase_counter': ShoppingList.objects.filter(user=get_user()).count()
     }
     def get_queryset(self):
         qs = super().get_queryset()
         user = self.request.user
         qs = qs.with_is_favorite(user_id=user.id)
         return qs
+
 
 
 
