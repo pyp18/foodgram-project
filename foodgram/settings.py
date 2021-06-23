@@ -122,8 +122,6 @@ LOGIN_URL = '/auth/login/'
 LOGIN_REDIRECT_URL = '/'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
 
 
 REST_FRAMEWORK = {
@@ -134,3 +132,13 @@ REST_FRAMEWORK = {
 }
 
 GLOBALPAGINATOR = 6
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'aonda1970nikita18@gmail.com'
+EMAIL_HOST_PASSWORD = 'dppkfzpstbeqrxqu'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'foodgram'
