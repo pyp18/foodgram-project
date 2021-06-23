@@ -17,10 +17,11 @@
                 <a href="/my_favorites" class="nav__link link">Избранное</a>
             </li>
             {% endif %}
+            {% load user_filters %}
             <li
                 class="nav__item {% if request.resolver_match.url_name == 'shopping_list' %} nav__item_active {% endif %}">
                 <a href="/shopping_list" class="nav__link link">Список покупок</a> <span
-                    class="badge badge_style_blue nav__badge" id="counter">{{ purchase_counter }}</span>
+                    class="badge badge_style_blue nav__badge" id="counter">{{ purchases_counter }}</span>
             </li>
 
         </ul>
