@@ -20,13 +20,12 @@
             <li
                 class="nav__item {% if request.resolver_match.url_name == 'shopping_list' %} nav__item_active {% endif %}">
                 <a href="/shopping_list" class="nav__link link">Список покупок</a> <span
-                    class="badge badge_style_blue nav__badge" id="counter"></span>
+                    class="badge badge_style_blue nav__badge" id="counter">5</span>
             </li>
 
         </ul>
         <ul class="nav__items list">
             {% if request.user.is_authenticated %}
-            {{ request.user }}
             <li
                 class="nav__item  {% if request.resolver_match.url_name == 'change_password' %} nav__item_active {% endif %}">
                 <a href="{% url 'change_password' %}" class="nav__link link"> Изменить пароль</a>
