@@ -179,6 +179,10 @@ class BaseRecipeListView(ListView):
     paginate_by = GLOBALPAGINATOR
     page_title = 'Рецепты'
 
+    def get_user(self):
+        user=self.request.user
+        return user
+
     def get_context_data(self, **kwargs):
         kwargs.update({'page_title': self.get_page_title()})
 
@@ -196,22 +200,18 @@ class BaseRecipeListView(ListView):
 
 
 class IndexView(BaseRecipeListView):
-    def get_user(self):
-        user = self.request.user
-        return user
-
     page_title = 'Рецепты'
     template_name = 'recipe_list.html'
+    user = super().get_user()
     extra_context = {
         'tags': Tag.objects.all(),
-        'purchase_counter': ShoppingList.objects.filter(user=get_user()).count()
+        'purchase_counter': ShoppingList.objects.filter(user=user)
     }
     def get_queryset(self):
         qs = super().get_queryset()
         user = self.request.user
         qs = qs.with_is_favorite(user_id=user.id)
         return qs
-
 
 
 
