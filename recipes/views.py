@@ -241,7 +241,11 @@ def button_message(recipes_counter):
         return 'Еще один рецепт'
     elif recipes_counter <= 5:
         return f'Еще {recipes_counter - 3} рецпта'
-    elif recipes_counter > 6:
+    elif recipes_counter == 6:
+        return f'Еще {recipes_counter - 3} рецептов'
+    elif recipes_counter == 7:
+        return f'Еще {recipes_counter - 3} рецепта'
+    elif recipes_counter > 7:
         return f'Еще {recipes_counter - 3} рецептов'
 
 
