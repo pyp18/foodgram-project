@@ -200,7 +200,6 @@ class IndexView(BaseRecipeListView):
     template_name = 'recipe_list.html'
     extra_context = {
         'tags': Tag.objects.all(),
-        'purchases_counter': ShoppingList.objects.all().count()
     }
 
     def get_queryset(self):
