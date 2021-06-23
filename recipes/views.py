@@ -204,7 +204,7 @@ class IndexView(BaseRecipeListView):
     template_name = 'recipe_list.html'
     extra_context = {
         'tags': Tag.objects.all(),
-        'purchase_counter': ShoppingList.objects.filter(user=super().get_success_url())
+        'purchase_counter': ShoppingList.objects.filter(user=super().get_success_url()).count()
     }
 
 
