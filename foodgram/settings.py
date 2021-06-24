@@ -20,15 +20,15 @@ ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
+    'recipes',
+    'api',
+    'user',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'recipes',
-    'api',
-    'user',
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
@@ -135,7 +135,6 @@ GLOBALPAGINATOR = 6
 
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'aonda1970nikita18@gmail.com'
