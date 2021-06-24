@@ -56,6 +56,7 @@ def new_recipe(request):
 
 
 def recipe_create(request):
+    purchases_counter = ShoppingList.objects.filter(user=request.user).count()
     form = RecipeForm(
         request.POST or None,
         files=request.FILES or None
@@ -64,6 +65,7 @@ def recipe_create(request):
         context = {
             'form': form,
             'is_new': True,
+            'purchases_counter': purchases_counter
         }
         return render(
             request,
@@ -90,6 +92,7 @@ def recipe_create(request):
         context = {
             'form': form,
             'error': 'error',
+            'purchases_counter': purchases_counter
         }
         return render(
             request,
@@ -102,6 +105,7 @@ def recipe_create(request):
 
 
 def recipe_edit(request, id):
+    purchases_counter = ShoppingList.objects.filter(user=request.user).count()
     recipe_base = get_object_or_404(Recipe, pk=id)
     form = RecipeForm(request.POST or None,
                       files=request.FILES or None, instance=recipe_base)
@@ -112,7 +116,8 @@ def recipe_edit(request, id):
                           'form': form,
                           'is_new': True,
                           'recipe': recipe_base,
-                          'page_title': 'Редактирование рецепта'},
+                          'page_title': 'Редактирование рецепта',
+                          'purchases_counter': purchases_counter},
                       )
     recipe = form.save(commit=False)
     recipe.user = request.user
@@ -179,10 +184,14 @@ class BaseRecipeListView(ListView):
     paginate_by = GLOBALPAGINATOR
     page_title = 'Рецепты'
 
-    def get_context_data(self, **kwargs):
-        kwargs.update({'page_title': self.get_page_title()})
 
-        return super().get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        if user.is_authenticated:
+            context["purchases_counter"] = ShoppingList.objects.filter(user=user).count()
+        return context
+
 
     def get_page_title(self):
         return self.page_title
@@ -193,6 +202,7 @@ class BaseRecipeListView(ListView):
         if tags:
             qs = qs.filter(tags__display_name__in=tags).distinct()
         return qs
+
 
 
 class IndexView(BaseRecipeListView):
@@ -207,7 +217,6 @@ class IndexView(BaseRecipeListView):
         user = self.request.user
         qs = qs.with_is_favorite(user_id=user.id)
         return qs
-
 
 
 def about_me(request):
@@ -254,6 +263,8 @@ def button_message(recipes_counter):
 def my_subscriptions(request):
     subscriptions = Follow.objects.filter(user=request.user).all()
     counter_data = {}
+    purchases_counter = ShoppingList.objects.filter(
+            user=request.user).count()
     for subscription in subscriptions:
         recipes_counter = Recipe.objects.filter(
             user=subscription.author).all().count()
@@ -264,13 +275,16 @@ def my_subscriptions(request):
         'user': request.user.username,
         'subscriptions': subscriptions,
         'counter_data': counter_data,
-        'page_title': 'Подписки'
+        'page_title': 'Подписки',
+        'purchases_counter': purchases_counter,
     }
     return render(request, 'my_follow_fixed.html', context)
 
 
 def profile(request, username):
     author = get_object_or_404(User, username=username)
+    purchases_counter = ShoppingList.objects.filter(
+            user=request.user).count()
     page_obj = author.recipes.all()
     following = author.following.exists()
     tags = request.GET.getlist("tag")
@@ -281,7 +295,8 @@ def profile(request, username):
         'following': following,
         'page_obj': page_obj,
         'user': username,
-        'page_title': 'Профиль'
+        'page_title': 'Профиль',
+        'purchases_counter': purchases_counter,
     }
     return render(request, 'profile_list.html', context)
 
@@ -290,6 +305,13 @@ class RecipeDetailView(DetailView):
     queryset = Recipe.objects.all()
     template_name = 'RecipePage.html'
     page_title = 'Страница рецепта'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        context["purchases_counter"] = ShoppingList.objects.filter(user=user).count()
+        return context
+
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -303,7 +325,8 @@ def shopping_list(request):
     shopping_list = ShoppingList.objects.filter(user=request.user).all()
     context = {
         'shopping_list': shopping_list,
-        'page_title': 'Cписок покупок'
+        'page_title': 'Cписок покупок',
+        'purchases_counter': shopping_list.count(),
     }
     return render(
         request,
@@ -335,3 +358,13 @@ def shopping_list_ingredients(request):
         amount = item['total_price']
         download.append(f'{title} - {unit} - {amount} \n')
     return download
+
+
+
+
+def purchases_processor(request):
+    if request.user.is_authenticated:
+        return {'purchases_count': ShoppingList.objects.filter(
+            user=request.user).count()}
+    return {'purchases_count': ShoppingList.objects.filter(
+        session_id=request.session.session_key).count()}

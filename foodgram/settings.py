@@ -142,4 +142,4 @@ EMAIL_HOST_USER = 'aonda1970nikita18@gmail.com'
 EMAIL_HOST_PASSWORD = 'dppkfzpstbeqrxqu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'CodingWithMitch Team <noreply@codingwithmitch.com>'
+DEFAULT_FROM_EMAIL = 'Foodgramm'

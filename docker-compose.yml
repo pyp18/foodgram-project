@@ -9,7 +9,7 @@ services:
         - ./.env
         
     web: 
-      image: pyp18/thiswillwork
+      build: .
       restart: always 
       volumes: 
         - static_value:/code/static/ 
