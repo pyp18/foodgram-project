@@ -12,7 +12,7 @@ from recipes.forms import RecipeForm
 from django.shortcuts import redirect
 from foodgram.settings import GLOBALPAGINATOR
 from django.db.models import Sum
-
+from django.contrib.sites.models import Site
 
 User = get_user_model()
 
@@ -261,6 +261,7 @@ def button_message(recipes_counter):
 
 @login_required
 def my_subscriptions(request):
+    stuff = Site.objects.get(name='84.201.138.205').id
     subscriptions = Follow.objects.filter(user=request.user).all()
     counter_data = {}
     purchases_counter = ShoppingList.objects.filter(
@@ -277,6 +278,7 @@ def my_subscriptions(request):
         'counter_data': counter_data,
         'page_title': 'Подписки',
         'purchases_counter': purchases_counter,
+        'stuff': stuff
     }
     return render(request, 'my_follow_fixed.html', context)
 
