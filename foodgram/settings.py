@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'recipes',
     'api',
     'user',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -134,7 +135,6 @@ REST_FRAMEWORK = {
 GLOBALPAGINATOR = 6
 
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -142,3 +142,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'aonda1970nikita18@gmail.com'
 EMAIL_HOST_PASSWORD = 'dppkfzpstbeqrxqu'
 DEFAULT_FROM_EMAIL = 'Foodgramm'
+
+
+SITE_ID = 1
