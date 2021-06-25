@@ -80,4 +80,3 @@ DB_PORT=5432 # порт для подключения к БД
 4) Создайте суперпользователя "docker-compose exec web python manage.py createsuperuser"  
   
 5) Соберите статику "docker-compose exec web python manage.py collectstatic --no-input"  
-.
