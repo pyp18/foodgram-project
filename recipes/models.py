@@ -5,6 +5,9 @@ from django.contrib.auth import get_user_model
 from django.db.models.deletion import CASCADE
 from django.db.models.expressions import Exists
 from django.db.models import OuterRef, Exists
+from django.core.exceptions import ValidationError
+
+
 User = get_user_model()
 
 
@@ -64,13 +67,14 @@ class Recipe(models.Model):
     image = models.ImageField(
         upload_to='images/',verbose_name='Картинка')
     text = models.TextField(verbose_name='Описание')
-    tags = models.ManyToManyField(Tag, related_name='tags')
-    time_cooking = models.PositiveIntegerField()
-    slug = models.SlugField(max_length=40, unique=False)
+    tags = models.ManyToManyField(Tag, related_name='tags', verbose_name='Тэги')
+    time_cooking = models.PositiveIntegerField(verbose_name='Время готовки')
+    slug = models.SlugField(max_length=40, unique=False, verbose_name='Слаг')
     ingredient = models.ManyToManyField(
-        Ingredient, through='RecipeIngredient', related_name='ingredients')
+        Ingredient, through='RecipeIngredient', related_name='ingredients', verbose_name='Игредиенты')
     pub_date = models.DateTimeField('date published', auto_now_add=True)
     objects = RecipeQuerySet.as_manager()
+
 
     class Meta:
         ordering = ('-pub_date', )
@@ -116,11 +120,17 @@ class Follow(models.Model):
         User, on_delete=models.CASCADE, related_name='following')
 
     class Meta:
-        verbose_name_plural = 'Подписки'
-        constraints = (
+        constraints = [
+            models.CheckConstraint(
+                check=~models.Q(author=models.F('user')),
+                name='self_follow'
+            ),
             models.UniqueConstraint(
-                fields=('author', 'user'), name='Подписка'),
-        )
+                fields=['user', 'author'],
+                name='unique_author'
+            )
+        ]
+
 
     def __str__(self):
         return f'{self.user} на {self.author}'
@@ -142,3 +152,7 @@ class ShoppingList(models.Model):
     class Meta:
         verbose_name = 'Список покупок'
         verbose_name_plural = 'Список покупок'
+
+
+    def __str__(self):
+        return f'{self.user} на {self.recipe}'

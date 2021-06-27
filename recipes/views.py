@@ -65,7 +65,8 @@ def recipe_create(request):
         context = {
             'form': form,
             'is_new': True,
-            'purchases_counter': purchases_counter
+            'purchases_counter': purchases_counter,
+            'page_title' : 'Создание'
         }
         return render(
             request,
@@ -92,7 +93,8 @@ def recipe_create(request):
         context = {
             'form': form,
             'error': 'error',
-            'purchases_counter': purchases_counter
+            'purchases_counter': purchases_counter,
+            'page_title' : 'Создание'
         }
         return render(
             request,
@@ -188,6 +190,7 @@ class BaseRecipeListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
+        context["page_title"] = self.get_page_title()
         if user.is_authenticated:
             context["purchases_counter"] = ShoppingList.objects.filter(user=user).count()
         return context
@@ -261,7 +264,6 @@ def button_message(recipes_counter):
 
 @login_required
 def my_subscriptions(request):
-    
     subscriptions = Follow.objects.filter(user=request.user).all()
     counter_data = {}
     purchases_counter = ShoppingList.objects.filter(
