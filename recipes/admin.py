@@ -14,7 +14,6 @@ class RecipeAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'pub_date', 'time_cooking',)
     list_filter = ('tags',)
     search_fields = ['user__username', 'title', 'text', 'user__email' ]
-    date_hierarchy = 'publish'
 
 class IngredientAdmin(admin.ModelAdmin):
     list_display = ('title', 'unit')
