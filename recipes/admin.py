@@ -23,7 +23,7 @@ class IngredientAdmin(admin.ModelAdmin):
 
 
 class FavoriteAdmin(admin.ModelAdmin):
-    list_display = ('user', )
+    list_display = ('user', 'recipe')
     search_fields = ['user__username', 'recipe__text', 'recipe__title']
 
 
