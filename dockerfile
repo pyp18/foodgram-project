@@ -8,6 +8,8 @@ COPY requirements.txt /code
 
 RUN pip install -r /code/requirements.txt
 
+RUN pip install https://github.com/darklow/django-suit/tarball/v2
+
 COPY . /code
 
 WORKDIR /code

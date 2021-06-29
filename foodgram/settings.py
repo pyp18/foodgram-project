@@ -11,10 +11,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY'),
 
-if os.environ.get('DEBUG'):
-    DEBUG = True
-else:
-    DEBUG = False
+
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -24,6 +22,7 @@ INSTALLED_APPS = [
     'api',
     'user',
     'django.contrib.sites',
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -99,7 +98,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -113,7 +112,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
